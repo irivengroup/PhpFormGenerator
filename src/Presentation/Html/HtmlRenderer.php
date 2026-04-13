@@ -4,255 +4,106 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Presentation\Html;
 
-use Iriven\PhpFormGenerator\Domain\Contract\RendererInterface;
-use Iriven\PhpFormGenerator\Domain\Form\FormView;
+use Iriven\PhpFormGenerator\Domain\Form\FieldDefinition;
+use Iriven\PhpFormGenerator\Domain\Form\Fieldset;
+use Iriven\PhpFormGenerator\Domain\Form\Form;
+use Iriven\PhpFormGenerator\Presentation\Html\Theme\DefaultTheme;
 
-final class HtmlRenderer implements RendererInterface
+final class HtmlRenderer
 {
-    public function __construct(
-        private readonly Escaper $escaper = new Escaper(),
-    ) {
+    public function __construct(private readonly ?DefaultTheme $theme = null)
+    {
     }
 
-    public function renderForm(FormView $view): string
+    public function render(Form $form): string
     {
-        $attr = $this->renderAttributes((array) ($view->vars['attr'] ?? []));
-        $html = sprintf(
-            '<form name="%s" method="%s" action="%s"%s>',
-            $this->escaper->escape($view->vars['name'] ?? ''),
-            $this->escaper->escape(strtolower((string) ($view->vars['method'] ?? 'post'))),
-            $this->escaper->escape($view->vars['action'] ?? ''),
-            $attr
-        );
+        $theme = $this->theme ?? new DefaultTheme();
+        $method = htmlspecialchars((string) ($form->options()['method'] ?? 'POST'), ENT_QUOTES, 'UTF-8');
+        $html = '<form method="' . $method . '">';
 
-        if ($view->errors !== []) {
-            $html .= $this->renderErrors($view);
+        $token = $form->csrfToken();
+        if ($token !== null) {
+            $field = htmlspecialchars((string) ($form->options()['csrf_field_name'] ?? '_token'), ENT_QUOTES, 'UTF-8');
+            $html .= '<input type="hidden" name="' . $field . '" value="' . htmlspecialchars($token, ENT_QUOTES, 'UTF-8') . '">';
         }
 
-        foreach ($view->children as $child) {
-            $html .= $this->renderChild($child);
+        foreach ($form->errors() as $error) {
+            $html .= '<div class="form-error">' . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . '</div>';
         }
 
-        $html .= '</form>';
-
-        return $html;
-    }
-
-    public function renderRow(FormView $view): string
-    {
-        if (($view->vars['type'] ?? '') === 'fieldset') {
-            return $this->renderFieldset($view);
+        foreach ($form->fieldsets() as $fieldset) {
+            $html .= $this->renderFieldset($fieldset, $theme);
         }
 
-        $html = '<div class="form-row">';
-        $html .= $this->renderLabel($view);
-        $html .= $this->renderWidget($view);
-        $html .= $this->renderErrors($view);
-
-        if (($view->vars['help'] ?? null) !== null) {
-            $html .= sprintf('<small>%s</small>', $this->escaper->escape($view->vars['help']));
-        }
-
-        $html .= '</div>';
-
-        return $html;
-    }
-
-
-    private function renderChild(FormView $view): string
-    {
-        return match ((string) ($view->vars['type'] ?? '')) {
-            'hidden' => $this->renderWidget($view),
-            'fieldset' => $this->renderFieldset($view),
-            default => $this->renderRow($view),
-        };
-    }
-
-    private function renderFieldset(FormView $view): string
-    {
-        $html = sprintf('<fieldset%s>', $this->renderAttributes((array) ($view->vars['attr'] ?? [])));
-
-        if (($view->vars['legend'] ?? null) !== null) {
-            $html .= sprintf('<legend>%s</legend>', $this->escaper->escape((string) $view->vars['legend']));
-        }
-
-        if (($view->vars['description'] ?? null) !== null) {
-            $html .= sprintf('<p>%s</p>', $this->escaper->escape((string) $view->vars['description']));
-        }
-
-        foreach ($view->children as $child) {
-            $html .= $this->renderChild($child);
-        }
-
-        $html .= '</fieldset>';
-
-        return $html;
-    }
-
-    public function renderWidget(FormView $view): string
-    {
-        $type = (string) ($view->vars['type'] ?? 'text');
-        $name = (string) ($view->vars['full_name'] ?? $view->vars['name'] ?? '');
-        $id = (string) ($view->vars['id'] ?? '');
-        $value = $view->vars['value'] ?? null;
-        $attr = (array) ($view->vars['attr'] ?? []);
-        if (($view->vars['required'] ?? false) === true) {
-            $attr['required'] = 'required';
-        }
-
-        if ($type === 'textarea' || $type === 'editor') {
-            return sprintf(
-                '<textarea name="%s" id="%s"%s>%s</textarea>',
-                $this->escaper->escape($name),
-                $this->escaper->escape($id),
-                $this->renderAttributes($attr),
-                $this->escaper->escape((string) $value)
-            );
-        }
-
-        if ($type === 'choice' || $type === 'country' || $type === 'yes_no') {
-            $multiple = (bool) ($view->vars['multiple'] ?? false);
-            $choices = (array) ($view->vars['choices'] ?? []);
-            $current = $multiple ? (array) $value : [(string) $value];
-            $html = sprintf(
-                '<select name="%s%s" id="%s"%s%s>',
-                $this->escaper->escape($name),
-                $multiple ? '[]' : '',
-                $this->escaper->escape($id),
-                $this->renderAttributes($attr),
-                $multiple ? ' multiple' : ''
-            );
-            foreach ($choices as $label => $choiceValue) {
-                $selected = in_array((string) $choiceValue, array_map('strval', $current), true) ? ' selected' : '';
-                $html .= sprintf(
-                    '<option value="%s"%s>%s</option>',
-                    $this->escaper->escape($choiceValue),
-                    $selected,
-                    $this->escaper->escape($label)
-                );
+        $renderedInsideFieldsets = [];
+        foreach ($form->fieldsets() as $fieldset) {
+            foreach ($this->collectFieldNames($fieldset) as $name) {
+                $renderedInsideFieldsets[$name] = true;
             }
-            $html .= '</select>';
-            return $html;
         }
 
-        if ($type === 'datalist') {
-            $listId = $id . '_list';
-            $html = sprintf(
-                '<input type="text" name="%s" id="%s" value="%s" list="%s"%s>',
-                $this->escaper->escape($name),
-                $this->escaper->escape($id),
-                $this->escaper->escape((string) $value),
-                $this->escaper->escape($listId),
-                $this->renderAttributes($attr),
-            );
-            $html .= sprintf('<datalist id="%s">', $this->escaper->escape($listId));
-            foreach ((array) ($view->vars['choices'] ?? []) as $label => $choiceValue) {
-                $html .= sprintf('<option value="%s">%s</option>', $this->escaper->escape($choiceValue), $this->escaper->escape($label));
+        foreach ($form->fields() as $field) {
+            if (!isset($renderedInsideFieldsets[$field->name])) {
+                $html .= $this->renderField($field, $theme);
             }
-            $html .= '</datalist>';
-            return $html;
         }
 
-        if ($type === 'checkbox') {
-            $checked = $value ? ' checked' : '';
-            return sprintf(
-                '<input type="checkbox" name="%s" id="%s" value="1"%s%s>',
-                $this->escaper->escape($name),
-                $this->escaper->escape($id),
-                $checked,
-                $this->renderAttributes($attr),
-            );
-        }
-
-        if ($type === 'html') {
-            return ($view->vars['safe_html'] ?? false) ? (string) $value : $this->escaper->escape((string) $value);
-        }
-
-        if ($type === 'audio' || $type === 'video' || $type === 'image') {
-            $src = $this->escaper->escape((string) $value);
-            return match ($type) {
-                'audio' => sprintf('<audio controls src="%s"></audio>', $src),
-                'video' => sprintf('<video controls src="%s"></video>', $src),
-                default => sprintf('<img src="%s" alt="">', $src),
-            };
-        }
-
-        if ($type === 'collection') {
-            $html = '<div class="collection">';
-            foreach ((array) $value as $entry) {
-                $html .= sprintf('<div class="collection-item"><input type="text" name="%s[]" value="%s"></div>', $this->escaper->escape($name), $this->escaper->escape((string) $entry));
-            }
-            $html .= '</div>';
-            return $html;
-        }
-
-        if ($type === 'button' || $type === 'submit' || $type === 'reset') {
-            return sprintf(
-                '<button type="%s" name="%s" id="%s"%s>%s</button>',
-                $this->escaper->escape($type),
-                $this->escaper->escape($name),
-                $this->escaper->escape($id),
-                $this->renderAttributes($attr),
-                $this->escaper->escape((string) (($view->vars['label'] ?? $value ?? ucfirst($type))))
-            );
-        }
-
-        $inputType = in_array($type, ['text','email','password','number','radio','file','date','time','datetime-local','hidden','url','search','range','color','month','week','tel'], true)
-            ? $type
-            : 'text';
-
-        return sprintf(
-            '<input type="%s" name="%s" id="%s" value="%s"%s>',
-            $this->escaper->escape($inputType),
-            $this->escaper->escape($name),
-            $this->escaper->escape($id),
-            $this->escaper->escape((string) $value),
-            $this->renderAttributes($attr),
-        );
+        return $html . '</form>';
     }
 
-    public function renderLabel(FormView $view): string
+    private function renderFieldset(Fieldset $fieldset, DefaultTheme $theme): string
     {
-        $label = $view->vars['label'] ?? null;
-        if ($label === null || ($view->vars['type'] ?? '') === 'hidden' || ($view->vars['type'] ?? '') === 'html') {
-            return '';
+        $legend = $fieldset->options()['legend'] ?? null;
+        $description = $fieldset->options()['description'] ?? null;
+        $html = '<fieldset>';
+        if (is_string($legend) && $legend !== '') {
+            $html .= '<legend>' . htmlspecialchars($legend, ENT_QUOTES, 'UTF-8') . '</legend>';
         }
-
-        return sprintf(
-            '<label for="%s">%s</label>',
-            $this->escaper->escape((string) ($view->vars['id'] ?? '')),
-            $this->escaper->escape((string) $label),
-        );
+        if (is_string($description) && $description !== '') {
+            $html .= '<p>' . htmlspecialchars($description, ENT_QUOTES, 'UTF-8') . '</p>';
+        }
+        foreach ($fieldset->fields() as $field) {
+            $html .= $this->renderField($field, $theme);
+        }
+        foreach ($fieldset->children() as $child) {
+            $html .= $this->renderFieldset($child, $theme);
+        }
+        return $html . '</fieldset>';
     }
 
-    public function renderErrors(FormView $view): string
+    private function renderField(FieldDefinition $field, DefaultTheme $theme): string
     {
-        if ($view->errors === []) {
-            return '';
+        $type = htmlspecialchars($field->type->renderType(), ENT_QUOTES, 'UTF-8');
+        $name = htmlspecialchars($field->name, ENT_QUOTES, 'UTF-8');
+        $label = htmlspecialchars((string) ($field->options['label'] ?? ucfirst($field->name)), ENT_QUOTES, 'UTF-8');
+        $value = htmlspecialchars((string) ($field->value ?? ''), ENT_QUOTES, 'UTF-8');
+        $html = '<div class="' . htmlspecialchars($theme->rowClass(), ENT_QUOTES, 'UTF-8') . '">';
+        if ($type !== 'submit' && $type !== 'hidden') {
+            $html .= '<label for="' . $name . '">' . $label . '</label>';
         }
-
-        $html = '<ul class="form-errors">';
-        foreach ($view->errors as $error) {
-            $html .= sprintf('<li>%s</li>', $this->escaper->escape($error));
+        if ($type === 'submit') {
+            $html .= '<button type="submit" name="' . $name . '">' . $label . '</button>';
+        } else {
+            $html .= '<input type="' . $type . '" id="' . $name . '" name="' . $name . '" value="' . $value . '">';
         }
-        $html .= '</ul>';
-
-        return $html;
+        foreach ($field->errors as $error) {
+            $html .= '<div class="field-error">' . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . '</div>';
+        }
+        return $html . '</div>';
     }
 
-    private function renderAttributes(array $attr): string
+    /** @return array<string, true> */
+    private function collectFieldNames(Fieldset $fieldset): array
     {
-        $parts = [];
-        foreach ($attr as $key => $value) {
-            if ($value === false || $value === null) {
-                continue;
-            }
-            if ($value === true) {
-                $parts[] = sprintf(' %s', $this->escaper->escape((string) $key));
-                continue;
-            }
-            $parts[] = sprintf(' %s="%s"', $this->escaper->escape((string) $key), $this->escaper->escape((string) $value));
+        $names = [];
+        foreach ($fieldset->fields() as $field) {
+            $names[$field->name] = true;
         }
-        return implode('', $parts);
+        foreach ($fieldset->children() as $child) {
+            foreach ($this->collectFieldNames($child) as $name => $_) {
+                $names[$name] = true;
+            }
+        }
+        return $names;
     }
 }

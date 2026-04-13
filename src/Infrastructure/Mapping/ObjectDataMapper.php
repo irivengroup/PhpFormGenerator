@@ -4,35 +4,17 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Infrastructure\Mapping;
 
-use Iriven\PhpFormGenerator\Domain\Contract\DataMapperInterface;
+use Iriven\PhpFormGenerator\Domain\Form\Form;
 
-final class ObjectDataMapper implements DataMapperInterface
+final class ObjectDataMapper
 {
-    public function mapDataToFields(mixed $data, array $fields): void
+    public function map(Form $form, object $target): object
     {
-        if (!is_object($data)) {
-            return;
-        }
-
-        foreach ($fields as $name => $field) {
-            $value = property_exists($data, $name) ? $data->{$name} : ($field->getOptions()['default'] ?? null);
-            foreach ($field->getOptions()['transformers'] ?? [] as $transformer) {
-                $value = $transformer->transform($value);
+        foreach ($form->fields() as $field) {
+            if (property_exists($target, $field->name)) {
+                $target->{$field->name} = $field->value;
             }
-            $field->setData($field->getType()->transformFromModel($value, $field->getOptions()));
         }
-    }
-
-    public function mapFieldsToData(array $fields, mixed $data): mixed
-    {
-        if (!is_object($data)) {
-            $data = new \stdClass();
-        }
-
-        foreach ($fields as $name => $field) {
-            $data->{$name} = $field->getData();
-        }
-
-        return $data;
+        return $target;
     }
 }

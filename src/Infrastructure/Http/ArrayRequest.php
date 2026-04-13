@@ -9,24 +9,24 @@ use Iriven\PhpFormGenerator\Domain\Contract\RequestInterface;
 final class ArrayRequest implements RequestInterface
 {
     public function __construct(
-        private readonly array $data = [],
         private readonly string $method = 'POST',
+        private readonly array $data = [],
+        private readonly array $filesData = [],
     ) {
     }
 
-    public function all(): array
+    public function method(): string
     {
-        return $this->data;
+        return $this->method;
     }
 
-    public function getMethod(): string
+    public function input(string $key, mixed $default = null): mixed
     {
-        return strtoupper($this->method);
+        return $this->data[$key] ?? $default;
     }
 
-    public function getFormData(string $formName): array
+    public function files(string $key, mixed $default = null): mixed
     {
-        $value = $this->data[$formName] ?? [];
-        return is_array($value) ? $value : [];
+        return $this->filesData[$key] ?? $default;
     }
 }

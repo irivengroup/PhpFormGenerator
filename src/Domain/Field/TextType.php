@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Domain\Field;
 
-final class TextType extends AbstractFieldType
+use Iriven\PhpFormGenerator\Domain\Contract\FieldTypeInterface;
+
+final class TextType implements FieldTypeInterface
 {
-    public function getBlockPrefix(): string
+    public function renderType(): string
     {
         return 'text';
     }

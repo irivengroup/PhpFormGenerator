@@ -4,108 +4,81 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Domain\Form;
 
-use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 use Iriven\PhpFormGenerator\Domain\Contract\CsrfManagerInterface;
-use Iriven\PhpFormGenerator\Domain\Contract\DataMapperInterface;
 use Iriven\PhpFormGenerator\Domain\Contract\RequestInterface;
-use Iriven\PhpFormGenerator\Domain\Event\EventDispatcher;
-use Iriven\PhpFormGenerator\Domain\Event\FormEvent;
-use Iriven\PhpFormGenerator\Domain\Event\FormEvents;
-use Iriven\PhpFormGenerator\Domain\Validation\ValidationError;
-use Iriven\PhpFormGenerator\Presentation\Html\FormViewFactory;
 
-final class Form implements FormInterface
+final class Form
 {
-    /**
-     * @param array<string, Field> $fields
-     * @param list<ConstraintInterface> $formConstraints
-     * @param list<ValidationError> $errors
-     */
+    /** @var list<FieldDefinition> */
+    private array $fields = [];
+
+    /** @var list<Fieldset> */
+    private array $fieldsets = [];
+
+    private bool $submitted = false;
+    private bool $valid = true;
+    private array $errors = [];
+
     public function __construct(
-        private readonly FormConfig $config,
-        private array $fields,
-        private readonly DataMapperInterface $dataMapper,
+        private readonly string $name,
+        private readonly array $options = [],
         private readonly ?CsrfManagerInterface $csrfManager = null,
-        private readonly ?EventDispatcher $eventDispatcher = null,
-        private array $formConstraints = [],
-        private mixed $data = [],
-        private array $fieldsets = [],
-        private bool $submitted = false,
-        private array $errors = [],
     ) {
-        $this->setData($this->data);
+    }
+
+    public function addField(FieldDefinition $field): void
+    {
+        $this->fields[] = $field;
+    }
+
+    public function addFieldset(Fieldset $fieldset): void
+    {
+        $this->fieldsets[] = $fieldset;
     }
 
     public function handleRequest(RequestInterface $request): void
     {
-        $this->submitted = false;
-        $submittedData = $request->getFormData($this->config->name);
-        if ($submittedData === []) {
+        $method = strtoupper((string) ($this->options['method'] ?? 'POST'));
+        if (strtoupper($request->method()) !== $method) {
             return;
         }
 
         $this->submitted = true;
-        $event = new FormEvent($this, $submittedData);
-        $this->eventDispatcher?->dispatch(FormEvents::PRE_SUBMIT, $event);
-        $submittedData = is_array($event->getData()) ? $event->getData() : [];
+        $this->valid = true;
+        $this->errors = [];
 
-        $this->clearErrors();
-
-        if ($this->config->csrfProtection && $this->csrfManager !== null) {
-            $token = isset($submittedData[$this->config->csrfFieldName]) ? (string) $submittedData[$this->config->csrfFieldName] : null;
-            if (!$this->csrfManager->isTokenValid($this->config->csrfTokenId, $token)) {
-                $this->errors[] = new ValidationError('Invalid CSRF token.');
+        if (($this->options['csrf_protection'] ?? false) === true && $this->csrfManager !== null) {
+            $tokenField = (string) ($this->options['csrf_field_name'] ?? '_token');
+            $tokenId = (string) ($this->options['csrf_token_id'] ?? $this->name);
+            $token = $request->input($tokenField);
+            if (!$this->csrfManager->isTokenValid($tokenId, is_string($token) ? $token : null)) {
+                $this->valid = false;
+                $this->errors[] = 'Invalid CSRF token.';
             }
         }
 
-        foreach ($this->fields as $name => $field) {
-            $raw = $submittedData[$name] ?? null;
-            $options = $field->getOptions();
-            if (($options['type'] ?? null) === 'collection') {
-                $entries = is_array($raw) ? $raw : [];
-                $entryType = $options['entry_type'];
-                $normalized = [];
-                foreach ($entries as $entry) {
-                    $normalized[] = $entry;
-                }
-                $field->setData($normalized);
-            } else {
-                $value = $field->getType()->transformToModel($raw, $options);
-                foreach ($options['transformers'] ?? [] as $transformer) {
-                    $value = $transformer->reverseTransform($value);
-                }
-                $field->setData($value);
-            }
-        }
-
-        $this->data = $this->dataMapper->mapFieldsToData($this->fields, $this->data);
-
-        foreach ($this->fields as $name => $field) {
-            $errors = [];
-            foreach ($field->getOptions()['constraints'] ?? [] as $constraint) {
-                foreach ($constraint->validate($field->getData(), [
-                    'field' => $name,
-                    'form' => $this,
-                    'options' => $field->getOptions(),
-                    'data' => $this->data,
-                ]) as $error) {
-                    $errors[] = $error;
+        foreach ($this->fields as $field) {
+            $field->value = $request->input($field->name, $field->value);
+            $field->errors = [];
+            foreach ($field->constraints as $constraint) {
+                foreach ($constraint->validate($field->value) as $error) {
+                    $field->errors[] = $error;
+                    $this->valid = false;
                 }
             }
-            $field->setErrors($errors);
-            if ($errors !== []) {
-                $this->eventDispatcher?->dispatch(FormEvents::VALIDATION_ERROR, new FormEvent($this, $errors));
-            }
         }
+    }
 
-        foreach ($this->formConstraints as $constraint) {
-            foreach ($constraint->validate($this->data, ['form' => $this]) as $error) {
-                $this->errors[] = $error;
-            }
-        }
+    /** @return list<FieldDefinition> */
+    public function fields(): array
+    {
+        return $this->fields;
+    }
 
-        $this->eventDispatcher?->dispatch(FormEvents::SUBMIT, new FormEvent($this, $this->data));
-        $this->eventDispatcher?->dispatch(FormEvents::POST_SUBMIT, new FormEvent($this, $this->data));
+    /** @return list<Fieldset> */
+    public function fieldsets(): array
+    {
+        return $this->fieldsets;
     }
 
     public function isSubmitted(): bool
@@ -115,108 +88,30 @@ final class Form implements FormInterface
 
     public function isValid(): bool
     {
-        if (!$this->submitted) {
-            return false;
-        }
-
-        if ($this->errors !== []) {
-            return false;
-        }
-
-        foreach ($this->fields as $field) {
-            if ($field->getErrors() !== []) {
-                return false;
-            }
-        }
-
-        return true;
+        return $this->submitted && $this->valid;
     }
 
-    public function getData(): mixed
+    public function name(): string
     {
-        return $this->data;
+        return $this->name;
     }
 
-    public function setData(mixed $data): void
+    public function options(): array
     {
-        $this->data = $data;
-        $this->eventDispatcher?->dispatch(FormEvents::PRE_SET_DATA, new FormEvent($this, $data));
-        $this->dataMapper->mapDataToFields($data, $this->fields);
+        return $this->options;
     }
 
-    public function createView(): FormView
+    public function csrfToken(): ?string
     {
-        return (new FormViewFactory())->create($this);
-    }
-
-    public function getErrors(bool $deep = true): array
-    {
-        $errors = $this->errors;
-
-        if ($deep) {
-            foreach ($this->fields as $field) {
-                $errors = [...$errors, ...$field->getErrors()];
-            }
-        }
-
-        return $errors;
-    }
-
-    public function get(string $name): Field
-    {
-        if (!isset($this->fields[$name])) {
-            throw new \InvalidArgumentException(sprintf('Unknown field "%s".', $name));
-        }
-
-        return $this->fields[$name];
-    }
-
-    /**
-     * @return array<string, Field>
-     */
-    public function all(): array
-    {
-        return $this->fields;
-    }
-
-
-    /**
-     * @return array<string, mixed>
-     */
-    public function getFieldsets(): array
-    {
-        return $this->fieldsets;
-    }
-
-    public function getName(): string
-    {
-        return $this->config->name;
-    }
-
-    public function getConfig(): FormConfig
-    {
-        return $this->config;
-    }
-
-    public function getCsrfToken(): ?string
-    {
-        if (!$this->config->csrfProtection || $this->csrfManager === null) {
+        if (($this->options['csrf_protection'] ?? false) !== true || $this->csrfManager === null) {
             return null;
         }
 
-        return $this->csrfManager->generateToken($this->config->csrfTokenId);
+        return $this->csrfManager->generateToken((string) ($this->options['csrf_token_id'] ?? $this->name));
     }
 
-    public function addField(Field $field): void
+    public function errors(): array
     {
-        $this->fields[$field->getName()] = $field;
-    }
-
-    private function clearErrors(): void
-    {
-        $this->errors = [];
-        foreach ($this->fields as $field) {
-            $field->clearErrors();
-        }
+        return $this->errors;
     }
 }
