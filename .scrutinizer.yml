@@ -4,7 +4,6 @@ imports:
 filter:
   excluded_paths:
     - "vendor/*"
-    - "tests/*"
     - "docs/*"
 
 checks:

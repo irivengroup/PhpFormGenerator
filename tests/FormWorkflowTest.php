@@ -22,11 +22,13 @@ final class FormWorkflowTest extends TestCase
         ]);
 
         $request = new ArrayRequest('POST', [
-            '_token' => 'dev-token',
-            'name' => 'Ada Lovelace',
-            'email' => 'ada@example.com',
-            'country' => 'FR',
-            'message' => 'I need a custom enterprise form workflow.',
+            'contact' => [
+                '_token' => 'dev-token',
+                'name' => 'Ada Lovelace',
+                'email' => 'ada@example.com',
+                'country' => 'FR',
+                'message' => 'I need a custom enterprise form workflow.',
+            ],
         ]);
 
         $form->handleRequest($request);
@@ -38,17 +40,20 @@ final class FormWorkflowTest extends TestCase
 
         $html = (new HtmlRenderer())->render($form);
         self::assertStringContainsString('<fieldset', $html);
-        self::assertStringContainsString('name="country"', $html);
+        self::assertStringContainsString('name="contact[country]"', $html);
     }
 
     public function testInvalidEmailTriggersError(): void
     {
         $factory = new FormFactory();
         $form = $factory->create(ContactType::class, null, 'contact', ['method' => 'POST']);
+
         $form->handleRequest(new ArrayRequest('POST', [
-            'name' => 'Ada',
-            'email' => 'not-an-email',
-            'message' => '1234567890',
+            'contact' => [
+                'name' => 'Ada',
+                'email' => 'not-an-email',
+                'message' => '1234567890',
+            ],
         ]));
 
         self::assertFalse($form->isValid());

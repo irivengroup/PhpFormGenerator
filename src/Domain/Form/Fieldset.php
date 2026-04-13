@@ -7,9 +7,11 @@ final class Fieldset
 {
     /** @var list<FieldDefinition> */
     private array $fields = [];
+
     /** @var list<Fieldset> */
     private array $children = [];
 
+    /** @param array<string,mixed> $options */
     public function __construct(private readonly array $options = [])
     {
     }
@@ -40,5 +42,22 @@ final class Fieldset
     public function options(): array
     {
         return $this->options;
+    }
+
+    public function contains(FieldDefinition $candidate): bool
+    {
+        foreach ($this->fields as $field) {
+            if ($field === $candidate) {
+                return true;
+            }
+        }
+
+        foreach ($this->children as $child) {
+            if ($child->contains($candidate)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

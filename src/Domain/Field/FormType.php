@@ -18,7 +18,9 @@ final class FormType extends AbstractFieldType
     public function normalizeOptions(array $options): array
     {
         $options = parent::normalizeOptions($options);
-        $options['fields'] ??= [];
+        $options['form_type'] ??= null;
+        $options['show_label'] ??= true;
+
         return $options;
     }
 }

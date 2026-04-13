@@ -1,17 +1,34 @@
-# Architecture
+# Architecture V3.3
 
-## Application
-Façades et factory du framework.
+## Couches
 
-## Domain
-Noyau métier : formulaires, champs, contraintes, événements, contrats.
+- `Application` : `FormFactory`, façade `FormGenerator`
+- `Domain` : `Form`, `FormBuilder`, `FieldDefinition`, contraintes, field types
+- `Infrastructure` : request, CSRF, mapping
+- `Presentation` : rendu HTML et thèmes
 
-## Infrastructure
-Adaptateurs techniques : requête, CSRF, mapping, dispatcher.
+## Nouveautés V3.3
 
-## Presentation
-Rendu HTML et thèmes.
+### Form tree
+Un formulaire peut contenir :
+- des champs simples
+- un sous-formulaire compound
+- une collection d'entrées
 
-## Notes
-Cette V3.2 "enterprise avancée" fournit un noyau cohérent et extensible.
-Les sous-formulaires et collections sont présents comme types et points d'extension, mais pas encore avec un moteur de binding récursif complet type Symfony Forms.
+### Nested forms
+`FormBuilder::add('customer', CustomerType::class)` construit un enfant récursif.
+
+### Collections
+`CollectionType` construit une liste d'entrées :
+- entrée scalaire
+- ou sous-formulaire si `entry_type` implémente `FormTypeInterface`
+
+### Renderer
+Le renderer calcule les noms HTML de manière récursive :
+- `invoice[customer][name]`
+- `invoice[items][0][label]`
+
+### Mapping
+Le mapping final retourne :
+- tableau associatif par défaut
+- ou objet si `data_class` est fourni

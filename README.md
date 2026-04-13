@@ -1,60 +1,61 @@
-# PhpFormGenerator V3.2
+# PhpFormGenerator V3.3
 
-Enterprise-oriented PHP form framework starter with fieldsets, validation, CSRF, events, themes and mappers.
+Refonte enterprise du générateur historique avec :
 
-## Legacy field type parity
+- architecture `Application / Domain / Infrastructure / Presentation`
+- field types legacy conservés
+- `fieldset` natifs
+- formulaires imbriqués (`FormType`)
+- collections récursives (`CollectionType`)
+- mapping array et objet
+- validation et gestion d'erreurs profondes
+- renderer HTML sécurisé
 
-This build preserves the full set of historically supported field types from the legacy package:
+## Exemple rapide
 
-- Audio
-- Button
-- Captcha
-- Checkbox
-- Color
-- Countries
-- Datalist
-- Date
-- Datetime
-- DatetimeLocal
-- Editor
-- Email
-- File
-- Hidden
-- Image
-- Month
-- Number
-- Password
-- Phone
-- Radio
-- Range
-- Reset
-- Search
-- Select
-- Submit
-- Text
-- Textarea
-- Time
-- Url
-- Video
-- Week
-- YesNo
+```php
+use Iriven\PhpFormGenerator\Application\FormFactory;
+use Iriven\PhpFormGenerator\Infrastructure\Http\ArrayRequest;
 
-## Quick start
+$factory = new FormFactory();
+$form = $factory->create(App\Form\InvoiceType::class, null, 'invoice', [
+    'method' => 'POST',
+]);
+
+$form->handleRequest(new ArrayRequest('POST', [
+    'invoice' => [
+        'customer' => ['name' => 'ACME'],
+        'items' => [
+            ['label' => 'Audit', 'quantity' => '2'],
+        ],
+    ],
+]));
+
+if ($form->isSubmitted() && $form->isValid()) {
+    $data = $form->data();
+}
+```
+
+## Builder simple
 
 ```php
 use Iriven\PhpFormGenerator\Application\FormGenerator;
 
 $html = (new FormGenerator())
-    ->open('profile', ['method' => 'POST'])
+    ->open('profile')
     ->addFieldset(['legend' => 'Identity'])
-    ->addText('name', ['label' => 'Name'])
-    ->addEmail('email', ['label' => 'Email', 'required' => true])
-    ->addCountries('country', ['label' => 'Country'])
+    ->addText('name')
+    ->addEmail('email')
     ->endFieldset()
     ->addSubmit('save', ['label' => 'Save'])
     ->render();
 ```
 
-## CI note
+## Fonctionnalités V3.3
 
-Composer 2.2+ blocks plugins by default. This project explicitly allows the Infection Composer plugin through `config.allow-plugins` in `composer.json`.
+- sous-formulaires via `FormTypeInterface`
+- `CollectionType` avec `entry_type`, `entry_options`, `allow_add`, `allow_delete`, `prototype`
+- rendu récursif des noms HTML (`invoice[customer][name]`)
+- support des fieldsets imbriqués
+- field types legacy disponibles dans `src/Domain/Field`
+- thème HTML par défaut + Bootstrap/Tailwind

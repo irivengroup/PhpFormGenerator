@@ -1,6 +1,6 @@
 {
   "name": "iriven/php-form-generator",
-  "description": "Enterprise-oriented PHP form framework starter with fieldsets, validation, CSRF, events, themes and mappers.",
+  "description": "Enterprise PHP form framework with legacy field types, fieldsets, nested forms and collections.",
   "type": "library",
   "license": "MIT",
   "require": {
@@ -24,10 +24,10 @@
     }
   },
   "scripts": {
-    "test": "phpunit --colors=always",
-    "analyse": "phpstan analyse src tests",
-    "fix": "php-cs-fixer fix --allow-risky=yes",
-    "mutate": "infection --threads=max"
+    "test": "vendor/bin/phpunit --colors=never",
+    "analyse": "vendor/bin/phpstan analyse src tests",
+    "fix": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+    "mutate": "vendor/bin/infection --threads=max"
   },
   "config": {
     "allow-plugins": {

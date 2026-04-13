@@ -26,6 +26,10 @@ final class CollectionType extends AbstractFieldType
         $options['entry_type'] ??= TextType::class;
         $options['entry_options'] ??= [];
         $options['prototype'] ??= true;
+        $options['allow_add'] ??= true;
+        $options['allow_delete'] ??= true;
+        $options['show_label'] ??= true;
+
         return $options;
     }
 }

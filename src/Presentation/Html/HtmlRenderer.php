@@ -20,92 +20,217 @@ final class HtmlRenderer
         $theme = $this->theme ?? new DefaultTheme();
         $method = $this->escape((string) ($form->options()['method'] ?? 'POST'));
         $action = $this->escape((string) ($form->options()['action'] ?? ''));
-        $enctype = $this->needsMultipart($form) ? ' enctype="multipart/form-data"' : '';
-        $html = '<form class="' . $this->escape($theme->formClass()) . '" method="' . $method . '" action="' . $action . '"' . $enctype . '>';
+        $attr = (array) ($form->options()['attr'] ?? []);
+        $attr['class'] = trim(($attr['class'] ?? '') . ' ' . $theme->formClass());
+        $attr['method'] = $method;
+        $attr['action'] = $action;
+
+        if ($this->needsMultipart($form)) {
+            $attr['enctype'] = 'multipart/form-data';
+        }
+
+        $html = '<form' . $this->attributes($attr) . '>';
 
         $token = $form->csrfToken();
         if ($token !== null) {
-            $field = $this->escape((string) ($form->options()['csrf_field_name'] ?? '_token'));
-            $html .= '<input type="hidden" name="' . $field . '" value="' . $this->escape($token) . '">';
+            $field = (string) ($form->options()['csrf_field_name'] ?? '_token');
+            $html .= '<input type="hidden" name="' . $this->escape($this->fieldName($form->fullNamePrefix(), $field)) . '" value="' . $this->escape($token) . '">';
         }
 
         foreach ($form->errors() as $error) {
             $html .= '<div class="' . $this->escape($theme->errorClass()) . '">' . $this->escape($error) . '</div>';
         }
 
-        foreach ($form->fieldsets() as $fieldset) {
-            $html .= $this->renderFieldset($fieldset, $theme);
-        }
-
-        $renderedInsideFieldsets = [];
-        foreach ($form->fieldsets() as $fieldset) {
-            foreach ($this->collectFieldNames($fieldset) as $name => $_) {
-                $renderedInsideFieldsets[$name] = true;
-            }
-        }
-
-        foreach ($form->fields() as $field) {
-            if (!isset($renderedInsideFieldsets[$field->name])) {
-                $html .= $this->renderField($field, $theme);
-            }
-        }
+        $html .= $this->renderFormContents($form, $theme, $form->fullNamePrefix(), $form->name());
 
         return $html . '</form>';
     }
 
-    private function renderFieldset(Fieldset $fieldset, ThemeInterface $theme): string
+    public function renderEmbeddedForm(Form $form, string $prefix, string $idPrefix = ''): string
+    {
+        $theme = $this->theme ?? new DefaultTheme();
+
+        return $this->renderFormContents($form, $theme, $prefix, $idPrefix === '' ? $form->name() : $idPrefix);
+    }
+
+    private function renderFormContents(Form $form, ThemeInterface $theme, string $prefix, string $idPrefix): string
+    {
+        $html = '';
+
+        foreach ($form->fieldsets() as $fieldset) {
+            $html .= $this->renderFieldset($fieldset, $theme, $prefix, $idPrefix);
+        }
+
+        foreach ($form->fields() as $field) {
+            if ($this->isRenderedInFieldset($field, $form->fieldsets())) {
+                continue;
+            }
+
+            $html .= $this->renderField($field, $theme, $prefix, $idPrefix);
+        }
+
+        return $html;
+    }
+
+    /**
+     * @param list<Fieldset> $fieldsets
+     */
+    private function isRenderedInFieldset(FieldDefinition $field, array $fieldsets): bool
+    {
+        foreach ($fieldsets as $fieldset) {
+            if ($fieldset->contains($field)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function renderFieldset(Fieldset $fieldset, ThemeInterface $theme, string $prefix, string $idPrefix): string
     {
         $legend = $fieldset->options()['legend'] ?? null;
         $description = $fieldset->options()['description'] ?? null;
-        $attr = $fieldset->options()['attr'] ?? [];
+        $attr = (array) ($fieldset->options()['attr'] ?? []);
         $attr['class'] = trim(($attr['class'] ?? '') . ' ' . $theme->fieldsetClass());
 
         $html = '<fieldset' . $this->attributes($attr) . '>';
         if (is_string($legend) && $legend !== '') {
             $html .= '<legend>' . $this->escape($legend) . '</legend>';
         }
+
         if (is_string($description) && $description !== '') {
             $html .= '<p class="' . $this->escape($theme->helpClass()) . '">' . $this->escape($description) . '</p>';
         }
+
         foreach ($fieldset->fields() as $field) {
-            $html .= $this->renderField($field, $theme);
+            $html .= $this->renderField($field, $theme, $prefix, $idPrefix);
         }
+
         foreach ($fieldset->children() as $child) {
-            $html .= $this->renderFieldset($child, $theme);
+            $html .= $this->renderFieldset($child, $theme, $prefix, $idPrefix);
         }
+
         return $html . '</fieldset>';
     }
 
-    private function renderField(FieldDefinition $field, ThemeInterface $theme): string
+    private function renderField(FieldDefinition $field, ThemeInterface $theme, string $prefix, string $idPrefix): string
+    {
+        if ($field->isCollection()) {
+            return $this->renderCollectionField($field, $theme, $prefix, $idPrefix);
+        }
+
+        if ($field->isCompound()) {
+            return $this->renderCompoundField($field, $theme, $prefix, $idPrefix);
+        }
+
+        return $this->renderScalarField($field, $theme, $prefix, $idPrefix);
+    }
+
+    private function renderCompoundField(FieldDefinition $field, ThemeInterface $theme, string $prefix, string $idPrefix): string
+    {
+        $rowAttr = (array) ($field->options['row_attr'] ?? []);
+        $rowAttr['class'] = trim(($rowAttr['class'] ?? '') . ' ' . $theme->rowClass());
+
+        $html = '<div' . $this->attributes($rowAttr) . '>';
+        if (($field->options['show_label'] ?? true) === true) {
+            $labelAttr = (array) ($field->options['label_attr'] ?? []);
+            $labelAttr['class'] = trim(($labelAttr['class'] ?? '') . ' ' . $theme->labelClass());
+            $html .= '<div' . $this->attributes($labelAttr) . '>' . $this->escape($field->label()) . '</div>';
+        }
+
+        $childPrefix = $this->fieldName($prefix, $field->name);
+        $childIdPrefix = trim($idPrefix . '_' . $field->name, '_');
+        $html .= '<div class="form-compound">';
+        $childForm = $field->compoundForm();
+        if ($childForm !== null) {
+            $html .= $this->renderEmbeddedForm($childForm, $childPrefix, $childIdPrefix);
+        }
+        $html .= '</div>';
+
+        foreach ($field->errors as $error) {
+            $html .= '<div class="' . $this->escape($theme->errorClass()) . '">' . $this->escape($error) . '</div>';
+        }
+
+        return $html . '</div>';
+    }
+
+    private function renderCollectionField(FieldDefinition $field, ThemeInterface $theme, string $prefix, string $idPrefix): string
+    {
+        $rowAttr = (array) ($field->options['row_attr'] ?? []);
+        $rowAttr['class'] = trim(($rowAttr['class'] ?? '') . ' ' . $theme->rowClass() . ' form-collection');
+
+        $html = '<div' . $this->attributes($rowAttr) . '>';
+        if (($field->options['show_label'] ?? true) === true) {
+            $labelAttr = (array) ($field->options['label_attr'] ?? []);
+            $labelAttr['class'] = trim(($labelAttr['class'] ?? '') . ' ' . $theme->labelClass());
+            $html .= '<div' . $this->attributes($labelAttr) . '>' . $this->escape($field->label()) . '</div>';
+        }
+
+        $childPrefix = $this->fieldName($prefix, $field->name);
+        $childIdPrefix = trim($idPrefix . '_' . $field->name, '_');
+        $html .= '<div class="form-collection-items">';
+
+        foreach ($field->entries() as $index => $entryForm) {
+            $entryPrefix = $this->fieldName($childPrefix, (string) $index);
+            $entryIdPrefix = trim($childIdPrefix . '_' . (string) $index, '_');
+            $html .= '<div class="form-collection-item" data-index="' . $this->escape((string) $index) . '">';
+            $html .= $this->renderEmbeddedForm($entryForm, $entryPrefix, $entryIdPrefix);
+            $html .= '</div>';
+        }
+
+        $prototype = $field->options['prototype_form'] ?? null;
+        if (($field->options['prototype'] ?? true) === true && $prototype instanceof Form) {
+            $prototypeHtml = $this->renderEmbeddedForm(
+                $prototype,
+                $this->fieldName($childPrefix, '__name__'),
+                trim($childIdPrefix . '___name__', '_')
+            );
+            $html .= '<template data-prototype="' . $this->escape($prototypeHtml) . '"></template>';
+        }
+
+        $html .= '</div>';
+
+        foreach ($field->errors as $error) {
+            $html .= '<div class="' . $this->escape($theme->errorClass()) . '">' . $this->escape($error) . '</div>';
+        }
+
+        return $html . '</div>';
+    }
+
+    private function renderScalarField(FieldDefinition $field, ThemeInterface $theme, string $prefix, string $idPrefix): string
     {
         $type = $field->type->renderType();
+        $name = $this->fieldName($prefix, $field->name);
+        $id = $field->id($idPrefix);
         $label = $this->escape($field->label());
 
         $rowAttr = (array) ($field->options['row_attr'] ?? []);
         $rowAttr['class'] = trim(($rowAttr['class'] ?? '') . ' ' . $theme->rowClass());
 
         $attr = (array) ($field->options['attr'] ?? []);
-        $attr['id'] = $field->id();
-        $attr['name'] = $field->name;
+        $attr['id'] = $id;
+        $attr['name'] = $name;
+
         if (($field->options['multiple'] ?? false) === true) {
             $attr['multiple'] = true;
-            if (!str_ends_with($field->name, '[]')) {
-                $attr['name'] = $field->name . '[]';
+            if (!str_ends_with((string) $attr['name'], '[]')) {
+                $attr['name'] .= '[]';
             }
         }
+
         if (!in_array($type, ['textarea', 'select', 'submit', 'button', 'reset', 'radio', 'datalist'], true)) {
             $attr['value'] = is_array($field->value) ? '' : (string) ($field->value ?? '');
         }
-        if (!in_array($type, ['submit', 'hidden', 'button', 'reset'], true) && !isset($attr['class'])) {
-            $attr['class'] = $theme->inputClass();
-        } elseif (!in_array($type, ['submit', 'hidden', 'button', 'reset'], true)) {
-            $attr['class'] = trim((string) $attr['class'] . ' ' . $theme->inputClass());
+
+        if (!in_array($type, ['submit', 'hidden', 'button', 'reset'], true)) {
+            $attr['class'] = trim(($attr['class'] ?? '') . ' ' . $theme->inputClass());
         }
 
         $html = '<div' . $this->attributes($rowAttr) . '>';
+
         if (!in_array($type, ['submit', 'hidden', 'button', 'reset'], true)) {
             $labelAttr = (array) ($field->options['label_attr'] ?? []);
-            $labelAttr['for'] = $field->id();
+            $labelAttr['for'] = $id;
             $labelAttr['class'] = trim(($labelAttr['class'] ?? '') . ' ' . $theme->labelClass());
             $html .= '<label' . $this->attributes($labelAttr) . '>' . $label . '</label>';
         }
@@ -151,39 +276,27 @@ final class HtmlRenderer
         } elseif ($type === 'radio') {
             unset($attr['value']);
             $choices = (array) ($field->options['choices'] ?? []);
-            if ($choices === []) {
+            $idx = 0;
+            foreach ($choices as $choiceValue => $choiceLabel) {
                 $radioAttr = $attr;
                 $radioAttr['type'] = 'radio';
-                $radioAttr['value'] = (string) ($field->options['checked_value'] ?? '1');
-                if ((string) ($field->value ?? '') === $radioAttr['value']) {
+                $radioAttr['id'] = $id . '-' . $idx;
+                $radioAttr['value'] = (string) $choiceValue;
+                if ((string) ($field->value ?? '') === (string) $choiceValue) {
                     $radioAttr['checked'] = 'checked';
                 }
-                $html .= '<input' . $this->attributes($radioAttr) . '>';
-            } else {
-                $idx = 0;
-                foreach ($choices as $choiceValue => $choiceLabel) {
-                    $radioAttr = $attr;
-                    $radioAttr['type'] = 'radio';
-                    $radioAttr['id'] = $field->id() . '-' . $idx;
-                    $radioAttr['value'] = (string) $choiceValue;
-                    if ((string) ($field->value ?? '') === (string) $choiceValue) {
-                        $radioAttr['checked'] = 'checked';
-                    }
-                    $html .= '<label' . $this->attributes(['for' => $radioAttr['id']]) . '><input' . $this->attributes($radioAttr) . '> ' . $this->escape((string) $choiceLabel) . '</label>';
-                    $idx++;
-                }
+                $html .= '<label for="' . $this->escape((string) $radioAttr['id']) . '"><input' . $this->attributes($radioAttr) . '> ' . $this->escape((string) $choiceLabel) . '</label>';
+                $idx++;
             }
         } elseif ($type === 'datalist') {
-            $listId = $field->id() . '-list';
+            $listId = $id . '-list';
             $inputAttr = $attr;
             $inputAttr['list'] = $listId;
             $inputAttr['type'] = 'text';
             $html .= '<input' . $this->attributes($inputAttr) . '>';
             $html .= '<datalist id="' . $this->escape($listId) . '">';
             foreach ((array) ($field->options['choices'] ?? []) as $choice) {
-                if (is_string($choice) || is_numeric($choice)) {
-                    $html .= '<option value="' . $this->escape((string) $choice) . '">';
-                }
+                $html .= '<option value="' . $this->escape((string) $choice) . '">';
             }
             $html .= '</datalist>';
         } else {
@@ -198,31 +311,28 @@ final class HtmlRenderer
         foreach ($field->errors as $error) {
             $html .= '<div class="' . $this->escape($theme->errorClass()) . '">' . $this->escape($error) . '</div>';
         }
-        return $html . '</div>';
-    }
 
-    /** @return array<string,true> */
-    private function collectFieldNames(Fieldset $fieldset): array
-    {
-        $names = [];
-        foreach ($fieldset->fields() as $field) {
-            $names[$field->name] = true;
-        }
-        foreach ($fieldset->children() as $child) {
-            foreach ($this->collectFieldNames($child) as $name => $_) {
-                $names[$name] = true;
-            }
-        }
-        return $names;
+        return $html . '</div>';
     }
 
     private function needsMultipart(Form $form): bool
     {
         foreach ($form->fields() as $field) {
-            if (in_array($field->type->renderType(), ['file'], true)) {
+            if ($field->type->renderType() === 'file') {
                 return true;
             }
+
+            if ($field->compoundForm() !== null && $this->needsMultipart($field->compoundForm())) {
+                return true;
+            }
+
+            foreach ($field->entries() as $entry) {
+                if ($this->needsMultipart($entry)) {
+                    return true;
+                }
+            }
         }
+
         return false;
     }
 
@@ -235,16 +345,25 @@ final class HtmlRenderer
     private function attributes(array $attributes): string
     {
         $compiled = '';
+
         foreach ($attributes as $name => $value) {
             if ($value === null || $value === false) {
                 continue;
             }
+
             if ($value === true) {
                 $compiled .= ' ' . $this->escape((string) $name);
                 continue;
             }
+
             $compiled .= ' ' . $this->escape((string) $name) . '="' . $this->escape((string) $value) . '"';
         }
+
         return $compiled;
+    }
+
+    private function fieldName(string $prefix, string $name): string
+    {
+        return $prefix === '' ? $name : $prefix . '[' . $name . ']';
     }
 }
