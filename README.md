@@ -1,38 +1,71 @@
+# PhpFormGenerator V3 Enterprise Starter Kit
 
-# PhpFormGenerator
+Starter kit d'un framework de formulaires orienté entreprise pour PHP 8.2+.
 
-Refonte complète du projet legacy avec architecture moderne en `src/`.
+## Ce que contient ce starter
 
-## Installation
+- `FormFactory` et `FormBuilder`
+- `FormTypeInterface` et `FieldTypeInterface`
+- cycle minimal `handleRequest()` / `isSubmitted()` / `isValid()`
+- validation de base par contraintes
+- `ArrayDataMapper` et `ObjectDataMapper`
+- support CSRF via `SessionCsrfManager`
+- `HtmlRenderer` avec échappement systématique
+- thèmes HTML simples
+- champs de base : texte, email, textarea, country, checkbox, file, submit, hidden
 
-```bash
-composer require iriven/php-form-generator
-```
-
-## Exemple
+## Exemple rapide
 
 ```php
-use Iriven\PhpFormGenerator\FormGenerator;
-use Iriven\PhpFormGenerator\Infrastructure\ArrayRequestDataProvider;
+use Iriven\PhpFormGenerator\Application\FormFactory;
+use Iriven\PhpFormGenerator\Domain\Constraint\Email;
+use Iriven\PhpFormGenerator\Domain\Constraint\Required;
+use Iriven\PhpFormGenerator\Domain\Field\CountryType;
+use Iriven\PhpFormGenerator\Domain\Field\EmailType;
+use Iriven\PhpFormGenerator\Domain\Field\SubmitType;
+use Iriven\PhpFormGenerator\Domain\Field\TextType;
+use Iriven\PhpFormGenerator\Infrastructure\Http\ArrayRequest;
+use Iriven\PhpFormGenerator\Infrastructure\Mapping\ArrayDataMapper;
+use Iriven\PhpFormGenerator\Infrastructure\Security\NullCsrfManager;
+use Iriven\PhpFormGenerator\Presentation\Html\HtmlRenderer;
+use Iriven\PhpFormGenerator\Presentation\Html\Theme\DefaultTheme;
 
-$form = new FormGenerator(new ArrayRequestDataProvider([], ['email' => 'john@example.com'], 'POST'));
+$factory = new FormFactory(new ArrayDataMapper(), new NullCsrfManager());
+$form = $factory->createBuilder()
+    ->add('name', TextType::class, [
+        'label' => 'Nom',
+        'constraints' => [new Required()],
+    ])
+    ->add('email', EmailType::class, [
+        'label' => 'Email',
+        'constraints' => [new Required(), new Email()],
+    ])
+    ->add('country', CountryType::class, [
+        'label' => 'Pays',
+    ])
+    ->add('submit', SubmitType::class, [
+        'label' => 'Créer',
+    ])
+    ->getForm();
 
-echo $form
-    ->open(['method' => 'post', 'action' => '/submit'])
-    ->addFieldset(['legend' => 'Profil'])
-    ->addText('Nom')
-    ->addEmail('Email')
-    ->endFieldset()
-    ->addCountries('Country')
-    ->addFile('Document')
-    ->addSubmit('Envoyer')
-    ->close();
+$form->handleRequest(new ArrayRequest([
+    '_method' => 'POST',
+    'name' => 'Alice',
+    'email' => 'alice@example.test',
+    'country' => 'FR',
+]));
+
+$renderer = new HtmlRenderer(new DefaultTheme());
+echo $renderer->renderForm($form->createView());
 ```
 
-## Points clés
+## Prochaine étape
 
-- plus de couche legacy
-- API fluide maintenue
-- pré-remplissage via provider injectable
-- rendu HTML échappé
-- support de tous les éléments historiquement exposés
+Cette base est volontairement sobre. Elle est prête à recevoir :
+
+- collections et sous-formulaires
+- events `PRE_SUBMIT` / `POST_SUBMIT`
+- theming Bootstrap/Tailwind avancé
+- transformers riches
+- traduction et accessibilité renforcées
+- contraintes métier custom
