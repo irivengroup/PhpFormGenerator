@@ -41,6 +41,9 @@ final class CaptchaTypeTest extends TestCase
 
         $expected = $_SESSION['_pfg_captcha']['secure.captcha'] ?? null;
         self::assertIsString($expected);
+        if (!is_string($expected)) {
+            self::fail('Expected captcha code was not generated.');
+        }
 
         $form->handleRequest(new ArrayRequest('POST', [
             'secure' => [
@@ -58,6 +61,9 @@ final class CaptchaTypeTest extends TestCase
         $form->createView();
         $expected = $_SESSION['_pfg_captcha']['secure.captcha'] ?? null;
         self::assertIsString($expected);
+        if (!is_string($expected)) {
+            self::fail('Expected captcha code was not generated.');
+        }
 
         $form->handleRequest(new ArrayRequest('POST', [
             'secure' => [

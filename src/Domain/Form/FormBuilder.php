@@ -69,10 +69,12 @@ final class FormBuilder
      */
     public function add(string $name, string $typeClass, array $options = []): self
     {
-        $typeClass = TypeResolver::resolveFieldType($typeClass);
-        if (!is_string($typeClass) || $typeClass === '') {
+        $resolvedTypeClass = TypeResolver::resolveFieldType($typeClass);
+        if (!is_string($resolvedTypeClass) || $resolvedTypeClass === '') {
             throw new \InvalidArgumentException('Resolved field type must be a non-empty string.');
         }
+        /** @var string $typeClass */
+        $typeClass = $resolvedTypeClass;
         /** @var array<int, ConstraintInterface> $constraints */
         $constraints = is_array($options['constraints'] ?? null) ? $options['constraints'] : [];
         $options['validation_groups'] = $options['validation_groups'] ?? ['Default'];

@@ -784,3 +784,13 @@ Recent hardening fixes also include:
 - safer enum value/name extraction in `EnumTransformer`
 - explicit dynamic class instantiation for nested collection entry form types
 - backward-compatible `FormView->options` alias without violating readonly semantics
+
+### Static-analysis hardening pass
+
+A new hardening pass was applied to remove analyzer ambiguities around:
+- resolved field type strings in `FormBuilder`
+- dynamic nested form type instantiation in `Form`
+- enum transformation logic
+- nullable captcha expectations in tests
+
+This keeps runtime behavior unchanged while improving compatibility with stricter CI analyzers.
