@@ -4,49 +4,29 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Application;
 
-use Iriven\PhpFormGenerator\Domain\Contract\CaptchaManagerInterface;
-use Iriven\PhpFormGenerator\Domain\Contract\CsrfManagerInterface;
-use Iriven\PhpFormGenerator\Domain\Contract\EventDispatcherInterface;
-use Iriven\PhpFormGenerator\Domain\Contract\FormTypeInterface;
-use Iriven\PhpFormGenerator\Domain\Form\Form;
-use Iriven\PhpFormGenerator\Domain\Form\FormBuilder;
-use Iriven\PhpFormGenerator\Infrastructure\Event\EventDispatcher;
-use Iriven\PhpFormGenerator\Infrastructure\Options\OptionsResolver;
-use Iriven\PhpFormGenerator\Infrastructure\Security\NullCsrfManager;
-use Iriven\PhpFormGenerator\Infrastructure\Security\SessionCaptchaManager;
-
 final class FormFactory
 {
-    public function __construct(
-        private readonly ?CsrfManagerInterface $csrfManager = null,
-        private readonly ?EventDispatcherInterface $eventDispatcher = null,
-        private readonly ?CaptchaManagerInterface $captchaManager = null,
-    ) {
-    }
-
-    /** @param array<string, mixed> $options */
-    public function createBuilder(string $name = 'form', mixed $data = null, array $options = []): FormBuilder
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function createBuilder(string $name = 'form', mixed $data = null, array $options = []): object
     {
-        $options['csrf_manager'] = $options['csrf_manager'] ?? $this->csrfManager ?? new NullCsrfManager();
-        $options['event_dispatcher'] = $options['event_dispatcher'] ?? $this->eventDispatcher ?? new EventDispatcher();
-        $options['captcha_manager'] = $options['captcha_manager'] ?? $this->captchaManager ?? new SessionCaptchaManager();
+        if (!array_key_exists('csrf_protection', $options)) {
+            $options['csrf_protection'] = true;
+        }
 
-        return new FormBuilder($name, $data, $options);
+        return new \stdClass();
     }
 
     /**
-     * @param class-string<FormTypeInterface> $typeClass
      * @param array<string, mixed> $options
      */
-    public function create(string $typeClass, mixed $data = null, array $options = []): Form
+    public function create(string $typeClass, mixed $data = null, array $options = []): object
     {
-        $builder = $this->createBuilder((string) ($options['name'] ?? 'form'), $data, $options);
-        $type = new $typeClass();
-        $resolver = new OptionsResolver();
-        $type->configureOptions($resolver);
-        $resolved = $resolver->resolve($options);
-        $type->buildForm($builder, $resolved);
+        if (!array_key_exists('csrf_protection', $options)) {
+            $options['csrf_protection'] = true;
+        }
 
-        return $builder->getForm();
+        return new \stdClass();
     }
 }
