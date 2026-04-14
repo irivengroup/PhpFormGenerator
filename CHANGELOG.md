@@ -9,6 +9,7 @@
 - Added reusable application form types: `ContactType`, `InvoiceType`, `RegistrationType`, `CustomerType`, and `InvoiceLineType`.
 
 ### Changed
+- `CountryType` now uses the full built-in country choice list with normalized uppercase codes and trimmed labels.
 
 - `FormView` now exposes an `options` alias for `vars` to preserve backward-compatible access patterns.
 - CSRF defaults are enforced consistently across factory-created forms, builder-created forms, and the fluent `FormGenerator` API.

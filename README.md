@@ -329,3 +329,18 @@ Additional hardening:
 - captcha length normalization no longer triggers PHPStan false positives.
 
 `YesNoType` now exposes canonical string keys (`yes` / `no`) for stricter static-analysis compatibility.
+
+### CountryType built-in choices
+
+`CountryType` now ships with the complete built-in country list provided by the project requirements.
+
+Normalization rules applied internally:
+- country codes are stored as uppercase keys
+- labels are trimmed and exposed as display values
+- the resulting choice map is returned as `array<string, string>`
+
+Examples:
+- `FR => France`
+- `US => United States`
+- `CI => Cote D'Ivoire`
+- `TL => Timor-Leste`
