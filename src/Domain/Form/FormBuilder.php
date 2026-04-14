@@ -64,7 +64,7 @@ final class FormBuilder
     }
 
     /**
-     * @param class-string $typeClass
+     * @param class-string|non-empty-string $typeClass
      * @param array<string, mixed> $options
      */
     public function add(string $name, string $typeClass, array $options = []): self

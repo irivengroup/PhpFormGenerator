@@ -8,6 +8,7 @@
 - Additional README usage scenarios and end-to-end examples.
 
 ### Changed
+- Relaxed type annotations for factory and builder APIs so built-in short names like `ContactType` and `EmailType` are valid and PHPStan-compliant.
 - `FormFactory` and `FormBuilder` now support extension registries.
 - Validation now supports group-aware constraint filtering.
 

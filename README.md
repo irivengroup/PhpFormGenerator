@@ -694,3 +694,24 @@ use Iriven\PhpFormGenerator\Domain\Transformer\EnumTransformer;
 $transformer = new EnumTransformer(LeadStatus::class);
 $status = $transformer->reverseTransform('new');
 ```
+
+### Mapping natif des types
+
+La factory et le builder acceptent maintenant :
+- un FQCN complet
+- ou un nom court de type intégré
+
+Exemples valides :
+
+```php
+$factory->create(ContactType::class);
+$factory->create('ContactType');
+
+$builder
+    ->add('name', TextType::class)
+    ->add('email', 'EmailType')
+    ->add('captcha', 'CaptchaType')
+    ->add('submit', 'SubmitType');
+```
+
+Le moteur de résolution interne normalise ces valeurs avant instanciation.
