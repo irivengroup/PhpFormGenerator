@@ -6,6 +6,10 @@
 
 
 ### Added
+- README expanded with a detailed `Utilisation` section including complete contact, registration, and invoice workflows with data retrieval and validation.
+- `FormBuilder::add()` now resolves built-in field types from short names such as `TextType`, `EmailType`, `CountryType`, and `CaptchaType`.
+- `FormFactory::create()` now resolves built-in form types from short names such as `ContactType`.
+- Added a native type-resolution layer for built-in field types and application form types.
 - Added reusable application form types: `ContactType`, `InvoiceType`, `RegistrationType`, `CustomerType`, and `InvoiceLineType`.
 
 ### Changed

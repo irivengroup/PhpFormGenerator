@@ -199,44 +199,228 @@ $request = new ArrayRequest('POST', [
 $form->handleRequest($request);
 ```
 
-## Utilisation détaillée
+## Utilisation
 
-### 1. Formulaire simple
-Pour les cas basiques, utilise `FormGenerator`.
+Cette rubrique regroupe les exemples d’usage du framework, depuis la création du formulaire jusqu’à la récupération et la validation des données.
 
-### 2. Formulaire métier réutilisable
-Pour factoriser, implémente un `FormTypeInterface` et crée le formulaire via `FormFactory`.
-
-### 3. Formulaires imbriqués
-Un champ peut être un sous-formulaire si son type implémente `FormTypeInterface`.
-
-### 4. Collections
-`CollectionType` permet de gérer une liste d'entrées homogènes, par exemple des lignes de facture.
-
-### 5. Mapping d'objet
-Le framework sait mapper vers un tableau ou vers un objet métier.
-
-### 6. Événements
-Tu peux ajouter des listeners et subscribers sur le dispatcher interne.
-
-### 7. Fichiers
-Dès qu'un champ `FileType`, `AudioType`, `ImageType` ou `VideoType` est ajouté, le formulaire est automatiquement rendu avec `enctype="multipart/form-data"`.
-
-### 8. Captcha
-Le `CaptchaType` :
-- génère automatiquement un code alphanumérique
-- longueur configurable de 5 à 8 caractères
-- est sensible à la casse
-- valide côté serveur via le `SessionCaptchaManager`
-- affiche un challenge SVG sans dépendance GD
-
-Exemple :
+### Création simple avec le builder fluide
 
 ```php
-$generator->addCaptcha('captcha', [
-    'label' => 'Code de sécurité',
-    'min_length' => 5,
-    'max_length' => 8,
+use Iriven\PhpFormGenerator\Application\FormGenerator;
+use Iriven\PhpFormGenerator\Presentation\Html\HtmlRenderer;
+use Iriven\PhpFormGenerator\Infrastructure\Http\ArrayRequest;
+
+$generator = (new FormGenerator('contact'))
+    ->open([
+        'method' => 'POST',
+        'action' => '/contact',
+    ])
+    ->addText('name', ['label' => 'Name', 'required' => true])
+    ->addEmail('email', ['label' => 'Email', 'required' => true])
+    ->addTextarea('message', ['label' => 'Message'])
+    ->addCaptcha('captcha', ['label' => 'Security code'])
+    ->addSubmit('send', ['label' => 'Send']);
+
+$form = $generator->getForm();
+echo (new HtmlRenderer())->renderForm($form->createView());
+
+$request = new ArrayRequest('POST', [
+    'contact' => [
+        'name' => 'Alice',
+        'email' => 'alice@example.com',
+        'message' => 'Hello from the contact form.',
+        'captcha' => 'ABCDE',
+    ],
+]);
+
+$form->handleRequest($request);
+
+if ($form->isSubmitted() && $form->isValid()) {
+    $data = $form->getData();
+}
+```
+
+### Création avec la factory
+
+```php
+use Iriven\PhpFormGenerator\Application\FormFactory;
+use Iriven\PhpFormGenerator\Application\FormType\ContactType;
+use Iriven\PhpFormGenerator\Infrastructure\Http\ArrayRequest;
+
+$factory = new FormFactory();
+$form = $factory->create(ContactType::class);
+
+$form->handleRequest(new ArrayRequest('POST', [
+    'form' => [
+        'name' => 'Alice',
+        'email' => 'alice@example.com',
+        'subject' => 'Need help',
+        'message' => 'Can you call me back?',
+        'captcha' => 'ABCDE',
+    ],
+]));
+
+if ($form->isSubmitted() && $form->isValid()) {
+    $data = $form->getData();
+}
+```
+
+### Mapping natif des field types et form types
+
+Le framework intègre un mapping natif des types internes. Cela permet d’écrire des types de champs et des types de formulaires sans devoir utiliser le chemin complet des classes internes du framework.
+
+Le moteur résout automatiquement les types connus à partir de leur nom court dans l’API factory et dans l’API builder.
+
+```php
+use Iriven\PhpFormGenerator\Application\FormFactory;
+use Iriven\PhpFormGenerator\Domain\Contract\FormTypeInterface;
+
+final class DummyType implements FormTypeInterface
+{
+    public function buildForm($builder, array $options = []): void
+    {
+        $builder
+            ->add('name', TextType::class, ['required' => true])
+            ->add('email', EmailType::class, ['required' => true])
+            ->add('captcha', CaptchaType::class, ['label' => 'Security code'])
+            ->add('submit', SubmitType::class, ['label' => 'Send']);
+    }
+
+    public function configureOptions($resolver): void
+    {
+        $resolver->setDefaults([
+            'method' => 'POST',
+            'csrf_protection' => true,
+        ]);
+    }
+}
+
+$factory = new FormFactory();
+
+$dummyForm = $factory->create(DummyType::class);
+$contactForm = $factory->create(ContactType::class);
+```
+
+Le même mécanisme fonctionne aussi avec des chaînes courtes :
+
+```php
+$builder->add('country', 'CountryType', [
+    'sort' => true,
+    'placeholder' => 'Select a country',
+]);
+
+$form = $factory->create('ContactType');
+```
+
+### Validation et récupération des erreurs
+
+```php
+if (!$form->isValid()) {
+    $errors = $form->getErrors();
+}
+```
+
+### Cas complet : ContactType
+
+```php
+$form = $factory->create(ContactType::class);
+
+$form->handleRequest(new ArrayRequest('POST', [
+    'form' => [
+        'name' => 'Alice',
+        'email' => 'alice@example.com',
+        'phone' => '+33123456789',
+        'country' => 'FR',
+        'subject' => 'Project request',
+        'message' => 'I would like to discuss a project.',
+        'captcha' => 'ABCDE',
+    ],
+]));
+
+if ($form->isSubmitted() && $form->isValid()) {
+    $contactData = $form->getData();
+}
+```
+
+### Cas complet : RegistrationType
+
+```php
+use Iriven\PhpFormGenerator\Application\FormType\RegistrationType;
+
+$form = $factory->create(RegistrationType::class);
+
+$form->handleRequest(new ArrayRequest('POST', [
+    'form' => [
+        'email' => 'new-user@example.com',
+        'password' => 'secret123',
+        'confirmPassword' => 'secret123',
+        'acceptTerms' => true,
+        'captcha' => 'ABCDE',
+    ],
+]));
+
+if ($form->isSubmitted() && $form->isValid()) {
+    $registrationData = $form->getData();
+}
+```
+
+### Cas complet : InvoiceType
+
+```php
+use Iriven\PhpFormGenerator\Application\FormType\InvoiceType;
+
+$form = $factory->create(InvoiceType::class);
+
+$form->handleRequest(new ArrayRequest('POST', [
+    'form' => [
+        'customer' => [
+            'name' => 'Acme Corp',
+            'email' => 'billing@acme.test',
+        ],
+        'issuedAt' => '2026-04-13T10:30',
+        'items' => [
+            [
+                'label' => 'Design',
+                'quantity' => '2',
+                'price' => '150.00',
+            ],
+            [
+                'label' => 'Development',
+                'quantity' => '5',
+                'price' => '300.00',
+            ],
+        ],
+    ],
+]));
+
+if ($form->isSubmitted() && $form->isValid()) {
+    $invoiceData = $form->getData();
+}
+```
+
+### Fichiers et multipart automatique
+
+```php
+$builder->add('attachment', 'FileType');
+```
+
+Dès qu’un champ fichier ou média est ajouté, le formulaire bascule automatiquement en `multipart/form-data`.
+
+### CountryType avancé
+
+```php
+$builder->add('country', 'CountryType', [
+    'region' => 'europe',
+    'sort' => true,
+    'placeholder' => 'Select a country',
+]);
+```
+
+### Désactivation explicite du CSRF
+
+```php
+$form = $factory->create(ContactType::class, null, [
+    'csrf_protection' => false,
 ]);
 ```
 

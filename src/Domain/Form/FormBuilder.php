@@ -17,6 +17,7 @@ use Iriven\PhpFormGenerator\Infrastructure\Event\EventDispatcher;
 use Iriven\PhpFormGenerator\Infrastructure\Options\OptionsResolver;
 use Iriven\PhpFormGenerator\Infrastructure\Security\NullCsrfManager;
 use Iriven\PhpFormGenerator\Infrastructure\Security\SessionCaptchaManager;
+use Iriven\PhpFormGenerator\Infrastructure\Type\TypeResolver;
 
 final class FormBuilder
 {
@@ -64,6 +65,7 @@ final class FormBuilder
      */
     public function add(string $name, string $typeClass, array $options = []): self
     {
+        $typeClass = TypeResolver::resolveFieldType($typeClass);
         /** @var list<ConstraintInterface> $constraints */
         $constraints = is_array($options['constraints'] ?? null) ? $options['constraints'] : [];
         /** @var list<DataTransformerInterface> $transformers */
@@ -98,7 +100,7 @@ final class FormBuilder
         if ($typeClass === CollectionType::class) {
             $collection = true;
             $compound = true;
-            $entryType = is_string($options['entry_type'] ?? null) ? $options['entry_type'] : null;
+            $entryType = is_string($options['entry_type'] ?? null) ? TypeResolver::resolveFormType($options['entry_type']) : null;
             /** @var array<string, mixed> $entryOptions */
             $entryOptions = is_array($options['entry_options'] ?? null) ? $options['entry_options'] : [];
         }

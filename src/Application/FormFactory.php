@@ -12,6 +12,7 @@ use Iriven\PhpFormGenerator\Domain\Form\Form;
 use Iriven\PhpFormGenerator\Domain\Form\FormBuilder;
 use Iriven\PhpFormGenerator\Infrastructure\Event\EventDispatcher;
 use Iriven\PhpFormGenerator\Infrastructure\Options\OptionsResolver;
+use Iriven\PhpFormGenerator\Infrastructure\Type\TypeResolver;
 use Iriven\PhpFormGenerator\Infrastructure\Security\NullCsrfManager;
 use Iriven\PhpFormGenerator\Infrastructure\Security\SessionCaptchaManager;
 
@@ -42,6 +43,7 @@ final class FormFactory
     public function create(string $typeClass, mixed $data = null, array $options = []): Form
     {
         $builder = $this->createBuilder((string) ($options['name'] ?? 'form'), $data, $options);
+        $typeClass = TypeResolver::resolveFormType($typeClass);
         $type = new $typeClass();
         $resolver = new OptionsResolver();
         $type->configureOptions($resolver);
