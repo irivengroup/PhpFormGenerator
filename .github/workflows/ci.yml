@@ -23,5 +23,6 @@ jobs:
 
       - run: composer validate --strict
       - run: composer install --no-interaction --prefer-dist
+      - run: composer dump-autoload -o
       - run: vendor/bin/phpunit --colors=never
       - run: vendor/bin/phpstan analyse src tests

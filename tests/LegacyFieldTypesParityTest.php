@@ -23,4 +23,13 @@ final class LegacyFieldTypesParityTest extends TestCase
             self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\' . $class), $class);
         }
     }
+
+    public function testDateTimeAliasesResolveToCanonicalType(): void
+    {
+        self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\DateTimeType'));
+        self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeType'));
+        self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeLocalType'));
+        self::assertTrue(is_subclass_of('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeType', 'Iriven\\PhpFormGenerator\\Domain\\Field\\DateTimeType'));
+        self::assertTrue(is_subclass_of('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeLocalType', 'Iriven\\PhpFormGenerator\\Domain\\Field\\DateTimeType'));
+    }
 }
