@@ -20,22 +20,14 @@ final class EnumTransformer implements DataTransformerInterface
 
     public function transform(mixed $value): mixed
     {
-        if (!$value instanceof UnitEnum) {
-            return $value;
+        if ($value instanceof BackedEnum) {
+            /** @var object{value:int|string} $value */
+            return $value->value;
         }
 
-        $reflection = new \ReflectionEnum($value::class);
-
-        foreach ($reflection->getCases() as $caseReflection) {
-            if ($caseReflection->getValue() !== $value) {
-                continue;
-            }
-
-            if ($caseReflection instanceof \ReflectionEnumBackedCase) {
-                return $caseReflection->getBackingValue();
-            }
-
-            return $caseReflection->getName();
+        if ($value instanceof UnitEnum) {
+            /** @var object{name:string} $value */
+            return $value->name;
         }
 
         return $value;
@@ -62,11 +54,13 @@ final class EnumTransformer implements DataTransformerInterface
             return $backedEnumClass::from($value);
         }
 
-        $reflection = new \ReflectionEnum($this->enumClass);
+        /** @var string $unitEnumClass */
+        $unitEnumClass = $this->enumClass;
 
-        foreach ($reflection->getCases() as $caseReflection) {
-            if ($caseReflection->getName() === (string) $value) {
-                return $caseReflection->getValue();
+        foreach ($unitEnumClass::cases() as $case) {
+            /** @var object{name:string} $case */
+            if ($case->name === (string) $value) {
+                return $case;
             }
         }
 

@@ -16,11 +16,11 @@ final class DateTimeTransformer implements DataTransformerInterface
 
     public function transform(mixed $value): mixed
     {
-        if (!$value instanceof DateTimeInterface) {
-            return $value;
+        if ($value instanceof DateTimeInterface) {
+            return $value->format($this->format);
         }
 
-        return $value->format($this->format);
+        return $value;
     }
 
     public function reverseTransform(mixed $value): mixed
@@ -29,12 +29,14 @@ final class DateTimeTransformer implements DataTransformerInterface
             return null;
         }
 
-        $date = DateTimeImmutable::createFromFormat($this->format, (string) $value);
-
-        if ($date instanceof DateTimeImmutable) {
-            return $date;
+        if ($value instanceof DateTimeImmutable) {
+            return $value;
         }
 
-        return new DateTimeImmutable((string) $value);
+        try {
+            return new DateTimeImmutable((string) $value);
+        } catch (\Exception) {
+            return null;
+        }
     }
 }

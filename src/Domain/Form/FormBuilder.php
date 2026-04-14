@@ -268,15 +268,7 @@ final class FormBuilder
     /**
      * @param array<string, mixed> $options
      * @param array<int, ConstraintInterface> $constraints
-     * @return array{
-     *     0: array<string, mixed>,
-     *     1: array<int, ConstraintInterface>,
-     *     2: array<string, FieldConfig>,
-     *     3: bool,
-     *     4: bool,
-     *     5: ?string,
-     *     6: array<string, mixed>
-     * }
+     * @return array<int, mixed>
      */
     private function normalizeFieldDefinition(
         string $name,

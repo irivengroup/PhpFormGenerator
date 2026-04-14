@@ -809,3 +809,7 @@ Recent fixes include:
 - safer `DateTimeTransformer` fallback logic
 - simplified PHPDoc on `FormBuilder` helper methods for broader analyzer compatibility
 - extraction of small helper classes to start decomposing high-complexity areas
+
+### Final analyzer compatibility pass
+
+This pass removes remaining analyzer-specific issues around enum handling, date parsing branches, and complex array-shape docblocks, while continuing the gradual extraction of responsibilities from `Form` and `HtmlRenderer`.

@@ -25,6 +25,7 @@
 ## Unreleased
 
 ### Fixed
+- Removed remaining analyzer issues in `DateTimeTransformer`, `EnumTransformer`, and `FormBuilder` docs, and continued decomposing `Form`/`HtmlRenderer` responsibilities with helper extraction.
 - Fixed parser-incompatible annotations in `BuiltinTypeRegistry` and `FormBuilder`, updated enum reflection handling, corrected `DateTimeTransformer` fallback logic, and began decomposing complex classes with helper extraction.
 - Hardened builder/type resolution, dynamic nested form instantiation, enum transformation, and captcha test guards to eliminate remaining analyzer ambiguities.
 - Fixed enum transformer property access warnings, corrected dynamic entry form type instantiation syntax, and made `FormView->options` a writable alias initialized from `vars` without readonly violations.
