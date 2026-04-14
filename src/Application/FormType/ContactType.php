@@ -9,6 +9,7 @@ use Iriven\PhpFormGenerator\Domain\Form\FormBuilder;
 use Iriven\PhpFormGenerator\Domain\Constraint\Required;
 use Iriven\PhpFormGenerator\Domain\Constraint\Email;
 use Iriven\PhpFormGenerator\Domain\Constraint\Length;
+use Iriven\PhpFormGenerator\Domain\Contract\OptionsResolverInterface;
 
 final class ContactType implements FormTypeInterface
 {
@@ -85,4 +86,11 @@ final class ContactType implements FormTypeInterface
                 'label' => 'Send message',
             ]);
     }
+public function configureOptions(OptionsResolverInterface $resolver): void
+{
+    $resolver->setDefaults([
+        'csrf_protection' => true,
+    ]);
+}
+
 }
