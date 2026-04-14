@@ -827,3 +827,13 @@ La décomposition structurelle a été engagée sur les deux classes les plus ch
   - `FormViewFactory`
 
 Cela réduit la responsabilité directe des classes façade et prépare les prochaines extractions côté soumission et validation.
+
+### Form comme orchestrateur
+
+`Form` délègue désormais réellement :
+- la soumission à `FormSubmissionProcessor`
+- la validation à `FormValidationProcessor`
+- le mapping final à `FormDataMappingProcessor`
+- la construction de vue à `FormViewBuilder`
+
+La classe `Form` conserve l’API publique mais n’embarque plus directement toute la logique métier interne.
