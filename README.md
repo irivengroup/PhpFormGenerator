@@ -717,3 +717,20 @@ $builder
 Le moteur de résolution interne normalise ces valeurs avant instanciation.
 
 Extension contracts now use explicit `array<string, mixed>` option typing for better static-analysis compatibility.
+
+
+## Internationalisation (i18n)
+
+Le framework intègre maintenant un système de traduction simple :
+
+```php
+use Iriven\PhpFormGenerator\Infrastructure\Translation\ArrayTranslator;
+
+$translator = new ArrayTranslator([
+    'required' => 'Ce champ est requis',
+]);
+
+echo $translator->trans('required');
+```
+
+Les messages de validation peuvent être traduits dynamiquement.

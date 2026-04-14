@@ -1,6 +1,11 @@
 ## Unreleased
 
 ### Added
+- Added basic i18n system with TranslatorInterface and ArrayTranslator.
+
+## Unreleased
+
+### Added
 - V3.7 validation features: `GroupedConstraint` and `When`.
 - V3.7 extension system with `FieldTypeExtensionInterface`, `FormExtensionInterface`, and `ExtensionRegistry`.
 - Native upload pipeline with `NativeRequest`, `UploadedFile`, and `LocalUploadedFileStorage`.
