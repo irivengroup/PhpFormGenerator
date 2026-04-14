@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class Email implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     public function __construct(private readonly string $message = 'This value is not a valid email address.')
     {
     }
@@ -19,6 +20,6 @@ final class Email implements ConstraintInterface
             return [];
         }
 
-        return filter_var((string) $value, FILTER_VALIDATE_EMAIL) !== false ? [] : [$this->message];
+        return filter_var((string) $value, FILTER_VALIDATE_EMAIL) !== false ? [] : [$this->messageFromContext($context, 'email.invalid', $this->message)];
     }
 }

@@ -861,3 +861,31 @@ $manager = new \Iriven\PhpFormGenerator\Infrastructure\Security\SessionCaptchaMa
 ```
 
 Captcha session storage remains backward-compatible: the challenge code is still exposed under `$_SESSION['_pfg_captcha'][<key>]` as a string, while hardening metadata is stored separately under `$_SESSION['_pfg_captcha_meta']`.
+
+## Stabilisation V3.9.1
+
+### Traduction des erreurs natives
+Les contraintes natives suivantes utilisent maintenant le translator lorsqu'il est fourni dans le contexte d'exécution du formulaire :
+- `Required`
+- `Email`
+- `Url`
+- `Choice`
+- `Length`
+- `Min`
+- `Max`
+- `Range`
+- `MimeType`
+- `MaxFileSize`
+
+### Accessibilité HTML
+Le renderer enrichit désormais les champs avec :
+- `aria-invalid`
+- `aria-describedby`
+- identifiants dédiés pour les messages d'aide et d'erreur
+- `role="alert"` sur les erreurs
+
+### Couverture ciblée
+Des tests dédiés ont été ajoutés pour :
+- traduction de contraintes
+- accessibilité du rendu HTML
+- passage du translator dans la validation framework

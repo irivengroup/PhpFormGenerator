@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class Length implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     public function __construct(
         private readonly ?int $min = null,
         private readonly ?int $max = null,
@@ -25,11 +26,11 @@ final class Length implements ConstraintInterface
         $length = mb_strlen((string) $value);
 
         if ($this->min !== null && $length < $this->min) {
-            return [$this->message];
+            return [$this->messageFromContext($context, 'length.invalid', $this->message, ['min' => $this->min, 'max' => $this->max])];
         }
 
         if ($this->max !== null && $length > $this->max) {
-            return [$this->message];
+            return [$this->messageFromContext($context, 'length.invalid', $this->message, ['min' => $this->min, 'max' => $this->max])];
         }
 
         return [];

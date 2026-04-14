@@ -21,6 +21,7 @@ final class FormValidationProcessor
             'path' => $path,
             'data' => $form->getData(),
             'form' => $form,
+            'translator' => $form->options()['translator'] ?? null,
         ]);
 
         if ($errors === []) {
@@ -67,6 +68,7 @@ final class FormValidationProcessor
             'values' => $form->submittedValues(),
             'data' => $form->getData(),
             'form' => $form,
+            'translator' => $form->options()['translator'] ?? null,
         ]);
 
         if ($errors !== []) {

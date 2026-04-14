@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class Url implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     public function __construct(private readonly string $message = 'This value is not a valid URL.')
     {
     }
@@ -19,6 +20,6 @@ final class Url implements ConstraintInterface
             return [];
         }
 
-        return filter_var((string) $value, FILTER_VALIDATE_URL) !== false ? [] : [$this->message];
+        return filter_var((string) $value, FILTER_VALIDATE_URL) !== false ? [] : [$this->messageFromContext($context, 'url.invalid', $this->message)];
     }
 }

@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class MimeType implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     /** @param array<int, string> $allowed */
     public function __construct(
         private readonly array $allowed,
@@ -30,6 +31,6 @@ final class MimeType implements ConstraintInterface
             return [];
         }
 
-        return in_array((string) $mimeType, $this->allowed, true) ? [] : [$this->message];
+        return in_array((string) $mimeType, $this->allowed, true) ? [] : [$this->messageFromContext($context, 'mime_type.invalid', $this->message)];
     }
 }

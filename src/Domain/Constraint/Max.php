@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class Max implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     public function __construct(
         private readonly int|float $max,
         private readonly string $message = 'This value is too large.',
@@ -21,6 +22,6 @@ final class Max implements ConstraintInterface
             return [];
         }
 
-        return is_numeric($value) && (float) $value <= (float) $this->max ? [] : [$this->message];
+        return is_numeric($value) && (float) $value <= (float) $this->max ? [] : [$this->messageFromContext($context, 'max.invalid', $this->message, ['max' => $this->max])];
     }
 }

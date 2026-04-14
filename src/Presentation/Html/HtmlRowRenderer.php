@@ -35,7 +35,7 @@ final class HtmlRowRenderer
         if ($view->type === 'Iriven\\PhpFormGenerator\\Domain\\Field\\CheckboxType') {
             $html .= $this->renderLabel($view);
         }
-        $html .= $this->renderErrors($view->errors);
+        $html .= $this->renderErrorsForView($view);
         $html .= $this->renderHelp($view);
 
         return $html . '</div>';
@@ -48,7 +48,7 @@ final class HtmlRowRenderer
         foreach ($view->children as $child) {
             $html .= $this->render($child);
         }
-        $html .= $this->renderErrors($view->errors);
+        $html .= $this->renderErrorsForView($view);
 
         return $html . '</fieldset></div>';
     }
@@ -71,27 +71,35 @@ final class HtmlRowRenderer
             }
             $html .= '<template data-prototype="1">' . htmlspecialchars($prototype, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</template>';
         }
-        $html .= $this->renderErrors($view->errors);
+        $html .= $this->renderErrorsForView($view);
 
         return $html . '</div>';
     }
 
     private function renderLabel(FormView $view): string
     {
+        $required = (($view->vars['required'] ?? false) === true) ? ' <span aria-hidden="true">*</span>' : '';
+
         return sprintf(
-            '<label for="%s" class="%s">%s</label>',
+            '<label for="%s" class="%s">%s%s</label>',
             $this->e($view->id),
             $this->e($this->theme->labelClass()),
-            $this->e((string) ($view->vars['label'] ?? $view->name))
+            $this->e((string) ($view->vars['label'] ?? $view->name)),
+            $required
         );
     }
 
+    private function renderErrorsForView(FormView $view): string
+    {
+        return $this->renderErrors($view->errors, $view->id . '_errors');
+    }
+
     /** @param array<int, string> $errors */
-    private function renderErrors(array $errors): string
+    private function renderErrors(array $errors, ?string $id = null): string
     {
         $html = '';
         foreach ($errors as $error) {
-            $html .= '<div class="' . $this->e($this->theme->errorClass()) . '">' . $this->e($error) . '</div>';
+            $html .= '<div' . ($id !== null ? ' id="' . $this->e($id) . '"' : '') . ' role="alert" aria-live="polite" class="' . $this->e($this->theme->errorClass()) . '">' . $this->e($error) . '</div>';
         }
 
         return $html;
@@ -103,7 +111,7 @@ final class HtmlRowRenderer
             return '';
         }
 
-        return '<small>' . $this->e((string) $view->vars['help']) . '</small>';
+        return '<small id="' . $this->e($view->id . '_help') . '">' . $this->e((string) $view->vars['help']) . '</small>';
     }
 
     private function e(string $value): string

@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class MaxFileSize implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     public function __construct(
         private readonly int $maxBytes,
         private readonly string $message = 'The uploaded file is too large.',
@@ -26,6 +27,6 @@ final class MaxFileSize implements ConstraintInterface
             return [];
         }
 
-        return $size <= $this->maxBytes ? [] : [$this->message];
+        return $size <= $this->maxBytes ? [] : [$this->messageFromContext($context, 'max_file_size.invalid', $this->message, ['max_bytes' => $this->maxBytes])];
     }
 }

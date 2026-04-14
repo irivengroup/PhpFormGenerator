@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class Range implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     public function __construct(
         private readonly int|float $min,
         private readonly int|float $max,
@@ -23,11 +24,11 @@ final class Range implements ConstraintInterface
         }
 
         if (!is_numeric($value)) {
-            return [$this->message];
+            return [$this->messageFromContext($context, 'range.invalid', $this->message)];
         }
 
         $numeric = (float) $value;
 
-        return $numeric >= (float) $this->min && $numeric <= (float) $this->max ? [] : [$this->message];
+        return $numeric >= (float) $this->min && $numeric <= (float) $this->max ? [] : [$this->messageFromContext($context, 'range.invalid', $this->message, ['min' => $this->min, 'max' => $this->max])];
     }
 }

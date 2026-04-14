@@ -54,6 +54,21 @@ final class HtmlWidgetRenderer
             $attr['multiple'] = 'multiple';
         }
 
+        if ($view->errors !== []) {
+            $attr['aria-invalid'] = 'true';
+        }
+
+        $describedBy = [];
+        if (($view->vars['help'] ?? null) !== null) {
+            $describedBy[] = $view->id . '_help';
+        }
+        if ($view->errors !== []) {
+            $describedBy[] = $view->id . '_errors';
+        }
+        if ($describedBy !== []) {
+            $attr['aria-describedby'] = implode(' ', $describedBy);
+        }
+
         return $attr;
     }
 

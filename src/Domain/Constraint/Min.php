@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class Min implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     public function __construct(
         private readonly int|float $min,
         private readonly string $message = 'This value is too small.',
@@ -21,6 +22,6 @@ final class Min implements ConstraintInterface
             return [];
         }
 
-        return is_numeric($value) && (float) $value >= (float) $this->min ? [] : [$this->message];
+        return is_numeric($value) && (float) $value >= (float) $this->min ? [] : [$this->messageFromContext($context, 'min.invalid', $this->message, ['min' => $this->min])];
     }
 }

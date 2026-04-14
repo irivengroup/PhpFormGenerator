@@ -8,6 +8,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 
 final class Choice implements ConstraintInterface
 {
+    use TranslatableConstraintMessageTrait;
     /** @param array<int, string|int> $choices */
     public function __construct(
         private readonly array $choices,
@@ -28,13 +29,13 @@ final class Choice implements ConstraintInterface
         if (is_array($value)) {
             foreach ($value as $item) {
                 if (!in_array($item, $this->choices, true)) {
-                    return [$this->message];
+                    return [$this->messageFromContext($context, 'choice.invalid', $this->message)];
                 }
             }
 
             return [];
         }
 
-        return in_array($value, $this->choices, true) ? [] : [$this->message];
+        return in_array($value, $this->choices, true) ? [] : [$this->messageFromContext($context, 'choice.invalid', $this->message)];
     }
 }
