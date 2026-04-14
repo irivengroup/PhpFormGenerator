@@ -800,3 +800,12 @@ This keeps runtime behavior unchanged while improving compatibility with stricte
 Core hotspots were decomposed to improve maintainability:
 - `FormBuilder::add()` now delegates resolution, normalization, extension application, captcha setup, file setup, and fieldset attachment to dedicated methods.
 - `HtmlRenderer::renderWidget()` now delegates rendering to smaller widget-specific methods.
+
+### Additional compatibility and maintainability pass
+
+Recent fixes include:
+- parser-friendly return annotations in `BuiltinTypeRegistry`
+- reflection handling updated in `EnumTransformer`
+- safer `DateTimeTransformer` fallback logic
+- simplified PHPDoc on `FormBuilder` helper methods for broader analyzer compatibility
+- extraction of small helper classes to start decomposing high-complexity areas

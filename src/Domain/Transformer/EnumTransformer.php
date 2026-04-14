@@ -7,8 +7,6 @@ namespace Iriven\PhpFormGenerator\Domain\Transformer;
 use BackedEnum;
 use InvalidArgumentException;
 use Iriven\PhpFormGenerator\Domain\Contract\DataTransformerInterface;
-use ReflectionEnum;
-use ReflectionEnumBackedCase;
 use UnitEnum;
 
 final class EnumTransformer implements DataTransformerInterface
@@ -26,14 +24,14 @@ final class EnumTransformer implements DataTransformerInterface
             return $value;
         }
 
-        $reflection = new ReflectionEnum($value::class);
+        $reflection = new \ReflectionEnum($value::class);
 
         foreach ($reflection->getCases() as $caseReflection) {
             if ($caseReflection->getValue() !== $value) {
                 continue;
             }
 
-            if ($caseReflection instanceof ReflectionEnumBackedCase) {
+            if ($caseReflection instanceof \ReflectionEnumBackedCase) {
                 return $caseReflection->getBackingValue();
             }
 
@@ -58,13 +56,13 @@ final class EnumTransformer implements DataTransformerInterface
         }
 
         if (is_subclass_of($this->enumClass, BackedEnum::class)) {
-            /** @var class-string<BackedEnum> $backedEnumClass */
+            /** @var string $backedEnumClass */
             $backedEnumClass = $this->enumClass;
 
             return $backedEnumClass::from($value);
         }
 
-        $reflection = new ReflectionEnum($this->enumClass);
+        $reflection = new \ReflectionEnum($this->enumClass);
 
         foreach ($reflection->getCases() as $caseReflection) {
             if ($caseReflection->getName() === (string) $value) {

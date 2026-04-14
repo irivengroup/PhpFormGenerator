@@ -163,7 +163,7 @@ final class HtmlRenderer
         );
     }
 
-    private function renderWidget(FormView $view): string
+    public function renderWidget(FormView $view): string
     {
         $typeClass = (string) ($view->vars['type_class'] ?? $view->type);
         $attr = $this->baseAttributes($view);

@@ -7,7 +7,7 @@ namespace Iriven\PhpFormGenerator\Infrastructure\Type;
 final class BuiltinTypeRegistry
 {
     /**
-     * @return array<string, class-string>
+     * @return array<string, string>
      */
     public static function fieldTypes(): array
     {
@@ -51,7 +51,7 @@ final class BuiltinTypeRegistry
     }
 
     /**
-     * @return array<string, class-string>
+     * @return array<string, string>
      */
     public static function formTypes(): array
     {

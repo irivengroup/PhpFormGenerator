@@ -248,7 +248,7 @@ final class FormBuilder
      * @param array<string, mixed> $options
      * @param array<int, ConstraintInterface> $constraints
      * @param array<int, DataTransformerInterface> $transformers
-     * @return array{0: array<string, mixed>, 1: array<int, ConstraintInterface>, 2: array<int, DataTransformerInterface>}
+     * @return array<int, mixed>
      */
     private function applyFieldExtensions(
         string $typeClass,
@@ -314,7 +314,7 @@ final class FormBuilder
 
     /**
      * @param array<string, mixed> $options
-     * @return array{0: array<string, mixed>, 1: array<string, FieldConfig>}
+     * @return array<int, mixed>
      */
     private function buildCompoundChildren(string $name, string $typeClass, array $options): array
     {

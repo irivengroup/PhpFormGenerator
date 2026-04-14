@@ -31,6 +31,10 @@ final class DateTimeTransformer implements DataTransformerInterface
 
         $date = DateTimeImmutable::createFromFormat($this->format, (string) $value);
 
-        return $date ?: new DateTimeImmutable((string) $value);
+        if ($date instanceof DateTimeImmutable) {
+            return $date;
+        }
+
+        return new DateTimeImmutable((string) $value);
     }
 }
