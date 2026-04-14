@@ -424,7 +424,9 @@ final class Form
                     $entryChildren = [];
                     if ($field->entryType !== null && is_subclass_of($field->entryType, FormTypeInterface::class)) {
                         $builder = new FormBuilder($name . '_entry', null, $field->entryOptions + ['event_dispatcher' => $this->eventDispatcher]);
-                        $entry = new ($field->entryType)();
+                        /** @var string $entryTypeClass */
+                        $entryTypeClass = $field->entryType;
+                        $entry = new $entryTypeClass();
                         $resolver = new OptionsResolver();
                         $entry->configureOptions($resolver);
                         $resolved = $resolver->resolve($field->entryOptions);
@@ -457,7 +459,9 @@ final class Form
 
             if (($field->options['prototype'] ?? false) === true && $field->entryType !== null && is_subclass_of($field->entryType, FormTypeInterface::class)) {
                 $builder = new FormBuilder($name . '_prototype', null, $field->entryOptions + ['event_dispatcher' => $this->eventDispatcher]);
-                $entry = new ($field->entryType)();
+                /** @var string $entryTypeClass */
+                        $entryTypeClass = $field->entryType;
+                        $entry = new $entryTypeClass();
                 $resolver = new OptionsResolver();
                 $entry->configureOptions($resolver);
                 $resolved = $resolver->resolve($field->entryOptions);

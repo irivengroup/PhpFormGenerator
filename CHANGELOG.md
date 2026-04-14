@@ -24,6 +24,7 @@
 ## Unreleased
 
 ### Fixed
+- Fixed enum transformer property access warnings, corrected dynamic entry form type instantiation syntax, and made `FormView->options` a writable alias initialized from `vars` without readonly violations.
 - Fixed enum transformation for both pure enums and backed enums, and simplified session activation checks in session-based security managers for static-analysis compatibility.
 - Fixed `YesNoType::choices()` to return a true `array<string, string>` shape for PHPStan compliance.
 - Fixed PHPStan issues in `YesNoType::choices()` and captcha length normalization in `FormBuilder`.

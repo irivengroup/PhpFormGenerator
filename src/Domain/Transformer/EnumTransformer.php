@@ -20,7 +20,21 @@ final class EnumTransformer implements DataTransformerInterface
 
     public function transform(mixed $value): mixed
     {
-        return $value instanceof BackedEnum ? $value->value : ($value instanceof UnitEnum ? $value->name : $value);
+        if ($value instanceof BackedEnum) {
+            /** @var string|int $backedValue */
+            $backedValue = $value->value;
+
+            return $backedValue;
+        }
+
+        if ($value instanceof UnitEnum) {
+            /** @var string $caseName */
+            $caseName = $value->name;
+
+            return $caseName;
+        }
+
+        return $value;
     }
 
     public function reverseTransform(mixed $value): mixed

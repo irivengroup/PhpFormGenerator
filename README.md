@@ -777,3 +777,10 @@ Session-based security managers were also hardened further:
 - `session_start()` is now called explicitly
 - session activation is verified separately afterward
 - no boolean expression relies on assumptions that confuse static analyzers
+
+### Reliability pass on enums, dynamic form entries, and form views
+
+Recent hardening fixes also include:
+- safer enum value/name extraction in `EnumTransformer`
+- explicit dynamic class instantiation for nested collection entry form types
+- backward-compatible `FormView->options` alias without violating readonly semantics

@@ -7,7 +7,7 @@ namespace Iriven\PhpFormGenerator\Domain\Form;
 final class FormView
 {
     /** @var array<string, mixed> */
-    public readonly array $options;
+    public array $options;
 
     /**
      * @param array<string, mixed> $vars
