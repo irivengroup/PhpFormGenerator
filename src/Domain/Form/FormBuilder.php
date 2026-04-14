@@ -235,7 +235,7 @@ final class FormBuilder
         $options = $this->options + [
             'method' => 'POST',
             'action' => '',
-            'csrf_protection' => false,
+            'csrf_protection' => true,
             'csrf_field_name' => '_token',
             'csrf_token_id' => $this->name,
             'csrf_manager' => new NullCsrfManager(),

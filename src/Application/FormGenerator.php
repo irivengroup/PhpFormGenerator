@@ -54,6 +54,7 @@ final class FormGenerator
     /** @param array<string, mixed> $options */
     public function open(array $options = []): self
     {
+        $options['csrf_protection'] = $options['csrf_protection'] ?? true;
         $this->builder->mergeOptions($options);
 
         return $this;

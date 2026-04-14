@@ -20,17 +20,11 @@ final class InvoiceType implements FormTypeInterface
         $builder
             ->addFieldset([
                 'legend' => 'Invoice',
-                'description' => 'Invoice header and customer information.',
+                'description' => 'Invoice header and line items.',
             ])
-            ->add('customer', CustomerType::class, [
-                'label' => 'Customer',
-            ])
-            ->add('issuedAt', DatetimeType::class, [
-                'label' => 'Issued at',
-                'constraints' => [new Required()],
-            ])
+            ->add('customer', CustomerType::class, ['label' => 'Customer'])
+            ->add('issuedAt', DatetimeType::class, ['constraints' => [new Required()]])
             ->add('items', CollectionType::class, [
-                'label' => 'Line items',
                 'entry_type' => InvoiceLineType::class,
                 'entry_options' => [],
                 'allow_add' => true,
@@ -38,15 +32,14 @@ final class InvoiceType implements FormTypeInterface
                 'prototype' => true,
             ])
             ->endFieldset()
-            ->add('submit', SubmitType::class, [
-                'label' => 'Save invoice',
-            ]);
+            ->add('submit', SubmitType::class, ['label' => 'Save invoice']);
     }
 
     public function configureOptions(OptionsResolverInterface $resolver): void
     {
         $resolver->setDefaults([
             'method' => 'POST',
+            'csrf_protection' => true,
         ]);
     }
 }

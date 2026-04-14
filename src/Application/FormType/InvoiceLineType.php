@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Application\FormType;
 
-use Iriven\PhpFormGenerator\Domain\Constraint\Min;
 use Iriven\PhpFormGenerator\Domain\Constraint\Required;
 use Iriven\PhpFormGenerator\Domain\Contract\FormTypeInterface;
 use Iriven\PhpFormGenerator\Domain\Contract\OptionsResolverInterface;
@@ -19,22 +18,15 @@ final class InvoiceLineType implements FormTypeInterface
     public function buildForm(FormBuilder $builder, array $options = []): void
     {
         $builder
-            ->add('label', TextType::class, [
-                'label' => 'Item label',
-                'constraints' => [new Required()],
-            ])
-            ->add('quantity', IntegerType::class, [
-                'label' => 'Quantity',
-                'constraints' => [new Min(1)],
-            ])
-            ->add('price', FloatType::class, [
-                'label' => 'Unit price',
-                'constraints' => [new Min(0)],
-            ]);
+            ->add('label', TextType::class, ['constraints' => [new Required()]])
+            ->add('quantity', IntegerType::class, ['constraints' => [new Required()]])
+            ->add('price', FloatType::class, ['constraints' => [new Required()]]);
     }
 
     public function configureOptions(OptionsResolverInterface $resolver): void
     {
-        $resolver->setDefaults([]);
+        $resolver->setDefaults([
+            'csrf_protection' => true,
+        ]);
     }
 }

@@ -1,6 +1,8 @@
 ## Unreleased
 
+### Added
+- Added reusable application form types: `ContactType`, `InvoiceType`, `RegistrationType`, `CustomerType`, and `InvoiceLineType`.
+
 ### Changed
-- CSRF protection is now enabled by default for factory-created and builder-based forms.
-- Users only need to declare `csrf_protection => false` when they intentionally want to disable CSRF.
-- Documentation updated to describe the default CSRF behavior and current application form types.
+- CSRF protection now defaults to `true` in the factory, fluent builder entry point, and generated forms.
+- Documentation updated to describe built-in form types and default CSRF behavior.

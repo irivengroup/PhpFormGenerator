@@ -273,47 +273,51 @@ Les contraintes intégrées incluent notamment :
 - `multipart/form-data` est géré automatiquement
 - le projet est autonome et ne repose sur aucun framework externe
 
+## Built-in application form types
 
-## Additional built-in business form types
+The project includes reusable application-level form types:
 
-The project now ships with reusable application-level form types under `src/Application/FormType`.
+- `ContactType`
+- `InvoiceType`
+- `RegistrationType`
+- supporting nested types: `CustomerType`, `InvoiceLineType`
 
-### InvoiceType
+### CSRF protection defaults
 
-`InvoiceType` demonstrates a realistic business form with:
-- nested `CustomerType`
-- `DatetimeType` invoice date field
-- `CollectionType` of `InvoiceLineType`
-- fieldset grouping
-- submit button
+CSRF protection is enabled by default.
 
-Typical usage:
+You do not need to declare it explicitly. Pass `['csrf_protection' => false]` only when you intentionally want to disable it.
 
-```php
-use Iriven\PhpFormGenerator\Application\FormFactory;
-use Iriven\PhpFormGenerator\Application\FormType\InvoiceType;
+### ContactType
 
-$form = (new FormFactory())->create(InvoiceType::class, [], [
-    'name' => 'invoice',
-]);
-```
+`ContactType` includes:
+- `name`
+- `email`
+- `phone`
+- `country`
+- `subject`
+- `message`
+- `captcha`
+- `submit`
 
 ### RegistrationType
 
-`RegistrationType` demonstrates a secure registration workflow with:
-- email field with `Required` and `Email`
-- password and confirmation fields
-- terms checkbox with server-side validation
-- built-in alphanumeric captcha
-- form-level password confirmation validation
+`RegistrationType` includes:
+- `email`
+- `password`
+- `confirmPassword`
+- `acceptTerms`
+- `captcha`
+- `submit`
 
-Typical usage:
+It also adds a form-level validation rule to verify password confirmation.
 
-```php
-use Iriven\PhpFormGenerator\Application\FormFactory;
-use Iriven\PhpFormGenerator\Application\FormType\RegistrationType;
+### InvoiceType
 
-$form = (new FormFactory())->create(RegistrationType::class, [], [
-    'name' => 'registration',
-]);
-```
+`InvoiceType` includes:
+- nested `customer`
+- `issuedAt`
+- collection of `items`
+- submit button
+
+The line items use `InvoiceLineType`, and the customer section uses `CustomerType`.
