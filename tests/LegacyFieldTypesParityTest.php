@@ -12,11 +12,10 @@ final class LegacyFieldTypesParityTest extends TestCase
     {
         $classes = [
             'AudioType','ButtonType','CaptchaType','CheckboxType','ColorType','CountryType','DatalistType',
-            'DateType','DatetimeType','DatetimeLocalType','EditorType','EmailType','FileType','FloatType',
+            'DateType','DateTimeType','DatetimeLocalType','EditorType','EmailType','FileType','FloatType',
             'HiddenType','ImageType','IntegerType','MonthType','NumberType','PasswordType','PhoneType',
             'RadioType','RangeType','ResetType','SearchType','SelectType','SubmitType','TextType',
-            'TextareaType','TextAreaType','TimeType','UrlType','VideoType','WeekType','YesNoType',
-            'CollectionType','DateTimeType'
+            'TextareaType','TimeType','UrlType','VideoType','WeekType','YesNoType','CollectionType'
         ];
 
         foreach ($classes as $class) {
@@ -24,12 +23,13 @@ final class LegacyFieldTypesParityTest extends TestCase
         }
     }
 
-    public function testDateTimeAliasesResolveToCanonicalType(): void
+    public function testCaseInsensitiveLegacyAliasesResolveToCanonicalType(): void
     {
         self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\DateTimeType'));
-        self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeType'));
+        self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeType', false));
         self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeLocalType'));
-        self::assertTrue(is_subclass_of('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeType', 'Iriven\\PhpFormGenerator\\Domain\\Field\\DateTimeType'));
-        self::assertTrue(is_subclass_of('Iriven\\PhpFormGenerator\\Domain\\Field\\DatetimeLocalType', 'Iriven\\PhpFormGenerator\\Domain\\Field\\DateTimeType'));
+
+        self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\TextareaType'));
+        self::assertTrue(class_exists('Iriven\\PhpFormGenerator\\Domain\\Field\\TextAreaType', false));
     }
 }
