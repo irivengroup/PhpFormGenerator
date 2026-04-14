@@ -4,19 +4,29 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Domain\Field;
 
-class CountryType extends SelectType
+class CountryType extends ChoiceType
 {
     /**
      * Returns the built-in country choice list.
      *
-     * Keys are normalized to uppercase country codes and values are normalized
-     * as trimmed display labels.
+     * Supported options:
+     * - sort: bool
+     * - region: string|null
      *
+     * Available regions:
+     * - africa
+     * - americas
+     * - asia
+     * - europe
+     * - oceania
+     * - middle_east
+     *
+     * @param array<string, mixed> $options
      * @return array<string, string>
      */
-    public static function choices(): array
+    public static function choices(array $options = []): array
     {
-        return [
+        $countries = [
             'AF' => 'Afghanistan',
             'AX' => 'Aland Islands',
             'AL' => 'Albania',
@@ -263,5 +273,36 @@ class CountryType extends SelectType
             'ZM' => 'Zambia',
             'ZW' => 'Zimbabwe',
         ];
+
+        $region = isset($options['region']) && is_string($options['region'])
+            ? strtolower(trim($options['region']))
+            : null;
+
+        if ($region !== null && $region != '') {
+            $countries = array_intersect_key($countries, array_flip(self::regionCodes($region)));
+        }
+
+        $sort = (bool) ($options['sort'] ?? false);
+        if ($sort) {
+            asort($countries, SORT_NATURAL | SORT_FLAG_CASE);
+        }
+
+        return $countries;
+    }
+
+    /**
+     * @return list<string>
+     */
+    private static function regionCodes(string $region): array
+    {
+        return match ($region) {
+            'africa' => ['DZ','AO','BJ','BW','BF','BI','CM','CV','CF','TD','KM','CG','CD','CI','DJ','EG','GQ','ER','ET','GA','GM','GH','GN','GW','KE','LS','LR','LY','MG','MW','ML','MR','MU','YT','MA','MZ','NA','NE','NG','RE','RW','SH','ST','SN','SC','SL','SO','ZA','SD','SZ','TZ','TG','TN','UG','EH','ZM','ZW'],
+            'americas' => ['AI','AG','AR','AW','BS','BB','BZ','BM','BO','BR','CA','KY','CL','CO','CR','CU','DM','DO','EC','SV','FK','GF','GL','GD','GP','GU','GT','GY','HT','HN','JM','MQ','MX','MS','NI','PA','PY','PE','PR','BL','KN','LC','MF','PM','VC','SR','TT','US','UM','UY','VE','VG','VI'],
+            'asia' => ['AF','AM','AZ','BH','BD','BT','BN','KH','CN','CX','CC','GE','HK','IN','ID','IR','IQ','IL','JP','JO','KZ','KW','KG','LA','LB','MO','MY','MV','MN','MM','NP','KP','KR','OM','PK','PS','PH','QA','SA','SG','LK','SY','TW','TJ','TH','TL','TR','TM','AE','UZ','VN','YE'],
+            'europe' => ['AX','AL','AD','AT','BY','BE','BA','BG','HR','CY','CZ','DK','EE','FO','FI','FR','DE','GI','GR','GG','VA','HU','IS','IE','IM','IT','JE','LV','LI','LT','LU','MK','MT','MD','MC','ME','NL','AN','NO','PL','PT','RO','RU','SM','RS','SK','SI','ES','SJ','SE','CH','UA','GB'],
+            'oceania' => ['AS','AU','CK','FJ','PF','GU','KI','MH','FM','NR','NC','NZ','NU','NF','MP','PW','PG','PN','WS','SB','TK','TO','TV','UM','VU','WF'],
+            'middle_east' => ['BH','IR','IQ','IL','JO','KW','LB','OM','PS','QA','SA','SY','AE','YE'],
+            default => [],
+        };
     }
 }

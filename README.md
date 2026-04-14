@@ -344,3 +344,29 @@ Examples:
 - `US => United States`
 - `CI => Cote D'Ivoire`
 - `TL => Timor-Leste`
+
+### CountryType advanced options
+
+`CountryType` now supports the full built-in country list with additional runtime options:
+
+- `sort` => `true` to sort countries alphabetically by label
+- `placeholder` => `'Select a country'` to render an empty first option
+- `region` => one of:
+  - `africa`
+  - `americas`
+  - `asia`
+  - `europe`
+  - `oceania`
+  - `middle_east`
+
+Example:
+
+```php
+$builder->add('country', \Iriven\PhpFormGenerator\Domain\Field\CountryType::class, [
+    'placeholder' => 'Select a country',
+    'sort' => true,
+    'region' => 'europe',
+]);
+```
+
+Legacy compatibility is also preserved through the presence of `ChoiceType`.

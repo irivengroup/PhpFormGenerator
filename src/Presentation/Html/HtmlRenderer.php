@@ -184,7 +184,7 @@ final class HtmlRenderer
 
         if ($htmlType === 'select') {
             $attr['class'] = trim(($attr['class'] ?? '') . ' ' . $this->theme->inputClass());
-            $choices = $view->vars['choices'] ?? ($typeClass === CountryType::class ? CountryType::choices() : ($typeClass === YesNoType::class ? YesNoType::choices() : []));
+            $choices = $view->vars['choices'] ?? ($typeClass === CountryType::class ? CountryType::choices($view->vars) : ($typeClass === YesNoType::class ? YesNoType::choices() : []));
             $multiple = ($view->vars['multiple'] ?? false) === true;
             if ($multiple) {
                 $attr['name'] = $view->fullName . '[]';
@@ -192,6 +192,10 @@ final class HtmlRenderer
 
             $selectedValues = $multiple && is_array($view->value) ? array_map('strval', $view->value) : [(string) $view->value];
             $html = '<select' . $this->renderAttributes($attr) . '>';
+            if (isset($view->vars['placeholder']) && is_string($view->vars['placeholder']) && $view->vars['placeholder'] !== '') {
+                $selected = ((string) $view->value === '') ? ' selected' : '';
+                $html .= '<option value=""' . $selected . '>' . $this->e($view->vars['placeholder']) . '</option>';
+            }
             foreach ($choices as $choiceValue => $label) {
                 $selected = in_array((string) $choiceValue, $selectedValues, true) ? ' selected' : '';
                 $html .= '<option value="' . $this->e((string) $choiceValue) . '"' . $selected . '>' . $this->e((string) $label) . '</option>';
