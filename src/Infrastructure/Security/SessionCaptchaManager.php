@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace Iriven\PhpFormGenerator\Infrastructure\Security;
 
 use Iriven\PhpFormGenerator\Domain\Contract\CaptchaManagerInterface;
+use RuntimeException;
 
 final class SessionCaptchaManager implements CaptchaManagerInterface
 {
     public function __construct()
     {
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            @session_start();
-        }
+        $this->ensureSessionStarted();
         $_SESSION['_pfg_captcha'] ??= [];
     }
 
@@ -36,13 +35,33 @@ final class SessionCaptchaManager implements CaptchaManagerInterface
 
     public function isCodeValid(string $key, ?string $input): bool
     {
-        if ($input === null || $input == '') {
+        if ($input === null || $input === '') {
             return false;
         }
 
+        /** @var string|null $expected */
         $expected = $_SESSION['_pfg_captcha'][$key] ?? null;
         unset($_SESSION['_pfg_captcha'][$key]);
 
         return is_string($expected) && hash_equals($expected, $input);
+    }
+
+    private function ensureSessionStarted(): void
+    {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            return;
+        }
+
+        if (headers_sent($file, $line)) {
+            throw new RuntimeException(sprintf(
+                'Unable to start session for captcha storage because headers were already sent in %s on line %d.',
+                $file,
+                $line
+            ));
+        }
+
+        if (session_start() !== true || session_status() !== PHP_SESSION_ACTIVE) {
+            throw new RuntimeException('Unable to start session for captcha storage.');
+        }
     }
 }

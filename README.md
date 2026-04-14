@@ -743,3 +743,16 @@ Signature documentée :
 - `array<string, scalar|null> $parameters`
 
 Cela améliore la compatibilité avec PHPStan sans changer l’API publique.
+
+### Session security hardening
+
+The native session-based managers no longer suppress `session_start()` errors.
+
+Current behavior:
+- sessions are started explicitly and verified
+- failure to start the session raises a clear `RuntimeException`
+- CSRF and captcha session storage are initialized only after a valid active session exists
+
+This applies to:
+- `SessionCsrfManager`
+- `SessionCaptchaManager`

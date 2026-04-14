@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Iriven\PhpFormGenerator\Infrastructure\Security;
 
 use Iriven\PhpFormGenerator\Domain\Contract\CsrfManagerInterface;
+use RuntimeException;
 
 final class SessionCsrfManager implements CsrfManagerInterface
 {
     public function __construct()
     {
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            @session_start();
-        }
+        $this->ensureSessionStarted();
+        $_SESSION['_pfg_csrf'] ??= [];
     }
 
     public function generateToken(string $tokenId): string
     {
-        $_SESSION['_pfg_csrf'] ??= [];
+        /** @var array<string, string> $_SESSION['_pfg_csrf'] */
         $_SESSION['_pfg_csrf'][$tokenId] ??= bin2hex(random_bytes(16));
 
         return (string) $_SESSION['_pfg_csrf'][$tokenId];
@@ -29,8 +29,28 @@ final class SessionCsrfManager implements CsrfManagerInterface
             return false;
         }
 
+        /** @var string|null $expected */
         $expected = $_SESSION['_pfg_csrf'][$tokenId] ?? null;
 
         return is_string($expected) && hash_equals($expected, $token);
+    }
+
+    private function ensureSessionStarted(): void
+    {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            return;
+        }
+
+        if (headers_sent($file, $line)) {
+            throw new RuntimeException(sprintf(
+                'Unable to start session for CSRF storage because headers were already sent in %s on line %d.',
+                $file,
+                $line
+            ));
+        }
+
+        if (session_start() !== true || session_status() !== PHP_SESSION_ACTIVE) {
+            throw new RuntimeException('Unable to start session for CSRF storage.');
+        }
     }
 }
