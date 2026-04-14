@@ -327,3 +327,5 @@ The generated `FormView` now exposes the root options through both `vars` and `o
 Additional hardening:
 - `YesNoType` now exposes string choice keys consistently.
 - captcha length normalization no longer triggers PHPStan false positives.
+
+`YesNoType` now exposes canonical string keys (`yes` / `no`) for stricter static-analysis compatibility.

@@ -1,6 +1,7 @@
 ## Unreleased
 
 ### Fixed
+- Fixed `YesNoType::choices()` to return a true `array<string, string>` shape for PHPStan compliance.
 - Fixed PHPStan issues in `YesNoType::choices()` and captcha length normalization in `FormBuilder`.
 
 
