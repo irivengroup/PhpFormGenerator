@@ -151,7 +151,7 @@ final class PropertyAccessor
             }
 
             if (!property_exists($current, $segment)) {
-                $current->{$segment} = method_exists($current, $getter) ? $current->{$getter}() : $child;
+                $current->{$segment} = $current->{$getter}();
             }
 
             $current =& $current->{$segment};
