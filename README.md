@@ -889,3 +889,5 @@ Des tests dédiés ont été ajoutés pour :
 - traduction de contraintes
 - accessibilité du rendu HTML
 - passage du translator dans la validation framework
+
+Translator support now also applies to CSRF request-time validation errors emitted under the `_form` error bag.

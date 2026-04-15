@@ -11,6 +11,7 @@ use Iriven\PhpFormGenerator\Domain\Event\PostSubmitEvent;
 use Iriven\PhpFormGenerator\Domain\Event\PreSubmitEvent;
 use Iriven\PhpFormGenerator\Domain\Event\SubmitEvent;
 use Iriven\PhpFormGenerator\Infrastructure\Options\OptionsResolver;
+use Iriven\PhpFormGenerator\Infrastructure\Translation\TranslatorInterface;
 
 final class FormSubmissionProcessor
 {
@@ -69,7 +70,7 @@ final class FormSubmissionProcessor
         $csrfManager = $form->options()['csrf_manager'] ?? null;
 
         if ($csrfManager !== null && !$csrfManager->isTokenValid($tokenId, is_string($payload[$tokenField] ?? null) ? $payload[$tokenField] : null)) {
-            $form->appendError('_form', 'Invalid CSRF token.');
+            $form->appendError('_form', $this->trans($form, 'csrf.invalid', 'Invalid CSRF token.'));
             $form->setValid(false);
         }
     }
@@ -187,5 +188,25 @@ final class FormSubmissionProcessor
         }
 
         return $entryValues;
+    }
+
+
+    /**
+     * @param array<string, scalar|null> $parameters
+     */
+    private function trans(Form $form, string $key, string $fallback, array $parameters = []): string
+    {
+        $translator = $form->options()['translator'] ?? null;
+
+        if ($translator instanceof TranslatorInterface) {
+            return $translator->trans($key, $parameters);
+        }
+
+        $message = $fallback;
+        foreach ($parameters as $name => $value) {
+            $message = str_replace('{{' . $name . '}}', (string) $value, $message);
+        }
+
+        return $message;
     }
 }
