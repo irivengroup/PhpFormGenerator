@@ -47,7 +47,7 @@ final class EnumTransformer implements DataTransformerInterface
 
         return $this->isBackedEnum()
             ? $this->reverseTransformBackedEnum($value)
-            : $this->reverseTransformUnitEnum($value);
+            : $this->reverseTransformUnitEnum((string) $value);
     }
 
     private function isEmptyValue(mixed $value): bool
@@ -75,11 +75,11 @@ final class EnumTransformer implements DataTransformerInterface
         return $backedEnumClass::from($value);
     }
 
-    private function reverseTransformUnitEnum(mixed $value): UnitEnum
+    private function reverseTransformUnitEnum(string $value): UnitEnum
     {
         /** @var class-string<UnitEnum> $unitEnumClass */
         $unitEnumClass = $this->enumClass;
-        $case = $this->findUnitEnumCaseByName($unitEnumClass, (string) $value);
+        $case = $this->findUnitEnumCaseByName($unitEnumClass, $value);
 
         if ($case !== null) {
             return $case;
@@ -87,7 +87,7 @@ final class EnumTransformer implements DataTransformerInterface
 
         throw new InvalidArgumentException(sprintf(
             'Value "%s" is not a valid case name for enum %s.',
-            (string) $value,
+            $value,
             $this->enumClass
         ));
     }
@@ -98,8 +98,7 @@ final class EnumTransformer implements DataTransformerInterface
     private function findUnitEnumCaseByName(string $unitEnumClass, string $name): ?UnitEnum
     {
         foreach ($unitEnumClass::cases() as $case) {
-            /** @var object{name:string} $case */
-            if ($case->name === $name) {
+            if ($case instanceof UnitEnum && $case->name === $name) {
                 return $case;
             }
         }
