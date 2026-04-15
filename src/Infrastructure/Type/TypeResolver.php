@@ -54,7 +54,7 @@ final class TypeResolver
 
     private static function shortName(string $typeClass): string
     {
-        $position = strrpos($typeClass, '\');
+        $position = strrpos($typeClass, '\\');
 
         return $position === false ? $typeClass : substr($typeClass, $position + 1);
     }

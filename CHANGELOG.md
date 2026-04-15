@@ -1,3 +1,9 @@
+## V4.1.1 Fixes
+
+### Fixed
+- Fixed runtime plugin resolver parse error in `TypeResolver::shortName()`.
+- Simplified Scrutinizer configuration for more robust PHPUnit + Clover coverage execution.
+
 ## V4.1.1
 
 ### Added
