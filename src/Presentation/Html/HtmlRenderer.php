@@ -11,7 +11,6 @@ use Iriven\PhpFormGenerator\Presentation\Html\Theme\ThemeInterface;
 final class HtmlRenderer
 {
     private HtmlAttributeRenderer $attributeRenderer;
-
     private HtmlWidgetRenderer $widgetRenderer;
     private HtmlRowRenderer $rowRenderer;
     private HtmlFieldsetRenderer $fieldsetRenderer;
@@ -30,7 +29,13 @@ final class HtmlRenderer
         $action = $this->e((string) ($view->vars['action'] ?? ''));
         $attr = $this->attributeRenderer->render(is_array($view->vars['attr'] ?? null) ? $view->vars['attr'] : []);
 
-        $html = sprintf('<form method="%s" action="%s" class="%s"%s>', $method, $action, $this->e($this->theme->formClass()), $attr);
+        $html = sprintf(
+            '<form method="%s" action="%s" class="%s"%s>',
+            $method,
+            $action,
+            $this->e($this->theme->formClass()),
+            $attr
+        );
         $html .= $this->renderErrors($view->errors);
 
         /** @var array<string, FormView> $grouped */
@@ -70,15 +75,6 @@ final class HtmlRenderer
         $html = '';
         foreach ($errors as $error) {
             $html .= '<div class="' . $this->e($this->theme->errorClass()) . '">' . $this->e($error) . '</div>';
-        }
-
-        return $html;
-    }
-            if ($value === true) {
-                $html .= ' ' . $this->e((string) $name);
-                continue;
-            }
-            $html .= ' ' . $this->e((string) $name) . '="' . $this->e((string) $value) . '"';
         }
 
         return $html;
