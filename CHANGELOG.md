@@ -14,6 +14,7 @@
 - Additional README usage scenarios and end-to-end examples.
 
 ### Changed
+- Reduced internal complexity by decomposing `OptionsResolver::matchesAllowedTypes()` and `PropertyAccessor::setValue()` into smaller private helpers.
 - Decomposed `FormGenerator` into `FormGeneratorFieldFacade` and `FormGeneratorOpenNormalizer`, and removed the dedicated legacy API compatibility test suite so tests now target the new public API only.
 - Updated PHPStan-facing signatures for choice-based builder helpers and migrated remaining tests/examples from legacy `open([...])` usage to the new `open($attributes, $options)` standard.
 - Added `LoginType`, introduced a clearer public API separating form `attributes` from configuration `options`, separated `choices` from HTML attributes on choice-based builder helpers, ensured hidden field labels are never rendered, and kept controlled compatibility for legacy `open([...])` calls.

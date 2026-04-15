@@ -990,3 +990,11 @@ Choice-based helpers are also exercised with the new explicit signature:
 - `FormGeneratorOpenNormalizer`
 
 The dedicated legacy API compatibility test suite has been removed. The test directory now targets the new public API only.
+
+### Additional internal optimization
+
+The following long/complex methods were decomposed:
+- `OptionsResolver::matchesAllowedTypes()`
+- `PropertyAccessor::setValue()`
+
+This reduces internal branching and improves maintainability without changing public behavior.

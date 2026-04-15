@@ -55,17 +55,41 @@ final class OptionsResolver implements OptionsResolverInterface
      */
     public function resolve(array $options = []): array
     {
+        $resolved = $this->mergeDefaultsWithOptions($options);
+        $this->assertRequiredOptions($resolved);
+        $this->assertAllowedTypes($resolved);
+        $this->assertAllowedValues($resolved);
+
+        return $resolved;
+    }
+
+    /**
+     * @param array<string, mixed> $options
+     * @return array<string, mixed>
+     */
+    private function mergeDefaultsWithOptions(array $options): array
+    {
         $resolved = $this->defaults;
         foreach ($options as $name => $value) {
             $resolved[$name] = $value;
         }
 
+        return $resolved;
+    }
+
+    /** @param array<string, mixed> $resolved */
+    private function assertRequiredOptions(array $resolved): void
+    {
         foreach ($this->required as $name) {
             if (!array_key_exists($name, $resolved)) {
                 throw new InvalidArgumentException(sprintf('The required option "%s" is missing.', $name));
             }
         }
+    }
 
+    /** @param array<string, mixed> $resolved */
+    private function assertAllowedTypes(array $resolved): void
+    {
         foreach ($this->allowedTypes as $name => $types) {
             if (!array_key_exists($name, $resolved) || $resolved[$name] === null) {
                 continue;
@@ -75,43 +99,66 @@ final class OptionsResolver implements OptionsResolverInterface
                 throw new InvalidArgumentException(sprintf('The option "%s" must be of type %s.', $name, implode('|', $types)));
             }
         }
+    }
 
+    /** @param array<string, mixed> $resolved */
+    private function assertAllowedValues(array $resolved): void
+    {
         foreach ($this->allowedValues as $name => $allowed) {
             if (!array_key_exists($name, $resolved)) {
                 continue;
             }
 
             $value = $resolved[$name];
-            if (is_callable($allowed)) {
-                if (!$allowed($value)) {
-                    throw new InvalidArgumentException(sprintf('The option "%s" has an invalid value.', $name));
-                }
-                continue;
-            }
-
-            if (!in_array($value, $allowed, true)) {
+            if (!$this->matchesAllowedValue($value, $allowed)) {
                 throw new InvalidArgumentException(sprintf('The option "%s" has an invalid value.', $name));
             }
         }
-
-        return $resolved;
     }
 
     /** @param array<int, string> $types */
     private function matchesAllowedTypes(mixed $value, array $types): bool
     {
         foreach ($types as $type) {
-            if ($type === 'array' && is_array($value)) { return true; }
-            if ($type === 'bool' && is_bool($value)) { return true; }
-            if ($type === 'int' && is_int($value)) { return true; }
-            if ($type === 'float' && is_float($value)) { return true; }
-            if ($type === 'numeric' && is_numeric($value)) { return true; }
-            if ($type === 'string' && is_string($value)) { return true; }
-            if ($type === 'callable' && is_callable($value)) { return true; }
-            if (($type === 'null' || $type === 'NULL') && $value === null) { return true; }
-            if ((class_exists($type) || interface_exists($type)) && $value instanceof $type) { return true; }
+            if ($this->matchesBuiltInType($value, $type)) {
+                return true;
+            }
+
+            if ($this->matchesClassOrInterfaceType($value, $type)) {
+                return true;
+            }
         }
 
         return false;
+    }
+
+    private function matchesBuiltInType(mixed $value, string $type): bool
+    {
+        return match ($type) {
+            'array' => is_array($value),
+            'bool' => is_bool($value),
+            'int' => is_int($value),
+            'float' => is_float($value),
+            'numeric' => is_numeric($value),
+            'string' => is_string($value),
+            'callable' => is_callable($value),
+            'null', 'NULL' => $value === null,
+            default => false,
+        };
+    }
+
+    private function matchesClassOrInterfaceType(mixed $value, string $type): bool
+    {
+        return (class_exists($type) || interface_exists($type)) && $value instanceof $type;
+    }
+
+    /** @param callable|array<int, mixed> $allowed */
+    private function matchesAllowedValue(mixed $value, callable|array $allowed): bool
+    {
+        if (is_callable($allowed)) {
+            return $allowed($value);
+        }
+
+        return in_array($value, $allowed, true);
     }
 }
