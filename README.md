@@ -899,3 +899,11 @@ Quand `csrf_protection` est actif et qu'aucun manager n'est fourni explicitement
 - `NullCsrfManager` n'est utilisé par défaut que lorsque la protection CSRF est désactivée
 
 Cela aligne le comportement runtime avec l'API publique et les attentes de validation.
+
+### Test suite alignment with default CSRF behavior
+
+The test suite now explicitly reflects the framework's default CSRF policy:
+- tests focused on non-CSRF concerns either submit the generated token
+- or use `NullCsrfManager` explicitly when CSRF is outside the test scope
+
+This avoids false negatives after restoring real default CSRF validation.

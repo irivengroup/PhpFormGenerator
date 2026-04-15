@@ -7,6 +7,7 @@ namespace Iriven\PhpFormGenerator\Tests;
 use Iriven\PhpFormGenerator\Application\FormFactory;
 use Iriven\PhpFormGenerator\Application\JsonSchemaExporter;
 use Iriven\PhpFormGenerator\Infrastructure\Http\ArrayRequest;
+use Iriven\PhpFormGenerator\Infrastructure\Security\NullCsrfManager;
 use Iriven\PhpFormGenerator\Presentation\Html\HtmlRenderer;
 use Iriven\PhpFormGenerator\Presentation\Html\Theme\TailwindTheme;
 use Iriven\PhpFormGenerator\Tests\Fixtures\ProfileDto;
@@ -18,7 +19,7 @@ final class V35EnterpriseTest extends TestCase
     public function testV35SupportsNestedFormsCollectionsEventsObjectMappingAndSchemaExport(): void
     {
         $dto = new ProfileDto();
-        $factory = new FormFactory();
+        $factory = new FormFactory(new NullCsrfManager());
         $form = $factory->create(ProfileType::class, $dto, ['name' => 'profile']);
 
         $form->handleRequest(new ArrayRequest('POST', [
@@ -56,7 +57,7 @@ final class V35EnterpriseTest extends TestCase
 
     public function testFormLevelConstraintProducesGlobalError(): void
     {
-        $factory = new FormFactory();
+        $factory = new FormFactory(new NullCsrfManager());
         $form = $factory->create(ProfileType::class, new ProfileDto(), ['name' => 'profile']);
 
         $form->handleRequest(new ArrayRequest('POST', [

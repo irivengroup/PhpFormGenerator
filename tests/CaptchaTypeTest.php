@@ -25,6 +25,12 @@ final class CaptchaTypeTest extends TestCase
             ->getForm();
 
         $view = $form->createView();
+        $csrfToken = null;
+        foreach ($view->children as $child) {
+            if ($child->name === '_token') {
+                $csrfToken = is_string($child->value) ? $child->value : null;
+            }
+        }
         /** @var mixed $captchaView */
         $captchaView = null;
         foreach ($view->children as $child) {
@@ -47,6 +53,7 @@ final class CaptchaTypeTest extends TestCase
 
         $form->handleRequest(new ArrayRequest('POST', [
             'secure' => [
+                '_token' => $csrfToken,
                 'captcha' => strtolower($expected),
             ],
         ]));
@@ -58,7 +65,13 @@ final class CaptchaTypeTest extends TestCase
             ->open(['method' => 'POST'])
             ->addCaptcha('captcha', ['min_length' => 5, 'max_length' => 8])
             ->getForm();
-        $form->createView();
+        $view = $form->createView();
+        $csrfToken = null;
+        foreach ($view->children as $child) {
+            if ($child->name === '_token') {
+                $csrfToken = is_string($child->value) ? $child->value : null;
+            }
+        }
         $expected = $_SESSION['_pfg_captcha']['secure.captcha'] ?? null;
         self::assertIsString($expected);
         if (!is_string($expected)) {
@@ -67,6 +80,7 @@ final class CaptchaTypeTest extends TestCase
 
         $form->handleRequest(new ArrayRequest('POST', [
             'secure' => [
+                '_token' => $csrfToken,
                 'captcha' => $expected,
             ],
         ]));

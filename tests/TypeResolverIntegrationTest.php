@@ -9,6 +9,7 @@ use Iriven\PhpFormGenerator\Domain\Contract\FormTypeInterface;
 use Iriven\PhpFormGenerator\Domain\Contract\OptionsResolverInterface;
 use Iriven\PhpFormGenerator\Domain\Form\FormBuilder;
 use Iriven\PhpFormGenerator\Infrastructure\Http\ArrayRequest;
+use Iriven\PhpFormGenerator\Infrastructure\Security\NullCsrfManager;
 use PHPUnit\Framework\TestCase;
 
 final class TypeResolverIntegrationTest extends TestCase
@@ -24,7 +25,7 @@ final class TypeResolverIntegrationTest extends TestCase
 
     public function testBuilderResolvesBuiltinFieldTypesByShortClassNameInsideCustomFormType(): void
     {
-        $factory = new FormFactory();
+        $factory = new FormFactory(new NullCsrfManager());
         $form = $factory->create(DummyType::class);
 
         $form->handleRequest(new ArrayRequest('POST', [

@@ -16,6 +16,7 @@ use Iriven\PhpFormGenerator\Domain\Transformer\EnumTransformer;
 use Iriven\PhpFormGenerator\Infrastructure\Extension\ExtensionRegistry;
 use Iriven\PhpFormGenerator\Infrastructure\Extension\TrimTextFieldExtension;
 use Iriven\PhpFormGenerator\Infrastructure\Http\ArrayRequest;
+use Iriven\PhpFormGenerator\Infrastructure\Security\NullCsrfManager;
 use PHPUnit\Framework\TestCase;
 
 enum LeadStatus: string
@@ -39,7 +40,7 @@ final class V37FeatureSmokeTest extends TestCase
         $registry = new ExtensionRegistry();
         $registry->addFieldTypeExtension(new TrimTextFieldExtension());
 
-        $form = (new FormFactory(extensionRegistry: $registry))
+        $form = (new FormFactory(new NullCsrfManager(), extensionRegistry: $registry))
             ->createBuilder('lead')
             ->add('name', TextType::class, [
                 'constraints' => [new GroupedConstraint(new Required(), ['Default'])],

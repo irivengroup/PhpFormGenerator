@@ -39,8 +39,17 @@ final class MediaFieldMimeConstraintTest extends TestCase
             ->addVideo('video')
             ->getForm();
 
+        $view = $form->createView();
+        $csrfToken = null;
+        foreach ($view->children as $child) {
+            if ($child->name === '_token') {
+                $csrfToken = is_string($child->value) ? $child->value : null;
+            }
+        }
+
         $form->handleRequest(new ArrayRequest('POST', [
             'media' => [
+                '_token' => $csrfToken,
                 'audio' => ['name' => 'photo.png', 'type' => 'image/png'],
                 'image' => ['name' => 'song.mp3', 'type' => 'audio/mpeg'],
                 'video' => ['name' => 'track.mp3', 'type' => 'audio/mpeg'],

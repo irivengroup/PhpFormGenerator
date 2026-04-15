@@ -29,6 +29,7 @@
 ## Unreleased
 
 ### Fixed
+- Aligned non-CSRF-focused tests with restored default CSRF validation by either submitting the generated token or explicitly using `NullCsrfManager` where CSRF is outside test scope.
 - Fixed default CSRF behavior: when CSRF protection is enabled and no manager is provided, forms now use `SessionCsrfManager` instead of `NullCsrfManager`, restoring real default token validation.
 - Fixed translator integration for CSRF validation in `FormSubmissionProcessor` so translated `_form` errors are emitted during request handling.
 - Restored backward compatibility for captcha session storage by keeping the raw challenge string in `$_SESSION['_pfg_captcha']` and moving TTL/attempt metadata to `$_SESSION['_pfg_captcha_meta']`.
