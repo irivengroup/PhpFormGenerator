@@ -22,8 +22,8 @@ final class ProfileType implements FormTypeInterface
     {
         $this->buildCoreFields($builder);
         $builder
-            ->addFormConstraint(new Callback($this->profileNameValidator(...)))
-            ->addEventListener(FormEvents::PRE_SUBMIT, $this->trimNameOnPreSubmit(...));
+            ->addFormConstraint(new Callback([$this, 'profileNameValidator']))
+            ->addEventListener(FormEvents::PRE_SUBMIT, [$this, 'trimNameOnPreSubmit']);
     }
 
     private function buildCoreFields(FormBuilder $builder): void
@@ -50,7 +50,7 @@ final class ProfileType implements FormTypeInterface
     }
 
     /** @return array<int, string> */
-    private function profileNameValidator(mixed $value): array
+    public function profileNameValidator(mixed $value): array
     {
         if (!is_array($value)) {
             return ['Invalid form data.'];
@@ -61,7 +61,7 @@ final class ProfileType implements FormTypeInterface
             : [];
     }
 
-    private function trimNameOnPreSubmit(PreSubmitEvent $event): void
+    public function trimNameOnPreSubmit(PreSubmitEvent $event): void
     {
         $data = $event->getData();
         if (!is_array($data)) {

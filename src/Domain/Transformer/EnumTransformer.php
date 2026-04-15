@@ -26,8 +26,7 @@ final class EnumTransformer implements DataTransformerInterface
         }
 
         if ($value instanceof UnitEnum) {
-            /** @var object{name:string} $value */
-            return $value->name;
+            return $this->unitEnumName($value);
         }
 
         return $value;
@@ -69,7 +68,7 @@ final class EnumTransformer implements DataTransformerInterface
 
     private function reverseTransformBackedEnum(mixed $value): BackedEnum
     {
-        /** @var class-string<BackedEnum> $backedEnumClass */
+        /** @var string $backedEnumClass */
         $backedEnumClass = $this->enumClass;
 
         return $backedEnumClass::from($value);
@@ -77,9 +76,7 @@ final class EnumTransformer implements DataTransformerInterface
 
     private function reverseTransformUnitEnum(string $value): UnitEnum
     {
-        /** @var class-string<UnitEnum> $unitEnumClass */
-        $unitEnumClass = $this->enumClass;
-        $case = $this->findUnitEnumCaseByName($unitEnumClass, $value);
+        $case = $this->findUnitEnumCaseByName($this->enumClass, $value);
 
         if ($case !== null) {
             return $case;
@@ -93,16 +90,26 @@ final class EnumTransformer implements DataTransformerInterface
     }
 
     /**
-     * @param class-string<UnitEnum> $unitEnumClass
+     * @param string $unitEnumClass
      */
     private function findUnitEnumCaseByName(string $unitEnumClass, string $name): ?UnitEnum
     {
         foreach ($unitEnumClass::cases() as $case) {
-            if ($case instanceof UnitEnum && $case->name === $name) {
+            if (!$case instanceof UnitEnum) {
+                continue;
+            }
+
+            if ($this->unitEnumName($case) === $name) {
                 return $case;
             }
         }
 
         return null;
+    }
+
+    private function unitEnumName(UnitEnum $case): string
+    {
+        /** @var object{name:string} $case */
+        return $case->name;
     }
 }

@@ -36,36 +36,36 @@ final class SessionCaptchaManager implements CaptchaManagerInterface
     }
 
     public function isCodeValid(string $key, ?string $input): bool
-    {
-        if ($this->isMissingInput($input)) {
-            return false;
-        }
+{
+    if ($this->isMissingInput($input)) {
+        return false;
+    }
 
-        $expected = $_SESSION['_pfg_captcha'][$key] ?? null;
-        $meta = $this->metaForKey($key);
+    $expected = $_SESSION['_pfg_captcha'][$key] ?? null;
+    $meta = $this->metaForKey($key);
 
-        if (!$this->hasUsableChallenge($expected, $meta)) {
-            $this->clearChallenge($key);
-
-            return false;
-        }
-
-        if ($this->shouldExpireChallenge($meta)) {
-            $this->clearChallenge($key);
-
-            return false;
-        }
-
-        if ($this->matchesExpectedCode($expected, $input)) {
-            $this->clearChallenge($key);
-
-            return true;
-        }
-
-        $this->decrementAttempts($key, $meta);
+    if (!is_string($expected) || !is_string($input) || $meta === null) {
+        $this->clearChallenge($key);
 
         return false;
     }
+
+    if ($this->shouldExpireChallenge($meta)) {
+        $this->clearChallenge($key);
+
+        return false;
+    }
+
+    if ($this->matchesExpectedCode($expected, $input)) {
+        $this->clearChallenge($key);
+
+        return true;
+    }
+
+    $this->decrementAttempts($key, $meta);
+
+    return false;
+}
 
 
 private function isMissingInput(?string $input): bool

@@ -94,7 +94,7 @@ final class FieldSubmissionProcessor
             return $this->submitFormTypeCollectionEntry($form, $field, $row, $path, $index);
         }
 
-        if ($this->isFieldTypeEntry($entryType)) {
+        if (is_string($entryType) && $this->isFieldTypeEntry($entryType)) {
             return $this->submitFieldTypeCollectionEntry($form, $field, $row, $path, $index, $entryType);
         }
 
