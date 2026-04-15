@@ -54,9 +54,11 @@ final class HtmlSelectWidgetRenderer
             /** @var array<string, string> $choices */
             return $choices;
         }
+
         if ($typeClass === CountryType::class) {
             return CountryType::choices($view->vars);
         }
+
         if ($typeClass === YesNoType::class) {
             return YesNoType::choices();
         }
@@ -73,15 +75,6 @@ final class HtmlSelectWidgetRenderer
         $selected = ((string) $view->value === '') ? ' selected' : '';
 
         return '<option value=""' . $selected . '>' . $this->e($view->vars['placeholder']) . '</option>';
-    }
-            if ($value === true) {
-                $html .= ' ' . $this->e((string) $name);
-                continue;
-            }
-            $html .= ' ' . $this->e((string) $name) . '="' . $this->e((string) $value) . '"';
-        }
-
-        return $html;
     }
 
     private function e(string $value): string

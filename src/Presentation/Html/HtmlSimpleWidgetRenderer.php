@@ -98,15 +98,6 @@ final class HtmlSimpleWidgetRenderer
 
         return '<input' . $this->attributeRenderer->render($attr) . '>';
     }
-            if ($value === true) {
-                $html .= ' ' . $this->e((string) $name);
-                continue;
-            }
-            $html .= ' ' . $this->e((string) $name) . '="' . $this->e((string) $value) . '"';
-        }
-
-        return $html;
-    }
 
     private function e(string $value): string
     {
