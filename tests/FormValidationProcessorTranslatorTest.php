@@ -19,10 +19,7 @@ final class FormValidationProcessorTranslatorTest extends TestCase
         ]);
 
         $form = (new FormGenerator('secure'))
-            ->open([
-                'method' => 'POST',
-                'translator' => $translator,
-            ])
+            ->open(['method' => 'POST'], ['translator' => $translator])
             ->addCaptcha('captcha')
             ->getForm();
 

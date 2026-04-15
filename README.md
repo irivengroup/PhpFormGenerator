@@ -965,3 +965,20 @@ The public API now normalizes:
 Short-name factory resolution for the new auth form types is supported.
 
 The V3.9.3 public API implementation was finalized with a clean `FormGenerator` rewrite to ensure runtime stability and correct `attributes` / `options` normalization.
+
+### Migration to the new `open()` standard
+
+Project examples and tests now target the new public API consistently:
+
+```php
+->open(
+    ['method' => 'POST', 'action' => '/contact'],
+    ['csrf_protection' => false]
+)
+```
+
+Choice-based helpers are also exercised with the new explicit signature:
+- `addRadio($name, $choices, $attributes)`
+- `addCheckbox($name, $choices, $attributes)`
+- `addSelect($name, $choices, $attributes)`
+- `addDatalist($name, $choices, $attributes)`

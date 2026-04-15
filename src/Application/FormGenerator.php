@@ -128,15 +128,27 @@ final class FormGenerator
     public function addSearch(string $name, array $attributes = []): self { return $this->add($name, SearchType::class, $attributes); }
     /** @param array<string, mixed> $attributes */
     public function addUrl(string $name, array $attributes = []): self { return $this->add($name, UrlType::class, $attributes); }
-    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    /**
+     * @param array<string, mixed> $choices
+     * @param array<string, mixed> $attributes
+     */
     public function addRadio(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, RadioType::class, $choices, $attributes); }
-    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    /**
+     * @param array<string, mixed> $choices
+     * @param array<string, mixed> $attributes
+     */
     public function addCheckbox(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, CheckboxType::class, $choices, $attributes); }
-    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    /**
+     * @param array<string, mixed> $choices
+     * @param array<string, mixed> $attributes
+     */
     public function addSelect(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, SelectType::class, $choices, $attributes); }
     /** @param array<string, mixed> $attributes */
     public function addYesNo(string $name, array $attributes = []): self { return $this->add($name, YesNoType::class, $attributes); }
-    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    /**
+     * @param array<string, mixed> $choices
+     * @param array<string, mixed> $attributes
+     */
     public function addDatalist(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, DatalistType::class, $choices, $attributes); }
     /** @param array<string, mixed> $attributes */
     public function addCaptcha(string $name, array $attributes = []): self { return $this->add($name, CaptchaType::class, $attributes); }
@@ -166,7 +178,7 @@ final class FormGenerator
     }
 
     /**
-     * @param array<string, string> $choices
+     * @param array<string, mixed> $choices
      * @param array<string, mixed> $attributes
      */
     private function addChoiceField(string $name, string $typeClass, array $choices, array $attributes): self
