@@ -14,6 +14,7 @@
 - Additional README usage scenarios and end-to-end examples.
 
 ### Changed
+- Enabled Scrutinizer coverage ingestion via PHPUnit Clover coverage and decomposed `FormGeneratorFieldFacade` into basic fields, choice fields, and attribute normalization collaborators.
 - Added `CountryProvider`, centralized HTML attribute rendering, refactored `NativeRequest` file normalization, simplified `Count` and `Choice` constraints, and cleaned fixture form type structure for the V3.9.4 quality pass.
 - Decomposed `FormSubmissionProcessor` into an orchestrator plus `FormFieldSubmissionProcessor` for field and collection submission logic.
 - Applied a second consolidation pass to reduce complexity in `PropertyAccessor::getValue()`, `FormSubmissionProcessor`, `HtmlRowRenderer`, and `CaptchaSvgRenderer`.

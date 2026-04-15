@@ -14,6 +14,10 @@ checks:
 build:
   image: default-jammy
 
+  environment:
+    variables:
+      XDEBUG_MODE: coverage
+
   nodes:
     analysis:
       environment:
@@ -23,5 +27,8 @@ build:
           - composer install --no-interaction --prefer-dist
       tests:
         override:
-          - vendor/bin/phpunit --colors=never
+          - command: vendor/bin/phpunit --colors=never --coverage-clover=coverage.clover
+            coverage:
+              file: coverage.clover
+              format: php-clover
           - php-scrutinizer-run

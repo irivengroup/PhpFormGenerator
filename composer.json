@@ -25,7 +25,7 @@
   },
   "scripts": {
     "test": "vendor/bin/phpunit --colors=never",
-    "test:coverage": "vendor/bin/phpunit --coverage-text",
+    "test:coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=never --coverage-clover=coverage.clover --coverage-text",
     "analyse": "vendor/bin/phpstan analyse src tests",
     "cs": "vendor/bin/php-cs-fixer fix --dry-run --diff",
     "cs:fix": "vendor/bin/php-cs-fixer fix",

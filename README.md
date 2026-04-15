@@ -1034,3 +1034,18 @@ This pass adds:
 - refactored `NativeRequest` file normalization
 - leaner `Count` and `Choice` constraints
 - cleaner fixture form type structure for tests
+
+### Scrutinizer coverage support
+
+Scrutinizer is now configured to collect PHPUnit coverage through `coverage.clover` with:
+- `XDEBUG_MODE=coverage`
+- `vendor/bin/phpunit --coverage-clover=coverage.clover`
+
+### FormGenerator field facade decomposition
+
+`FormGeneratorFieldFacade` is now split into:
+- `FormGeneratorBasicFieldFacade`
+- `FormGeneratorChoiceFieldFacade`
+- `FormGeneratorAttributeNormalizer`
+
+The public API remains unchanged.
