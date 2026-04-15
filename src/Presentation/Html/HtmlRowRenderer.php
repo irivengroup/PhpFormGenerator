@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Presentation\Html;
 
+use Iriven\PhpFormGenerator\Domain\Field\HiddenType;
 use Iriven\PhpFormGenerator\Domain\Form\FormView;
 use Iriven\PhpFormGenerator\Presentation\Html\Theme\ThemeInterface;
 
@@ -23,7 +24,7 @@ final class HtmlRowRenderer
         if ($view->type === 'collection') {
             return $this->renderCollectionRow($view);
         }
-        if (($view->vars['type_class'] ?? '') === 'hidden' || $view->type === 'hidden') {
+        if (($view->vars['type_class'] ?? '') === 'hidden' || $view->type === 'hidden' || ($view->vars['type_class'] ?? null) === HiddenType::class || $view->type === HiddenType::class) {
             return $this->widgetRenderer->render($view);
         }
 

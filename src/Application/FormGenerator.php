@@ -51,99 +51,174 @@ final class FormGenerator
         $this->builder = new FormBuilder($name);
     }
 
-    /** @param array<string, mixed> $options */
-    public function open(array $options = []): self
+    /**
+     * @param array<string, mixed> $attributes
+     * @param array<string, mixed> $options
+     */
+    public function open(array $attributes = [], array $options = []): self
     {
+        if ($this->looksLikeLegacyOpenCall($attributes, $options)) {
+            $normalized = $this->normalizeLegacyOpenPayload($attributes);
+            $attributes = $normalized['attributes'];
+            $options = $normalized['options'];
+        }
+
         $options['csrf_protection'] = $options['csrf_protection'] ?? true;
-        $this->builder->mergeOptions($options);
+        $this->builder->mergeOptions($options + ['attr' => $attributes]);
 
         return $this;
     }
 
-    /** @param array<string, mixed> $options */
-    public function addText(string $name, array $options = []): self { return $this->add($name, TextType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addEmail(string $name, array $options = []): self { return $this->add($name, EmailType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addTextarea(string $name, array $options = []): self { return $this->add($name, TextareaType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addEditor(string $name, array $options = []): self { return $this->add($name, EditorType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addCheckbox(string $name, array $options = []): self { return $this->add($name, CheckboxType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addHidden(string $name, array $options = []): self { return $this->add($name, HiddenType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addSubmit(string $name = 'submit', array $options = []): self { return $this->add($name, SubmitType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addButton(string $name, array $options = []): self { return $this->add($name, ButtonType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addReset(string $name, array $options = []): self { return $this->add($name, ResetType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addFile(string $name, array $options = []): self { return $this->add($name, FileType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addAudio(string $name, array $options = []): self { return $this->add($name, AudioType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addImage(string $name, array $options = []): self { return $this->add($name, ImageType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addVideo(string $name, array $options = []): self { return $this->add($name, VideoType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addCountries(string $name, array $options = []): self { return $this->add($name, CountryType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addCountry(string $name, array $options = []): self { return $this->addCountries($name, $options); }
-    /** @param array<string, mixed> $options */
-    public function addDatetime(string $name, array $options = []): self { return $this->add($name, DatetimeType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addDatetimeLocal(string $name, array $options = []): self { return $this->add($name, DatetimeLocalType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addDate(string $name, array $options = []): self { return $this->add($name, DateType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addTime(string $name, array $options = []): self { return $this->add($name, TimeType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addMonth(string $name, array $options = []): self { return $this->add($name, MonthType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addWeek(string $name, array $options = []): self { return $this->add($name, WeekType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addInteger(string $name, array $options = []): self { return $this->add($name, IntegerType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addFloat(string $name, array $options = []): self { return $this->add($name, FloatType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addNumber(string $name, array $options = []): self { return $this->add($name, NumberType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addRange(string $name, array $options = []): self { return $this->add($name, RangeType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addColor(string $name, array $options = []): self { return $this->add($name, ColorType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addPassword(string $name, array $options = []): self { return $this->add($name, PasswordType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addPhone(string $name, array $options = []): self { return $this->add($name, PhoneType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addSearch(string $name, array $options = []): self { return $this->add($name, SearchType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addUrl(string $name, array $options = []): self { return $this->add($name, UrlType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addRadio(string $name, array $options = []): self { return $this->add($name, RadioType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addSelect(string $name, array $options = []): self { return $this->add($name, SelectType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addYesNo(string $name, array $options = []): self { return $this->add($name, YesNoType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addDatalist(string $name, array $options = []): self { return $this->add($name, DatalistType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addCaptcha(string $name, array $options = []): self { return $this->add($name, CaptchaType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addCollection(string $name, array $options = []): self { return $this->add($name, CollectionType::class, $options); }
-    /** @param array<string, mixed> $options */
-    public function addFieldset(array $options = []): self { $this->builder->addFieldset($options); return $this; }
+    /** @param array<string, mixed> $attributes */
+    public function addText(string $name = 'name', array $attributes = []): self { return $this->add($name, TextType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addEmail(string $name, array $attributes = []): self { return $this->add($name, EmailType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addTextarea(string $name, array $attributes = []): self { return $this->add($name, TextareaType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addEditor(string $name, array $attributes = []): self { return $this->add($name, EditorType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addHidden(string $name, array $attributes = []): self { return $this->add($name, HiddenType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addSubmit(string $name = 'submit', array $attributes = []): self { return $this->add($name, SubmitType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addButton(string $name, array $attributes = []): self { return $this->add($name, ButtonType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addReset(string $name, array $attributes = []): self { return $this->add($name, ResetType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addFile(string $name, array $attributes = []): self { return $this->add($name, FileType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addAudio(string $name, array $attributes = []): self { return $this->add($name, AudioType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addImage(string $name, array $attributes = []): self { return $this->add($name, ImageType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addVideo(string $name, array $attributes = []): self { return $this->add($name, VideoType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addCountries(string $name, array $attributes = []): self { return $this->add($name, CountryType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addCountry(string $name, array $attributes = []): self { return $this->addCountries($name, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addDatetime(string $name, array $attributes = []): self { return $this->add($name, DatetimeType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addDatetimeLocal(string $name, array $attributes = []): self { return $this->add($name, DatetimeLocalType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addDate(string $name, array $attributes = []): self { return $this->add($name, DateType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addTime(string $name, array $attributes = []): self { return $this->add($name, TimeType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addMonth(string $name, array $attributes = []): self { return $this->add($name, MonthType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addWeek(string $name, array $attributes = []): self { return $this->add($name, WeekType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addInteger(string $name, array $attributes = []): self { return $this->add($name, IntegerType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addFloat(string $name, array $attributes = []): self { return $this->add($name, FloatType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addNumber(string $name, array $attributes = []): self { return $this->add($name, NumberType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addRange(string $name, array $attributes = []): self { return $this->add($name, RangeType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addColor(string $name, array $attributes = []): self { return $this->add($name, ColorType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addPassword(string $name, array $attributes = []): self { return $this->add($name, PasswordType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addPhone(string $name, array $attributes = []): self { return $this->add($name, PhoneType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addSearch(string $name, array $attributes = []): self { return $this->add($name, SearchType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addUrl(string $name, array $attributes = []): self { return $this->add($name, UrlType::class, $attributes); }
+    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    public function addRadio(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, RadioType::class, $choices, $attributes); }
+    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    public function addCheckbox(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, CheckboxType::class, $choices, $attributes); }
+    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    public function addSelect(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, SelectType::class, $choices, $attributes); }
+    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    public function addYesNo(string $name, array $attributes = []): self { return $this->add($name, YesNoType::class, $attributes); }
+    /** @param array<string, string> $choices @param array<string, mixed> $attributes */
+    public function addDatalist(string $name, array $choices = [], array $attributes = []): self { return $this->addChoiceField($name, DatalistType::class, $choices, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addCaptcha(string $name, array $attributes = []): self { return $this->add($name, CaptchaType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addCollection(string $name, array $attributes = []): self { return $this->add($name, CollectionType::class, $attributes); }
+    /** @param array<string, mixed> $attributes */
+    public function addFieldset(array $attributes = []): self { $this->builder->addFieldset($attributes); return $this; }
     public function endFieldset(): self { $this->builder->endFieldset(); return $this; }
-    public function getForm(): Form { return $this->builder->getForm(); }
+
+    /** @param array<string, mixed> $attributes */
+    public function add(string $name, string $typeClass, array $attributes = []): self
+    {
+        $this->builder->add($name, $typeClass, $this->normalizeFieldAttributes($attributes));
+
+        return $this;
+    }
+
+    public function getForm(): Form
+    {
+        return $this->builder->getForm();
+    }
 
     /**
-     * @param string $typeClass
+     * @param array<string, string> $choices
+     * @param array<string, mixed> $attributes
+     */
+    private function addChoiceField(string $name, string $typeClass, array $choices, array $attributes): self
+    {
+        if ($choices !== []) {
+            $attributes['choices'] = $choices;
+        }
+
+        return $this->add($name, $typeClass, $attributes);
+    }
+
+    /**
+     * @param array<string, mixed> $attributes
+     * @return array<string, mixed>
+     */
+    private function normalizeFieldAttributes(array $attributes): array
+    {
+        if (isset($attributes['attributes']) && is_array($attributes['attributes'])) {
+            $htmlAttributes = is_array($attributes['attr'] ?? null) ? $attributes['attr'] : [];
+            $attributes['attr'] = array_replace($htmlAttributes, $attributes['attributes']);
+            unset($attributes['attributes']);
+        }
+
+        return $attributes;
+    }
+
+    /**
+     * @param array<string, mixed> $attributes
      * @param array<string, mixed> $options
      */
-    private function add(string $name, string $typeClass, array $options = []): self
+    private function looksLikeLegacyOpenCall(array $attributes, array $options): bool
     {
-        $this->builder->add($name, $typeClass, $options);
-        return $this;
+        return $options === [] && (
+            array_key_exists('csrf_protection', $attributes)
+            || array_key_exists('csrf_manager', $attributes)
+            || array_key_exists('captcha_manager', $attributes)
+            || array_key_exists('event_dispatcher', $attributes)
+            || array_key_exists('extension_registry', $attributes)
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $payload
+     * @return array{attributes: array<string, mixed>, options: array<string, mixed>}
+     */
+    private function normalizeLegacyOpenPayload(array $payload): array
+    {
+        $configKeys = ['csrf_protection', 'csrf_manager', 'captcha_manager', 'event_dispatcher', 'extension_registry', 'translator', 'name'];
+        $options = [];
+        foreach ($configKeys as $key) {
+            if (array_key_exists($key, $payload)) {
+                $options[$key] = $payload[$key];
+                unset($payload[$key]);
+            }
+        }
+
+        return [
+            'attributes' => $payload,
+            'options' => $options,
+        ];
     }
 }

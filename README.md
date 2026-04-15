@@ -919,3 +919,35 @@ Cette passe extrait les responsabilités suivantes :
 - `HtmlSimpleWidgetRenderer`
 
 `FormBuilder` et `HtmlWidgetRenderer` deviennent des façades plus légères.
+
+
+## V3.9.3 API publique cohérente
+
+### Séparation `attributes` / `options`
+L'API publique distingue maintenant explicitement :
+- `attributes` : attributs HTML / présentation
+- `options` : configuration framework
+
+Exemple :
+```php
+$form = (new FormGenerator('contact'))
+    ->open(
+        ['method' => 'POST', 'action' => '/contact'],
+        ['csrf_protection' => false]
+    )
+    ->addText('name', ['label' => 'Nom', 'required' => true]);
+```
+
+### Champs à choix
+Les méthodes publiques séparent maintenant les choix des attributs :
+- `addRadio($name, array $choices = [], array $attributes = [])`
+- `addCheckbox($name, array $choices = [], array $attributes = [])`
+- `addSelect($name, array $choices = [], array $attributes = [])`
+- `addDatalist($name, array $choices = [], array $attributes = [])`
+
+### Nouveau `LoginType`
+Un `LoginType` applicatif est désormais inclus.
+
+### Compatibilité contrôlée
+L'ancien appel `open([...])` reste accepté et normalisé automatiquement lorsqu'il mélange attributs de formulaire et options framework.
+

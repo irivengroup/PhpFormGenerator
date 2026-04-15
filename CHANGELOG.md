@@ -14,6 +14,7 @@
 - Additional README usage scenarios and end-to-end examples.
 
 ### Changed
+- Added `LoginType`, introduced a clearer public API separating form `attributes` from configuration `options`, separated `choices` from HTML attributes on choice-based builder helpers, ensured hidden field labels are never rendered, and kept controlled compatibility for legacy `open([...])` calls.
 - Reduced `FormBuilder` and `HtmlWidgetRenderer` complexity through real class extraction: field definition, fieldset management, form creation, widget attributes, select widgets, and simple widgets are now delegated to dedicated collaborators.
 - Stabilized the framework by adding translator-aware native constraints, improved accessible HTML output (`aria-invalid`, `aria-describedby`, error/help ids, `role="alert"`), and added targeted regression tests.
 - Extracted submission, validation, and data mapping out of `Form` into `FormSubmissionProcessor`, `FormValidationProcessor`, and `FormDataMappingProcessor`, turning `Form` into a real orchestrator.
