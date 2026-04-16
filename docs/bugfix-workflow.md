@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Workflow de correction
+> Breadcrumb: [Docs](index.md) / bugfix-workflow.md
 
 # Bugfix Workflow
 

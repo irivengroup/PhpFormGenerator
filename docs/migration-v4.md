@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Migration 3.x vers 4.x
+> Breadcrumb: [Docs](index.md) / migration-v4.md
 
 # Migration 3.x vers 4.x
 

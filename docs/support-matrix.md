@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Matrice de support
+> Breadcrumb: [Docs](index.md) / support-matrix.md
 
 # Support Matrix
 

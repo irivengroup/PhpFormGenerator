@@ -1,3 +1,17 @@
+## V4.4.0
+
+### Added
+- `docs/advanced-capabilities.md`
+- `releases.d/RELEASE_NOTES_V4.4.0.md`
+- `validations.d/VALIDATION_MANIFEST_V4.4.0.md`
+
+### Changed
+- Promotion de la feature line V4.3.x en capacités avancées stables
+- Notes de release centralisées dans `releases.d/`
+- Validation manifests centralisés dans `validations.d/`
+- Optimisation de `SessionCaptchaManager::isCodeValid()`
+- Optimisation de `ArraySchemaExporter::exportField()`
+
 ## V4.3.5
 
 ### Added

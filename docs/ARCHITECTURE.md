@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Architecture V4
+> Breadcrumb: [Docs](index.md) / architecture.md
 
 # Architecture V4
 

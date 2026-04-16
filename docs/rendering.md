@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Rendu HTML
+> Breadcrumb: [Docs](index.md) / rendering.md
 
 # Rendering
 HtmlRenderer.

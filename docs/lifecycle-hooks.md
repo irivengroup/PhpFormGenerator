@@ -24,4 +24,8 @@ Documenter les hooks utilisables le long du cycle de vie du formulaire.
 - éviter les effets de bord externes dans les hooks de validation
 - documenter clairement les préconditions de chaque hook
 
+
+## Stabilisation V4.4.0
+Les hooks lifecycle documentés ici sont promus comme capacités avancées stables.
+
 [↑ Retour au sommaire docs](index.md)

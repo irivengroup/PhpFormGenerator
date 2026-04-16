@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Extensibilité
+> Breadcrumb: [Docs](index.md) / extensibility.md
 
 # Extensibilité
 

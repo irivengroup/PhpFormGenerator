@@ -59,4 +59,9 @@
 
 > V4.3.5 renforce l’export de schéma et ajoute une documentation dédiée au lifecycle hooks et aux thèmes custom.
 
+
+- [Capacités avancées stables](advanced-capabilities.md)
+
+> V4.4.0 promeut la feature line en capacités avancées stables.
+
 [↑ Parent : racine docs](index.md)

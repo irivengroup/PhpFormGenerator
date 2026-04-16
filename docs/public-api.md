@@ -40,4 +40,13 @@ The following namespaces are considered implementation-oriented and may evolve i
 ## Recommendation
 Consumer code should target the public entry points and documented contracts only.
 
+
+## Capacités avancées stables V4.4.0
+Les composants suivants sont désormais considérés comme supportés publiquement :
+- `Iriven\PhpFormGenerator\Application\FormHookKernel`
+- `Iriven\PhpFormGenerator\Application\FormThemeKernel`
+- `Iriven\PhpFormGenerator\Presentation\Html\HtmlRendererFactory`
+- `Iriven\PhpFormGenerator\Application\FormSchemaManager`
+- `Iriven\PhpFormGenerator\Infrastructure\Schema\ArraySchemaExporter`
+
 [↑ Retour au sommaire docs](index.md)

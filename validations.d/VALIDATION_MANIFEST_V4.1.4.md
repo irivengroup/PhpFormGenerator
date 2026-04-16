@@ -1,3 +1,7 @@
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.1.4.md
+
 # V4.1.4 RC Validation Manifest
 
 - OK: README.md
@@ -8,3 +12,5 @@
 - OK: docs/plugin-publishing.md
 - OK: composer.json
 - OK: .scrutinizer.yml
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

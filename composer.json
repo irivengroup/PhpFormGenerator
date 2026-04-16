@@ -63,7 +63,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V4.3.5 hardening final hooks, thèmes et schéma",
-    "release_channel": "feature-line"
+    "release_name": "V4.4.0 capacités avancées stables et promotion de la feature line",
+    "release_channel": "stable-advanced"
   }
 }

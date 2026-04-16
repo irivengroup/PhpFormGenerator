@@ -20,4 +20,8 @@ $renderer = (new HtmlRendererFactory($themes))->create('minimal');
 - prévoir un fallback côté appelant
 - garder une convention cohérente sur les classes CSS
 
+
+## Stabilisation V4.4.0
+Les thèmes custom et leur résolution runtime sont promus comme capacités avancées stables.
+
 [↑ Retour au sommaire docs](index.md)

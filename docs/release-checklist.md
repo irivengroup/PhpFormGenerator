@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Checklist release
+> Breadcrumb: [Docs](index.md) / release-checklist.md
 
 # Checklist release
 

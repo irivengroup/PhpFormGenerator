@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Politique de maintenance
+> Breadcrumb: [Docs](index.md) / maintenance-policy.md
 
 # Maintenance Policy
 

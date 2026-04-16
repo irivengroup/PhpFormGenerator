@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Plugins officiels
+> Breadcrumb: [Docs](index.md) / plugins.md
 
 # Plugins officiels
 

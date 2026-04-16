@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Publication d’un plugin
+> Breadcrumb: [Docs](index.md) / plugin-publishing.md
 
 # Publication d’un plugin
 

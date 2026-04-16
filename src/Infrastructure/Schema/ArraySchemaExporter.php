@@ -35,33 +35,78 @@ final class ArraySchemaExporter implements SchemaExporterInterface
      */
     private function exportField(FieldConfig $field): array
     {
+        return [
+            'type' => $this->resolvedFieldType($field),
+            'label' => $field->options['label'] ?? null,
+            'required' => (bool) ($field->options['required'] ?? false),
+            'help' => $field->options['help'] ?? null,
+            'placeholder' => $this->placeholder($field),
+            'default' => $field->options['data'] ?? null,
+            'choices' => $this->choices($field),
+            'constraints' => $this->constraintClasses($field),
+            'compound' => $field->compound,
+            'collection' => $field->collection,
+            'entry_type' => $this->resolvedEntryType($field),
+            'entry_options' => $field->entryOptions,
+            'children' => $this->children($field),
+        ];
+    }
+
+    private function resolvedFieldType(FieldConfig $field): string
+    {
+        return TypeResolver::resolveFieldType($field->typeClass);
+    }
+
+    private function resolvedEntryType(FieldConfig $field): ?string
+    {
+        $entryType = $field->entryType;
+
+        if (!is_string($entryType) || $entryType === '') {
+            return null;
+        }
+
+        return TypeResolver::resolveFieldType($entryType);
+    }
+
+    private function placeholder(FieldConfig $field): mixed
+    {
+        return is_array($field->options['attr'] ?? null)
+            ? ($field->options['attr']['placeholder'] ?? null)
+            : null;
+    }
+
+    /**
+     * @return array<int|string, mixed>
+     */
+    private function choices(FieldConfig $field): array
+    {
+        return is_array($field->options['choices'] ?? null)
+            ? $field->options['choices']
+            : [];
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function constraintClasses(FieldConfig $field): array
+    {
+        return array_map(
+            static fn (object $constraint): string => $constraint::class,
+            $field->constraints
+        );
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function children(FieldConfig $field): array
+    {
         $children = [];
+
         foreach ($field->children as $name => $child) {
             $children[$name] = $this->exportField($child);
         }
 
-        $entryType = $field->entryType;
-        if (is_string($entryType) && $entryType !== '') {
-            $entryType = TypeResolver::resolveFieldType($entryType);
-        }
-
-        return [
-            'type' => TypeResolver::resolveFieldType($field->typeClass),
-            'label' => $field->options['label'] ?? null,
-            'required' => (bool) ($field->options['required'] ?? false),
-            'help' => $field->options['help'] ?? null,
-            'placeholder' => is_array($field->options['attr'] ?? null) ? ($field->options['attr']['placeholder'] ?? null) : null,
-            'default' => $field->options['data'] ?? null,
-            'choices' => is_array($field->options['choices'] ?? null) ? $field->options['choices'] : [],
-            'constraints' => array_map(
-                static fn (object $constraint): string => $constraint::class,
-                $field->constraints
-            ),
-            'compound' => $field->compound,
-            'collection' => $field->collection,
-            'entry_type' => $entryType,
-            'entry_options' => $field->entryOptions,
-            'children' => $children,
-        ];
+        return $children;
     }
 }

@@ -1155,3 +1155,8 @@ Cette itération ajoute un exporteur de schéma runtime, branche les hooks de sc
 ## V4.3.5 hardening final hooks, thèmes et schéma
 
 Cette itération renforce l’export de schéma, complète la documentation feature-line et ajoute des tests ciblés pour préparer une future promotion de la ligne V4.3.x.
+
+
+## V4.4.0 capacités avancées stables
+
+Cette version promeut les hooks, thèmes custom et l’export de schéma en capacités avancées stables, avec centralisation des notes et validations hors racine.

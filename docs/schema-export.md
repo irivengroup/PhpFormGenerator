@@ -32,4 +32,8 @@ Le schéma exporté couvre désormais aussi :
 - `entry_options`
 - `children` pour les champs composés
 
+
+## Stabilisation V4.4.0
+Le format d’export de schéma est désormais traité comme stable dans la ligne avancée.
+
 [↑ Retour au sommaire docs](index.md)

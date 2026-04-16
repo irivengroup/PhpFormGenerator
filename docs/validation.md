@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Validation & Soumission
+> Breadcrumb: [Docs](index.md) / validation.md
 
 # Validation
 Cycle handleRequest + isValid.
