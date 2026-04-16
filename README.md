@@ -1165,3 +1165,8 @@ Cette version promeut les hooks, thèmes custom et l’export de schéma en capa
 ## V4.4.1 maintenance stable et non-régression complète
 
 Cette version renforce la maintenance de la ligne avancée stable avec de nouveaux tests de non-régression et une cohérence accrue des index de publication/validation.
+
+
+## V4.4.2 bugfix final et clôture de stabilisation
+
+Cette version applique les derniers correctifs ciblés, renforce la non-régression et clôture proprement la phase de stabilisation de la ligne avancée.

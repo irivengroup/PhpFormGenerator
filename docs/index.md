@@ -70,4 +70,9 @@
 
 > V4.4.1 consolide la maintenance stable et la non-régression complète de la ligne avancée.
 
+
+- [Clôture de stabilisation](stabilization-closure.md)
+
+> V4.4.2 clôture la stabilisation de la ligne avancée avant une future V4.5.0.
+
 [↑ Parent : racine docs](index.md)

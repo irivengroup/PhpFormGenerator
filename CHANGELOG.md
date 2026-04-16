@@ -1,3 +1,16 @@
+## V4.4.2
+
+### Added
+- `tests/CaptchaCaseSensitivityRegressionTest.php`
+- `tests/ValidationManifestIndexTest.php`
+- `docs/stabilization-closure.md`
+- `releases.d/RELEASE_NOTES_V4.4.2.md`
+- `validations.d/VALIDATION_MANIFEST_V4.4.2.md`
+
+### Changed
+- Clôture de la phase de stabilisation avancée
+- Renforcement ciblé de la non-régression
+
 ## V4.4.1
 
 ### Added
