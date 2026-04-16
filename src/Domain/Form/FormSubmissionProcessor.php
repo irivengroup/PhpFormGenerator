@@ -34,13 +34,28 @@ final class FormSubmissionProcessor
         }
 
         $form->setSubmitted(true);
+        $form->dispatchHook('pre_submit', ['payload' => $payload, 'request' => $request]);
+
         $payload = $this->dispatchPreSubmit($form, $payload);
         $this->validateCsrf($form, $payload);
         $this->submitAllFields($form, $payload);
         $this->validationProcessor->validateFormConstraints($form);
+
+        if (!$form->isCurrentlyValid()) {
+            $form->dispatchHook('validation_error', [
+                'payload' => $payload,
+                'errors' => $form->errors(),
+            ]);
+        }
+
         $this->dispatchSubmit($form, $payload);
         $this->mapIfValid($form);
         $this->dispatchPostSubmit($form);
+        $form->dispatchHook('post_submit', [
+            'payload' => $payload,
+            'valid' => $form->isCurrentlyValid(),
+            'errors' => $form->errors(),
+        ]);
     }
 
     private function requestMatchesFormMethod(Form $form, RequestInterface $request): bool

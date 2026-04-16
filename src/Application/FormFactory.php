@@ -25,6 +25,7 @@ final class FormFactory
         private readonly ?CaptchaManagerInterface $captchaManager = null,
         private readonly ?ExtensionRegistry $extensionRegistry = null,
         private readonly ?FormPluginKernel $pluginKernel = null,
+        private readonly ?FormHookKernel $hookKernel = null,
     ) {
         $this->pluginKernel?->plugins();
     }
@@ -37,6 +38,7 @@ final class FormFactory
         $options['captcha_manager'] = $options['captcha_manager'] ?? $this->captchaManager ?? new SessionCaptchaManager();
         $options['csrf_protection'] = $options['csrf_protection'] ?? true;
         $options['extension_registry'] = $options['extension_registry'] ?? $this->resolvedExtensionRegistry();
+        $options['hook_kernel'] = $options['hook_kernel'] ?? $this->hookKernel;
 
         return new FormBuilder($name, $data, $options);
     }

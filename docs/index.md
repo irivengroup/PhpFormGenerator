@@ -39,3 +39,5 @@
 - [Hooks](hooks.md)
 - [Themes](themes.md)
 - [Schema](schema.md)
+
+> V4.3.2 intègre les hooks dans le cycle de vie complet du formulaire et confirme le branchement runtime des thèmes.

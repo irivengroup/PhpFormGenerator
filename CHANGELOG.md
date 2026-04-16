@@ -1,3 +1,17 @@
+## V4.3.2
+
+### Added
+- `InMemoryHookRegistry`
+- `FormHookKernel`
+- `HtmlRendererFactory`
+- Runtime tests for themes
+- Lifecycle runtime tests for hooks
+- `RELEASE_NOTES_V4.3.2.md`
+
+### Changed
+- Hooks are now dispatched across the complete form lifecycle.
+- Theme runtime integration is available through renderer factory resolution.
+
 ## V4.3.0
 
 ### Added

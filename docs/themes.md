@@ -1,18 +1,12 @@
 # Themes
 
-## Registry de thèmes
-La ligne V4.3.0 introduit :
-- `ThemeRegistryInterface`
-- `InMemoryThemeRegistry`
+## Runtime V4.3.2
+La ligne V4.3.2 confirme le branchement runtime des thèmes via :
 - `FormThemeKernel`
-
-## Thèmes enregistrés par défaut
-- `default`
-- `bootstrap5`
-- `tailwind`
+- `HtmlRendererFactory`
 
 ## Exemple
 ```php
 $themes = new FormThemeKernel();
-$theme = $themes->themes()->resolve('tailwind');
+$renderer = (new HtmlRendererFactory($themes))->create('tailwind');
 ```

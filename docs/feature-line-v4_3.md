@@ -1,13 +1,13 @@
-# Feature line V4.3.0
+# Feature line V4.3.x
 
 ## Objectif
 Ouvrir une nouvelle ligne d’évolution sans casser la ligne stable V4.2.x.
 
-## Axes introduits
-- hooks officiels
-- registry de thèmes
-- gestionnaire de schéma formel
-- documentation d’orientation pour les capacités à venir
+## Avancement
+### V4.3.0
+- contrats hooks / themes / schema
 
-## Positionnement
-Cette ligne prépare les futures capacités sans modifier le contrat public stable déjà documenté.
+### V4.3.2
+- thèmes branchés dans le runtime
+- hooks branchés dans le cycle de vie complet du formulaire
+- tests runtime ajoutés

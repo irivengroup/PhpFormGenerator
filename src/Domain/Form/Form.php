@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Iriven\PhpFormGenerator\Domain\Form;
 
+use Iriven\PhpFormGenerator\Application\FormHookKernel;
 use Iriven\PhpFormGenerator\Domain\Contract\ConstraintInterface;
 use Iriven\PhpFormGenerator\Domain\Contract\EventDispatcherInterface;
 use Iriven\PhpFormGenerator\Domain\Contract\RequestInterface;
@@ -50,6 +51,7 @@ final class Form
 
         $this->dispatch('form.pre_set_data', new PreSetDataEvent($this, $this->data));
         $this->initializeValues();
+        $this->dispatchHook('post_build', ['data' => $this->data]);
     }
 
     public function getName(): string
@@ -59,7 +61,13 @@ final class Form
 
     public function handleRequest(RequestInterface $request): void
     {
+        $this->dispatchHook('pre_handle_request', ['request' => $request]);
         $this->submissionProcessor->handleRequest($this, $request);
+        $this->dispatchHook('post_handle_request', [
+            'request' => $request,
+            'submitted' => $this->submitted,
+            'valid' => $this->valid,
+        ]);
     }
 
     public function getData(): mixed
@@ -179,6 +187,18 @@ final class Form
     public function dispatch(string $eventName, object $event): void
     {
         $this->eventDispatcher->dispatch($eventName, $event);
+    }
+
+    /**
+     * @param array<string, mixed> $context
+     */
+    public function dispatchHook(string $hookName, array $context = []): void
+    {
+        $kernel = $this->options['hook_kernel'] ?? null;
+
+        if ($kernel instanceof FormHookKernel) {
+            $kernel->dispatch($hookName, $this, $context);
+        }
     }
 
     private function initializeValues(): void

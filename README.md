@@ -1139,3 +1139,7 @@ Cette ligne introduit les premières briques de nouvelles capacités :
 - base de gestion de schéma
 
 Le détail est documenté dans `docs/`.
+
+## V4.3.2 lifecycle hooks complet
+
+Cette itération intègre les hooks dans le cycle de vie complet du formulaire et confirme le branchement runtime des thèmes via une factory dédiée.
