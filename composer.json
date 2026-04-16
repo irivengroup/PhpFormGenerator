@@ -63,7 +63,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V4.2.2 bugfix release et non-régression terrain",
-    "release_channel": "stable-bugfix"
+    "release_name": "V4.3.0 nouvelles capacités (feature line)",
+    "release_channel": "feature-line"
   }
 }

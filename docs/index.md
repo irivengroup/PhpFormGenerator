@@ -34,3 +34,8 @@
 - [Workflow de correction](bugfix-workflow.md)
 
 > V4.2.1 formalise la maintenance stable, le workflow de correction et la discipline de non-régression.
+
+- [Feature line V4.3.0](feature-line-v4_3.md)
+- [Hooks](hooks.md)
+- [Themes](themes.md)
+- [Schema](schema.md)

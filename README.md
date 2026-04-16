@@ -1130,3 +1130,12 @@ Cette version constitue la publication stable plugins-ready du projet. La docume
 
 La ligne `V4.2.x` est une ligne de maintenance stable.
 Les corrections doivent préserver le contrat public documenté, renforcer la non-régression et mettre à jour uniquement les rubriques concernées dans `docs/`.
+
+## V4.3.0 feature line
+
+Cette ligne introduit les premières briques de nouvelles capacités :
+- hooks officiels
+- registry de thèmes
+- base de gestion de schéma
+
+Le détail est documenté dans `docs/`.

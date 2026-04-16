@@ -1,3 +1,19 @@
+## V4.3.0
+
+### Added
+- `HookInterface`
+- `FormHookInterface`
+- `ThemeRegistryInterface`
+- `InMemoryThemeRegistry`
+- `FormThemeKernel`
+- `SchemaExporterInterface`
+- `FormSchemaManager`
+- Documentation feature line (`docs/feature-line-v4_3.md`, `docs/hooks.md`, `docs/themes.md`, `docs/schema.md`)
+- `RELEASE_NOTES_V4.3.0.md`
+
+### Changed
+- Ouverture d’une nouvelle feature line sans modification du contrat public stable V4.2.x.
+
 ## V4.2.2
 
 ### Fixed
