@@ -4,12 +4,12 @@
 
 ## Versions
 
-- [V4.3.3](releases.d/releases.d/RELEASE_NOTES_V4.3.3.md)
-- [V4.3.2](releases.d/releases.d/RELEASE_NOTES_V4.3.2.md)
-- [V4.3.0](releases.d/releases.d/RELEASE_NOTES_V4.3.0.md)
-- [V4.2.2](releases.d/releases.d/RELEASE_NOTES_V4.2.2.md)
-- [V4.2.1](releases.d/releases.d/RELEASE_NOTES_V4.2.1.md)
-- [V4.2.0](releases.d/releases.d/RELEASE_NOTES_V4.2.0.md)
-- [V4.1.4.RC](releases.d/releases.d/RELEASE_NOTES_V4.1.4_RC.md)
-- [V4.1.3.RC1](releases.d/releases.d/RELEASE_NOTES_V4.1.3_RC1.md)
-- [V3.9.5](releases.d/releases.d/RELEASE_NOTES_V3.9.5.md)
+- [V4.3.3](releases.d/RELEASE_NOTES_V4.3.3.md)
+- [V4.3.2](releases.d/RELEASE_NOTES_V4.3.2.md)
+- [V4.3.0](releases.d/RELEASE_NOTES_V4.3.0.md)
+- [V4.2.2](releases.d/RELEASE_NOTES_V4.2.2.md)
+- [V4.2.1](releases.d/RELEASE_NOTES_V4.2.1.md)
+- [V4.2.0](releases.d/RELEASE_NOTES_V4.2.0.md)
+- [V4.1.4.RC](releases.d/RELEASE_NOTES_V4.1.4_RC.md)
+- [V4.1.3.RC1](releases.d/RELEASE_NOTES_V4.1.3_RC1.md)
+- [V3.9.5](releases.d/RELEASE_NOTES_V3.9.5.md)
