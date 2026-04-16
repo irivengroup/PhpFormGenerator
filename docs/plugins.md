@@ -20,6 +20,22 @@ Le projet fournit une base officielle pour des plugins :
 - utilisation directe dans `FormFactory`
 - prise en compte par `TypeResolver`
 
+## Hardening runtime V4.1.2
+
+À partir de V4.1.2 :
+- alias vide rejeté
+- classe vide rejetée
+- collisions configurables
+- tests d’intégration plugin ajoutés
+
+## Stratégie de collision
+
+Par défaut :
+- override autorisé
+
+Option possible :
+- instancier les registries avec `allowOverride = false` pour rejeter les collisions
+
 ## Exemple d’initialisation
 
 ```php
@@ -38,11 +54,9 @@ $builder = $factory->createBuilder('demo');
 $builder->add('slug', 'slug');
 ```
 
-## Convention recommandée
+## Bonnes pratiques
 
-Un plugin doit idéalement exposer :
-
-- ses `FieldType`
-- ses `FormType`
-- ses extensions
-- sa documentation dans `docs/`
+- utiliser des aliases courts mais explicites
+- éviter les aliases trop génériques
+- documenter les collisions possibles
+- fournir des fixtures/tests pour chaque plugin

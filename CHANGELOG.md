@@ -1,3 +1,13 @@
+## V4.1.2
+
+### Added
+- Tests d’intégration plugins pour alias de `FieldType`, alias de `FormType` et propagation d’extensions.
+- Fixtures plugin dédiées pour les tests runtime.
+- Durcissement des registries avec validation des aliases/classes et gestion configurable des collisions.
+
+### Changed
+- Documentation plugins enrichie avec la stratégie de collision et les bonnes pratiques runtime.
+
 ## V4.1.1 Fixes
 
 ### Fixed

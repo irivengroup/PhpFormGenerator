@@ -23,12 +23,13 @@ build:
 
       dependencies:
         override:
-          - composer install --no-interaction --prefer-dist 
+          - composer install --no-interaction --prefer-dist --no-progress
 
       tests:
         override:
           - command: vendor/bin/phpunit --colors=never --coverage-clover=coverage.clover
-            coverage:
-              file: coverage.clover
-              format: php-clover
-          - php-scrutinizer-run
+
+tools:
+  external_code_coverage:
+    timeout: 1200
+    runs: 1

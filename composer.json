@@ -50,6 +50,6 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V4.1.1 branchement runtime complet des plugins"
+    "release_name": "V4.1.2 tests d’intégration plugins et hardening runtime"
   }
 }
