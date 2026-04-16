@@ -18,4 +18,4 @@
 - [Migration 3.x vers 4.x](migration-v4.md)
 
 > Ce wiki est évolutif : toute nouvelle fonctionnalité doit ajouter ou enrichir une rubrique sans casser la structure existante.
-> V4.1.2 ajoute les tests d’intégration plugins et le hardening runtime.
+> V4.1.3 ajoute la consolidation plugins, les non-régressions runtime et la préparation release candidate.

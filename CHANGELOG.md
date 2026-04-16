@@ -1,3 +1,13 @@
+## V4.1.3
+
+### Added
+- Tests de non-régression plugins pour l’ordre d’enregistrement, les collisions et les plugins vides.
+- Fixtures supplémentaires pour la consolidation runtime plugins.
+- `RELEASE_NOTES_V4.1.3_RC1.md`.
+
+### Changed
+- Documentation plugins et extensibilité consolidée pour la préparation release candidate.
+
 ## V4.1.2
 
 ### Added

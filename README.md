@@ -1105,3 +1105,8 @@ La base plugins-ready est désormais connectée au runtime : `FormFactory` peut 
 ## Plugins runtime hardening V4.1.2
 
 Le runtime plugin est désormais couvert par des tests d’intégration et les registries rejettent les aliases/classes invalides. Les collisions peuvent être autorisées ou rejetées selon la configuration du registry.
+
+
+## V4.1.3 release candidate
+
+Cette étape consolide la couche plugins avec des tests de non-régression runtime, une documentation renforcée et une préparation explicite de release candidate.

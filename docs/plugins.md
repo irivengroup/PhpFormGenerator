@@ -13,7 +13,6 @@ Le projet fournit une base officielle pour des plugins :
 ## Branchement runtime réel
 
 À partir de V4.1.1, les plugins sont branchés au runtime :
-
 - résolution des `FieldType` par alias
 - résolution des `FormType` par alias
 - propagation des extensions via `ExtensionRegistry`
@@ -22,11 +21,18 @@ Le projet fournit une base officielle pour des plugins :
 
 ## Hardening runtime V4.1.2
 
-À partir de V4.1.2 :
 - alias vide rejeté
 - classe vide rejetée
 - collisions configurables
 - tests d’intégration plugin ajoutés
+
+## Consolidation V4.1.3
+
+- tests de non-régression plugins
+- validation de l’ordre d’enregistrement
+- vérification des collisions autorisées/interdites
+- scénario plugin vide
+- préparation release candidate
 
 ## Stratégie de collision
 
@@ -60,3 +66,4 @@ $builder->add('slug', 'slug');
 - éviter les aliases trop génériques
 - documenter les collisions possibles
 - fournir des fixtures/tests pour chaque plugin
+- ajouter une rubrique dédiée dans `docs/` pour chaque plugin publié
