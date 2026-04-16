@@ -1,3 +1,15 @@
+## V4.3.5
+
+### Added
+- `tests/SchemaHardeningRuntimeTest.php`
+- `docs/lifecycle-hooks.md`
+- `docs/custom-themes.md`
+- `releases.d/RELEASE_NOTES_V4.3.5.md`
+
+### Changed
+- `ArraySchemaExporter` now exports richer metadata and nested children
+- Feature-line documentation strengthened for hooks, themes and schema
+
 ## V4.3.4
 
 ### Added

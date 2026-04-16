@@ -43,4 +43,9 @@ $form = $factory->createBuilder('demo')->getForm();
 - `after_schema_export`
 - préparation pour `before_render` et `after_render`
 
+
+## Hardening V4.3.5
+- compléments documentaires sur le lifecycle
+- séparation explicite entre hooks lifecycle et hooks de schéma
+
 [↑ Retour au sommaire docs](index.md)

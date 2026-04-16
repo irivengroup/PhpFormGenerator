@@ -63,7 +63,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V4.3.4 export de schéma runtime et hooks avancés",
+    "release_name": "V4.3.5 hardening final hooks, thèmes et schéma",
     "release_channel": "feature-line"
   }
 }

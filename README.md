@@ -1151,3 +1151,7 @@ Cette étape stabilise la feature line V4.3.x avec hooks plus robustes, thèmes 
 ## V4.3.4 export de schéma runtime et hooks avancés
 
 Cette itération ajoute un exporteur de schéma runtime, branche les hooks de schéma et corrige la centralisation des notes de release.
+
+## V4.3.5 hardening final hooks, thèmes et schéma
+
+Cette itération renforce l’export de schéma, complète la documentation feature-line et ajoute des tests ciblés pour préparer une future promotion de la ligne V4.3.x.

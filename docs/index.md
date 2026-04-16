@@ -53,4 +53,10 @@
 
 > V4.3.4 ajoute l’export de schéma runtime, des hooks avancés de schéma et corrige le sommaire central des release notes.
 
+
+- [Lifecycle Hooks](lifecycle-hooks.md)
+- [Custom Themes](custom-themes.md)
+
+> V4.3.5 renforce l’export de schéma et ajoute une documentation dédiée au lifecycle hooks et aux thèmes custom.
+
 [↑ Parent : racine docs](index.md)

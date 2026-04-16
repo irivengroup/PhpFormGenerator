@@ -21,4 +21,15 @@ $schema = (new FormSchemaManager(new ArraySchemaExporter()))->export($form);
 - `before_schema_export`
 - `after_schema_export`
 
+
+## Durcissement V4.3.5
+Le schéma exporté couvre désormais aussi :
+- `action`
+- `help`
+- `placeholder`
+- `default`
+- `entry_type`
+- `entry_options`
+- `children` pour les champs composés
+
 [↑ Retour au sommaire docs](index.md)

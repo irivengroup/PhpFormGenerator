@@ -25,4 +25,9 @@ $themes = new FormThemeKernel();
 $renderer = (new HtmlRendererFactory($themes))->create('tailwind');
 ```
 
+
+## Hardening V4.3.5
+- documentation dédiée aux thèmes custom
+- recommandations de fallback et de conventions CSS
+
 [↑ Retour au sommaire docs](index.md)

@@ -27,4 +27,10 @@ Ouvrir une nouvelle ligne d’évolution sans casser la ligne stable V4.2.x.
 - hooks avancés de schéma
 - correction du sommaire RELEASE_NOTES
 
+
+### V4.3.5
+- hardening final de l’export de schéma
+- nouveaux tests schema/hooks/thèmes
+- documentation dédiée lifecycle hooks et custom themes
+
 [↑ Retour au sommaire docs](index.md)
