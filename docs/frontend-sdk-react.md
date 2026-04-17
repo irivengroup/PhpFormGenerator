@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Frontend SDK React
+> Breadcrumb: [Docs](index.md) / frontend-sdk-react.md
 
 # Frontend SDK React
 

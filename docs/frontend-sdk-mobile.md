@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Frontend SDK Mobile
+> Breadcrumb: [Docs](index.md) / frontend-sdk-mobile.md
 
 # Frontend SDK Mobile
 

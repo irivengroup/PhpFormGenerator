@@ -1229,3 +1229,8 @@ Cette version introduit le SDK frontend officiel avec schéma frontend-ready, pa
 ## V5.0.0 API publique figée et industrialisation finale
 
 Cette version fige l’API publique, contractualise le schéma et les plugins, et finalise l’industrialisation du projet.
+
+
+## V5.0.1 stabilisation post-release et non-régression complète
+
+Cette version consolide la release majeure avec des tests complémentaires sur la chaîne plugin/runtime/SDK.

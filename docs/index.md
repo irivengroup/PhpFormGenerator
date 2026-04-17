@@ -145,4 +145,9 @@
 
 > V5.0.0 fige l’API publique, le schéma et les contrats d’extension comme base industrielle.
 
+
+- [Post-release Hardening](post-release-hardening.md)
+
+> V5.0.1 consolide la release majeure par une passe de hardening plugin/runtime/SDK.
+
 [↑ Parent : racine docs](index.md)

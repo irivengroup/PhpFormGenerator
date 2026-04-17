@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Frontend SDK Vue
+> Breadcrumb: [Docs](index.md) / frontend-sdk-vue.md
 
 # Frontend SDK Vue
 

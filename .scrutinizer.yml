@@ -20,8 +20,6 @@ build:
 
   nodes:
     analysis:
-      resources:
-        cpus: 4    
       environment:
         php: 8.2
       dependencies:

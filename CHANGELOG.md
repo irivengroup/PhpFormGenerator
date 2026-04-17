@@ -1,3 +1,17 @@
+## V5.0.1
+
+### Added
+- `tests/PluginKernelAccessorRegressionTest.php`
+- `tests/PluginRuntimeChainRegressionTest.php`
+- `tests/FrontendSdkPostReleaseRegressionTest.php`
+- `docs/post-release-hardening.md`
+- `releases.d/RELEASE_NOTES_V5.0.1.md`
+- `validations.d/VALIDATION_MANIFEST_V5.0.1.md`
+
+### Changed
+- Stabilisation post-release de la ligne majeure V5.0.x
+- Renforcement de la non-régression sur la chaîne plugin/runtime/SDK
+
 ## V5.0.0
 
 ### Added
