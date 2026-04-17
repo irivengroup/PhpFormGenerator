@@ -19,10 +19,26 @@ final class FormRuntimeContext
     ) {
     }
 
-    public function form(): Form { return $this->form; }
-    public function theme(): ?string { return $this->theme; }
-    public function renderer(): ?string { return $this->renderer; }
+    public function form(): Form
+    {
+        return $this->form;
+    }
 
-    /** @return array<string, mixed> */
-    public function metadata(): array { return $this->metadata; }
+    public function theme(): ?string
+    {
+        return $this->theme;
+    }
+
+    public function renderer(): ?string
+    {
+        return $this->renderer;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function metadata(): array
+    {
+        return $this->metadata;
+    }
 }

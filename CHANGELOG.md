@@ -1,3 +1,15 @@
+## V4.6.1
+
+### Added
+- `tests/RuntimeStaticShapeTest.php`
+- `docs/runtime-static-conformance.md`
+- `releases.d/RELEASE_NOTES_V4.6.1.md`
+- `validations.d/VALIDATION_MANIFEST_V4.6.1.md`
+
+### Changed
+- Conformité statique renforcée du runtime unifié
+- Annotations complétées pour `FormRenderManager`, `FormRuntimeContext`, `FormRuntimePipeline`, `FormSchemaManager`
+
 ## V4.6.0
 
 ### Added

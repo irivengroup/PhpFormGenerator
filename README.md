@@ -1185,3 +1185,8 @@ Cette version stabilise le rendu avancé avec des tests ciblés, une documentati
 ## V4.6.0 unification runtime hooks thèmes schéma
 
 Cette version unifie hooks, rendu et schéma autour d’un runtime commun, avec documentation dédiée et tests initiaux.
+
+
+## V4.6.1 maintenance runtime unifié et conformité statique complète
+
+Cette version consolide le runtime unifié avec des annotations complètes, des tests de forme statique et une documentation dédiée.

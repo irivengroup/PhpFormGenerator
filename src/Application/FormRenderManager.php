@@ -15,7 +15,7 @@ final class FormRenderManager
         private readonly ?FormRuntimePipeline $pipeline = null,
     ) {
     }
-    
+
     /**
      * @param array<string, mixed> $metadata
      */
@@ -25,13 +25,19 @@ final class FormRenderManager
         $view = $form->createView();
         $context = new FormRuntimeContext($form, $themeAlias, $renderer::class, $metadata);
 
-        $this->pipeline?->dispatch('before_render', $form, ['runtime' => $context, 'view' => $view]);
-        $this->hookKernel?->dispatch('before_render', $form, ['runtime' => $context, 'view' => $view]);
+        $payload = [
+            'runtime' => $context,
+            'view' => $view,
+        ];
+
+        $this->pipeline?->dispatch('before_render', $form, $payload);
+        $this->hookKernel?->dispatch('before_render', $form, $payload);
 
         $html = $renderer->renderForm($view);
 
-        $this->hookKernel?->dispatch('after_render', $form, ['runtime' => $context, 'view' => $view, 'html' => $html]);
-        $this->pipeline?->dispatch('after_render', $form, ['runtime' => $context, 'view' => $view, 'html' => $html]);
+        $afterPayload = $payload + ['html' => $html];
+        $this->hookKernel?->dispatch('after_render', $form, $afterPayload);
+        $this->pipeline?->dispatch('after_render', $form, $afterPayload);
 
         return $html;
     }

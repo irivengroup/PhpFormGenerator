@@ -20,8 +20,9 @@ final class FormSchemaManager
      */
     public function export(Form $form, ?FormRuntimeContext $runtimeContext = null): array
     {
-        $this->hookKernel?->dispatch('before_export', $form, ['runtime' => $runtimeContext]);
-        $this->hookKernel?->dispatch('before_schema_export', $form, ['runtime' => $runtimeContext]);
+        $payload = ['runtime' => $runtimeContext];
+        $this->hookKernel?->dispatch('before_export', $form, $payload);
+        $this->hookKernel?->dispatch('before_schema_export', $form, $payload);
 
         $schema = $this->exporter->export($form);
 
@@ -33,8 +34,12 @@ final class FormSchemaManager
             ];
         }
 
-        $this->hookKernel?->dispatch('after_schema_export', $form, ['schema' => $schema, 'runtime' => $runtimeContext]);
-        $this->hookKernel?->dispatch('after_export', $form, ['schema' => $schema, 'runtime' => $runtimeContext]);
+        $afterPayload = [
+            'schema' => $schema,
+            'runtime' => $runtimeContext,
+        ];
+        $this->hookKernel?->dispatch('after_schema_export', $form, $afterPayload);
+        $this->hookKernel?->dispatch('after_export', $form, $afterPayload);
 
         return $schema;
     }

@@ -63,7 +63,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V4.6.0 unification runtime hooks thèmes schéma",
-    "release_channel": "advanced-runtime"
+    "release_name": "V4.6.1 maintenance runtime unifié et conformité statique complète",
+    "release_channel": "advanced-runtime-maintenance"
   }
 }

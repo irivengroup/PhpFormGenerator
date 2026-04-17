@@ -12,15 +12,28 @@ final class FormRuntimePipeline
     {
     }
 
-    /** @param array<string, mixed> $context */
+    /**
+     * @param array<string, mixed> $context
+     */
     public function dispatch(string $stage, Form $form, array $context = []): void
     {
         $this->hookKernel?->dispatch($stage, $form, $context);
     }
 
-    /** @return array<int, string> */
+    /**
+     * @return list<string>
+     */
     public function stages(): array
     {
-        return ['before_build','after_build','before_submit','after_submit','before_render','after_render','before_export','after_export'];
+        return [
+            'before_build',
+            'after_build',
+            'before_submit',
+            'after_submit',
+            'before_render',
+            'after_render',
+            'before_export',
+            'after_export',
+        ];
     }
 }

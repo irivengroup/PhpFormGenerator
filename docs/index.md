@@ -90,4 +90,9 @@
 
 > V4.6.0 unifie hooks, thèmes et schéma dans un runtime cohérent.
 
+
+- [Conformité statique du runtime](runtime-static-conformance.md)
+
+> V4.6.1 consolide la conformité statique complète du runtime unifié.
+
 [↑ Parent : racine docs](index.md)
