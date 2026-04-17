@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Lifecycle Hooks
+> Breadcrumb: [Docs](index.md) / lifecycle-hooks.md
 
 # Lifecycle Hooks
 

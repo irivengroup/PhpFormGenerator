@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Schema
+> Breadcrumb: [Docs](index.md) / schema.md
 
 # Schema
 

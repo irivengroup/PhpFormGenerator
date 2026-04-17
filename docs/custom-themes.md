@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Custom Themes
+> Breadcrumb: [Docs](index.md) / custom-themes.md
 
 # Custom Themes
 

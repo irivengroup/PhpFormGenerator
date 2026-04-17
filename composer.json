@@ -63,7 +63,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V4.5.0 nouvelles capacités avancées",
-    "release_channel": "advanced-feature-line"
+    "release_name": "V4.5.1 maintenance rendu avancé et non-régression",
+    "release_channel": "advanced-feature-maintenance"
   }
 }

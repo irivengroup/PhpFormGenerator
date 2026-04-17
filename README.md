@@ -1175,3 +1175,8 @@ Cette version applique les derniers correctifs ciblés, renforce la non-régress
 ## V4.5.0 nouvelles capacités avancées
 
 Cette version rouvre une ligne d’évolution produit avec hooks de rendu, gestionnaire de rendu et documentation avancée orientée usage.
+
+
+## V4.5.1 maintenance rendu avancé et non-régression
+
+Cette version stabilise le rendu avancé avec des tests ciblés, une documentation de maintenance et une cohérence accrue du packaging.

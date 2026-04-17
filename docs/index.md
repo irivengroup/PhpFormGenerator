@@ -78,4 +78,9 @@
 
 - [Advanced Rendering](advanced-rendering.md)
 
+
+- [Maintenance du rendu avancé](advanced-rendering-maintenance.md)
+
+> V4.5.1 consolide le rendu avancé et sa couverture de non-régression.
+
 [↑ Parent : racine docs](index.md)

@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / API publique
+> Breadcrumb: [Docs](index.md) / public-api.md
 
 # Public API
 

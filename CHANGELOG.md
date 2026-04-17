@@ -1,3 +1,15 @@
+## V4.5.1
+
+### Added
+- `tests/AdvancedRenderingRegressionTest.php`
+- `docs/advanced-rendering-maintenance.md`
+- `releases.d/RELEASE_NOTES_V4.5.1.md`
+- `validations.d/VALIDATION_MANIFEST_V4.5.1.md`
+
+### Changed
+- Stabilisation du rendu avancé
+- Renforcement de la non-régression autour de `FormRenderManager`
+
 ## V4.5.0
 
 ### Added
