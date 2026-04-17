@@ -25,4 +25,9 @@ final class DemoPlugin implements PluginInterface
     {
         $registry->addFieldTypeExtension(new SlugTrimFieldExtension());
     }
+
+    public function register(\Iriven\PhpFormGenerator\Infrastructure\Registry\PluginRegistry $registry): void
+    {
+        $registry->register($this);
+    }
 }
