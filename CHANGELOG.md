@@ -1,3 +1,6 @@
+### Fixed
+- Restored legacy-compatible `ExtensionRegistry` methods (`fieldExtensionsFor`, `formExtensions`, `addFieldTypeExtension`) while keeping V5.1.1 hardening.
+
 ## V5.1.1
 
 ### Added

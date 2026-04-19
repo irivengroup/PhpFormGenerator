@@ -12,26 +12,52 @@ use Throwable;
  */
 final class ExtensionRegistry
 {
-    /** @var list<ExtensionInterface> */
-    private array $extensions = [];
+    /** @var list<object> */
+    private array $fieldTypeExtensions = [];
+
+    /** @var list<object> */
+    private array $formTypeExtensions = [];
 
     public function addFieldExtension(ExtensionInterface $extension): void
     {
-        $this->extensions[] = $extension;
+        $this->fieldTypeExtensions[] = $extension;
     }
 
-    /** @return list<ExtensionInterface> */
+    /**
+     * Legacy-compatible alias.
+     */
+    public function addFieldTypeExtension(object $extension): void
+    {
+        $this->fieldTypeExtensions[] = $extension;
+    }
+
+    public function addFormExtension(object $extension): void
+    {
+        $this->formTypeExtensions[] = $extension;
+    }
+
+    /**
+     * @return list<object>
+     */
     public function all(): array
     {
-        return $this->extensions;
+        return array_values(array_merge($this->fieldTypeExtensions, $this->formTypeExtensions));
     }
 
-    /** @return list<ExtensionInterface> */
+    /**
+     * New typed accessor.
+     *
+     * @return list<ExtensionInterface>
+     */
     public function for(string $type): array
     {
         return array_values(array_filter(
-            $this->extensions,
-            static function (ExtensionInterface $extension) use ($type): bool {
+            $this->fieldTypeExtensions,
+            static function (object $extension) use ($type): bool {
+                if (!$extension instanceof ExtensionInterface) {
+                    return false;
+                }
+
                 try {
                     return $extension->supports($type);
                 } catch (Throwable) {
@@ -39,6 +65,47 @@ final class ExtensionRegistry
                 }
             }
         ));
+    }
+
+    /**
+     * Legacy-compatible accessor used by form field factories.
+     *
+     * @return list<object>
+     */
+    public function fieldExtensionsFor(string $type): array
+    {
+        return array_values(array_filter(
+            $this->fieldTypeExtensions,
+            static function (object $extension) use ($type): bool {
+                if ($extension instanceof ExtensionInterface) {
+                    try {
+                        return $extension->supports($type);
+                    } catch (Throwable) {
+                        return false;
+                    }
+                }
+
+                if (method_exists($extension, 'supports')) {
+                    try {
+                        return (bool) $extension->supports($type);
+                    } catch (Throwable) {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        ));
+    }
+
+    /**
+     * Legacy-compatible accessor used by form factories.
+     *
+     * @return list<object>
+     */
+    public function formExtensions(): array
+    {
+        return $this->formTypeExtensions;
     }
 
     /**
@@ -54,6 +121,7 @@ final class ExtensionRegistry
                     $options = $next;
                 }
             } catch (Throwable) {
+                // Non-destructive runtime hardening: ignore faulty extensions.
             }
         }
 
