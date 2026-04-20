@@ -22,8 +22,13 @@ final class MigrateSchemaCommand implements CliCommandInterface
      */
     public function run(array $args = []): string
     {
-        $schema = ['schema' => ['version' => '2.0']];
-        $migrated = (new SchemaMigrator([new V20ToV21SchemaMigration()]))->migrate($schema, '2.1');
+        $from = trim($args[0] ?? '2.0');
+        $to = trim($args[1] ?? '2.1');
+
+        $schema = ['schema' => ['version' => $from]];
+        $migrator = new SchemaMigrator([new V20ToV21SchemaMigration()]);
+        $migrated = $migrator->migrate($schema, $to);
+
         return json_encode($migrated, JSON_PRETTY_PRINT) ?: '{}';
     }
 }

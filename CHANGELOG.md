@@ -1,3 +1,19 @@
+## V5.3.1
+
+### Added
+- `tests/SchemaVersionManagerRegressionTest.php`
+- `tests/SchemaMigratorRegressionTest.php`
+- `tests/FormSchemaManagerScopeRegressionTest.php`
+- `tests/SchemaCliRegressionTest.php`
+- `docs/schema-maintenance.md`
+- `releases.d/RELEASE_NOTES_V5.3.1.md`
+- `validations.d/VALIDATION_MANIFEST_V5.3.1.md`
+
+### Changed
+- Hardening de `SchemaVersionManager`
+- Hardening de `SchemaMigrator`
+- Clarification du périmètre de versionnement du schéma
+
 ## V5.3.0
 
 ### Added

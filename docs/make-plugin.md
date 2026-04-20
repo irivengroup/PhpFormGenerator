@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / make:plugin
+> Breadcrumb: [Docs](index.md) / make-plugin.md
 
 # make:plugin
 

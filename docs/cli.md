@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / CLI
+> Breadcrumb: [Docs](index.md) / cli.md
 
 # CLI
 

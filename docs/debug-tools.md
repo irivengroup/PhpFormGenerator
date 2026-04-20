@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Debug Tools
+> Breadcrumb: [Docs](index.md) / debug-tools.md
 
 # Debug Tools
 

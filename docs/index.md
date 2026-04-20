@@ -170,9 +170,14 @@
 
 > V5.2.1 stabilise l’outillage CLI avec une passe de non-régression complète.
 
-[↑ Parent : racine docs](index.md)
 
 - [Schema Migrations](schema-migrations.md)
 - [Schema Compatibility](schema-compatibility.md)
 
 > V5.3.0 introduit le versionnement avancé du schéma et les migrations officielles.
+
+- [Schema Maintenance](schema-maintenance.md)
+
+> V5.3.1 consolide le périmètre du schéma versionné et la non-régression des migrations.
+
+[↑ Parent : racine docs](index.md)

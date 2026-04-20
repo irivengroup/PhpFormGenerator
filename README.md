@@ -1254,3 +1254,8 @@ Cette version stabilise la CLI officielle avec des tests complémentaires et des
 ## V5.3.0 versionnement avancé du schéma et migrations
 
 Cette version introduit un versionnement explicite du schéma, des migrations et leur outillage CLI associé.
+
+
+## V5.3.1 maintenance schéma et non-régression migrations
+
+Cette version stabilise le périmètre du schéma versionné et clarifie les garanties entre export standard et export headless.

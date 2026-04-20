@@ -23,6 +23,7 @@ final class SchemaMigrator
     public function register(SchemaMigrationInterface $migration): self
     {
         $this->migrations[] = $migration;
+
         return $this;
     }
 
@@ -32,22 +33,34 @@ final class SchemaMigrator
      */
     public function migrate(array $schema, string $targetVersion): array
     {
-        $current = (string)($schema['schema']['version'] ?? '1.0');
+        $schema['schema'] = is_array($schema['schema'] ?? null) ? $schema['schema'] : [];
+        $current = (string) ($schema['schema']['version'] ?? '1.0');
         $guard = 0;
+
+        if ($current === $targetVersion) {
+            return $schema;
+        }
 
         while ($current !== $targetVersion && $guard < 20) {
             $migration = $this->findMigration($current);
+
             if (!$migration instanceof SchemaMigrationInterface) {
                 break;
             }
 
             $schema = $migration->migrate($schema);
+            $schema['schema'] = is_array($schema['schema'] ?? null) ? $schema['schema'] : [];
             $schema['schema']['version'] = $migration->toVersion();
             $current = $migration->toVersion();
             $guard++;
         }
 
         return $schema;
+    }
+
+    public function canMigrate(string $fromVersion): bool
+    {
+        return $this->findMigration($fromVersion) instanceof SchemaMigrationInterface;
     }
 
     private function findMigration(string $fromVersion): ?SchemaMigrationInterface

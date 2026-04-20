@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / schema-versioning.md
+> Breadcrumb: [Docs](index.md) / Schema Versioning
 
 # Schema Versioning
 
@@ -13,5 +13,10 @@ Documenter la stratégie de versioning du schéma public.
 
 ## Politique
 Toute évolution incompatible doit entraîner une montée explicite de version de schéma.
+
+
+## Maintenance V5.3.1
+- clarification du périmètre de versionnement
+- export headless versionné, export standard inchangé
 
 [↑ Retour au sommaire docs](index.md)

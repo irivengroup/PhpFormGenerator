@@ -22,6 +22,8 @@ final class FormSchemaManager
     }
 
     /**
+     * Legacy-compatible export: keeps historical top-level shape stable.
+     *
      * @return array<string, mixed>
      */
     public function export(Form $form, ?FormRuntimeContext $runtimeContext = null): array
@@ -60,6 +62,8 @@ final class FormSchemaManager
     }
 
     /**
+     * Headless export: versioned schema contract for frontend consumers.
+     *
      * @return array<string, mixed>
      */
     public function exportHeadless(Form $form, ?FormRuntimeContext $runtimeContext = null): array

@@ -24,10 +24,17 @@ final class SchemaVersionManager
      */
     public function stamp(array $schema): array
     {
-        $schema['schema'] = [
-            'version' => $this->currentVersion,
-        ] + (is_array($schema['schema'] ?? null) ? $schema['schema'] : []);
+        $existing = is_array($schema['schema'] ?? null) ? $schema['schema'] : [];
+        $schema['schema'] = ['version' => $this->currentVersion] + $existing;
 
         return $schema;
+    }
+
+    /**
+     * @param array<string, mixed> $schema
+     */
+    public function versionOf(array $schema): string
+    {
+        return (string) ($schema['schema']['version'] ?? '1.0');
     }
 }

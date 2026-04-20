@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / CLI Maintenance
+> Breadcrumb: [Docs](index.md) / cli-maintenance.md
 
 # CLI Maintenance
 
