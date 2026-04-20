@@ -1,4 +1,8 @@
 ### Fixed
+- Removed redundant metadata guard in `RenderProfileManager` to satisfy PHPStan.
+- Normalized `composer.json` writing to avoid invalid literal `\\n` suffixes.
+
+### Fixed
 - FrontendSdk now preserves runtime theme/channel coherence when no explicit RenderProfileManager is injected.
 
 ## V5.5.1\n\n### Added\n- `tests/ThemeResolverRegressionTest.php`\n- `tests/RenderProfileRegressionTest.php`\n- `tests/FrontendRenderingRegressionTest.php`\n- `docs/rendering-maintenance.md`\n- `releases.d/RELEASE_NOTES_V5.5.1.md`\n- `validations.d/VALIDATION_MANIFEST_V5.5.1.md`\n\n### Changed\n- Hardening de `ThemeRegistry`\n- Hardening de `ThemeResolver`\n- Hardening de `RenderProfile`\n- Hardening de `RenderProfileManager`\n- Stabilisation de `FrontendSdk`\n\n## V5.5.0

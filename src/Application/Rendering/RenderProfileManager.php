@@ -25,7 +25,7 @@ final class RenderProfileManager
             'theme' => $resolvedTheme,
             'channel' => $profile->channel(),
             'theme_components' => $this->themeResolver->components($resolvedTheme),
-            'metadata' => is_array($metadata) ? $metadata : [],
+            'metadata' => $metadata,
         ];
     }
 }
