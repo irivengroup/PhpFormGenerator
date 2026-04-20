@@ -56,7 +56,7 @@ final class FormSchemaManager
         $this->hookKernel?->dispatch('after_schema_export', $form, $afterPayload);
         $this->hookKernel?->dispatch('after_export', $form, $afterPayload);
 
-        return ($this->schemaVersionManager ?? new SchemaVersionManager())->stamp($schema);
+        return $schema;
     }
 
     /**
