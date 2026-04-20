@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Frontend SDK Advanced
+> Breadcrumb: [Docs](index.md) / frontend-sdk-advanced.md
 
 # Frontend SDK Advanced
 

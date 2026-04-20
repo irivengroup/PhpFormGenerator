@@ -191,4 +191,10 @@
 
 > V5.4.1 stabilise le SDK frontend avancé et verrouille le contrat de rendu.
 
+
+- [Rendering Channels](rendering-channels.md)
+- [Custom Renderers](custom-renderers.md)
+
+> V5.5.0 industrialise les thèmes et prépare un rendu multi-canal cohérent.
+
 [↑ Parent : racine docs](index.md)

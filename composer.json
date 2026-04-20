@@ -75,8 +75,8 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V5.4.1 maintenance frontend avancé et non-régression SDK",
-    "release_channel": "frontend-advanced-maintenance"
+    "release_name": "V5.5.0 thèmes industrialisés et rendu multi-canal",
+    "release_channel": "rendering-themes"
   },
   "bin": [
     "bin/php-form-generator"

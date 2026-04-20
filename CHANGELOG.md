@@ -1,3 +1,26 @@
+## V5.5.0
+
+### Added
+- `src/Application/Rendering/ThemeDefinition.php`
+- `src/Application/Rendering/ThemeRegistry.php`
+- `src/Application/Rendering/ThemeResolver.php`
+- `src/Application/Rendering/RenderingChannel.php`
+- `src/Application/Rendering/RenderProfile.php`
+- `src/Application/Rendering/RenderProfileManager.php`
+- `tests/ThemeResolverTest.php`
+- `tests/RenderProfileManagerTest.php`
+- `tests/FrontendRenderingIntegrationTest.php`
+- `docs/themes.md`
+- `docs/theme-inheritance.md`
+- `docs/rendering-channels.md`
+- `docs/custom-renderers.md`
+- `releases.d/RELEASE_NOTES_V5.5.0.md`
+- `validations.d/VALIDATION_MANIFEST_V5.5.0.md`
+
+### Changed
+- `FrontendSdk` enrichi avec des métadonnées de rendu
+- industrialisation du fallback et de l’héritage de thèmes
+
 ## V5.4.1
 
 ### Added

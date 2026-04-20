@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / UI Component Overrides
+> Breadcrumb: [Docs](index.md) / ui-component-overrides.md
 
 # UI Component Overrides
 

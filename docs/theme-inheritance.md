@@ -1,14 +1,14 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / theme-inheritance.md
+> Breadcrumb: [Docs](index.md) / Theme Inheritance
 
 # Theme Inheritance
 
 ## Objectif
-Préparer la documentation des stratégies avancées de thèmes.
+Documenter l’héritage de thèmes.
 
-## V4.7.0
-- clarification du fallback thème
-- préparation d’une future hiérarchie de thèmes
+## Exemple
+- `tailwind` peut hériter de `default`
+- les composants enfants surchargent ceux du parent
 
 [↑ Retour au sommaire docs](index.md)

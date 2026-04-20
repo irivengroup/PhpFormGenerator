@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Frontend Schema Rendering
+> Breadcrumb: [Docs](index.md) / frontend-schema-rendering.md
 
 # Frontend Schema Rendering
 

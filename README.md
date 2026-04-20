@@ -1269,3 +1269,8 @@ Cette version enrichit le SDK frontend avec des composants UI configurables et u
 ## V5.4.1 maintenance frontend avancé et non-régression SDK
 
 Cette version stabilise le SDK frontend avancé, la shape du schéma et la résolution UI configurable.
+
+
+## V5.5.0 thèmes industrialisés et rendu multi-canal
+
+Cette version industrialise les thèmes et ajoute un socle de rendu multi-canal.

@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Frontend SDK Maintenance
+> Breadcrumb: [Docs](index.md) / frontend-sdk-maintenance.md
 
 # Frontend SDK Maintenance
 
