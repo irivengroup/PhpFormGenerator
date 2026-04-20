@@ -1259,3 +1259,8 @@ Cette version introduit un versionnement explicite du schéma, des migrations et
 ## V5.3.1 maintenance schéma et non-régression migrations
 
 Cette version stabilise le périmètre du schéma versionné et clarifie les garanties entre export standard et export headless.
+
+
+## V5.4.0 SDK frontend avancé et composants UI configurables
+
+Cette version enrichit le SDK frontend avec des composants UI configurables et un schéma de rendu avancé.

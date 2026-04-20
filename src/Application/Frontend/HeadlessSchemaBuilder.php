@@ -12,6 +12,7 @@ final class HeadlessSchemaBuilder
     public function __construct(
         private readonly UiComponentResolver $componentResolver = new UiComponentResolver(),
         private readonly ValidationExporter $validationExporter = new ValidationExporter(),
+        private readonly ?FrontendSchemaRendererConfig $rendererConfig = null,
     ) {
     }
 
@@ -28,7 +29,11 @@ final class HeadlessSchemaBuilder
                 'action' => $baseSchema['action'] ?? null,
             ],
             'fields' => $this->fields($form),
-            'ui' => $baseSchema['ui'] ?? [],
+            'ui' => [
+                'theme' => $baseSchema['ui']['theme'] ?? null,
+                'variant' => $baseSchema['ui']['variant'] ?? null,
+                'component_overrides' => $this->rendererConfig?->componentMap()->all() ?? [],
+            ],
             'runtime' => $baseSchema['runtime'] ?? [],
             'validation' => $this->validation($form),
         ];
@@ -53,10 +58,16 @@ final class HeadlessSchemaBuilder
      */
     private function field(string $name, FieldConfig $field): array
     {
+        $resolver = new AdvancedUiComponentResolver(
+            $this->componentResolver,
+            $this->rendererConfig?->componentMap() ?? new UiComponentMap(),
+        );
+
         return [
             'name' => $name,
             'type' => $field->typeClass,
-            'component' => $this->componentResolver->resolve($field->typeClass),
+            'component' => $resolver->resolve($field->typeClass),
+            'props' => $this->props($field),
             'label' => $field->options['label'] ?? null,
             'required' => (bool) ($field->options['required'] ?? false),
             'choices' => is_array($field->options['choices'] ?? null) ? $field->options['choices'] : [],
@@ -64,7 +75,22 @@ final class HeadlessSchemaBuilder
                 'group' => $field->options['group'] ?? null,
                 'order' => $field->options['order'] ?? null,
             ],
+            'ui_hints' => [
+                'placeholder' => $field->options['placeholder'] ?? null,
+                'help' => $field->options['help'] ?? null,
+            ],
         ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function props(FieldConfig $field): array
+    {
+        return array_merge(
+            $this->rendererConfig?->defaultProps() ?? [],
+            is_array($field->options['ui_props'] ?? null) ? $field->options['ui_props'] : []
+        );
     }
 
     /**

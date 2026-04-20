@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Schema Compatibility
+> Breadcrumb: [Docs](index.md) / schema-compatibility.md
 
 # Schema Compatibility
 

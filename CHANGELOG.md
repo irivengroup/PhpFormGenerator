@@ -1,3 +1,22 @@
+## V5.4.0
+
+### Added
+- `src/Application/Frontend/UiComponentMap.php`
+- `src/Application/Frontend/AdvancedUiComponentResolver.php`
+- `src/Application/Frontend/FrontendSchemaRendererConfig.php`
+- `tests/AdvancedUiComponentResolverTest.php`
+- `tests/FrontendSchemaRendererConfigTest.php`
+- `tests/FrontendSdkAdvancedTest.php`
+- `docs/frontend-sdk-advanced.md`
+- `docs/ui-component-overrides.md`
+- `docs/frontend-schema-rendering.md`
+- `releases.d/RELEASE_NOTES_V5.4.0.md`
+- `validations.d/VALIDATION_MANIFEST_V5.4.0.md`
+
+### Changed
+- `HeadlessSchemaBuilder` enrichi avec `props`, `ui_hints` et overrides UI
+- `FrontendSdk` enrichi pour le rendu configurable
+
 ## V5.3.1
 
 ### Added

@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Schema Maintenance
+> Breadcrumb: [Docs](index.md) / schema-maintenance.md
 
 # Schema Maintenance
 

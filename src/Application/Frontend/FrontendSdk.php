@@ -16,6 +16,7 @@ final class FrontendSdk
     public function __construct(
         private readonly FormSchemaManager $schemaManager,
         private readonly FrontendSdkConfig $config = new FrontendSdkConfig(),
+        private readonly ?FrontendSchemaRendererConfig $rendererConfig = null,
     ) {
     }
 
@@ -24,9 +25,13 @@ final class FrontendSdk
      */
     public function buildSchema(Form $form, ?FormRuntimeContext $runtimeContext = null): array
     {
-        $schema = $this->schemaManager->exportHeadless($form, $runtimeContext);
-        $schema += ['form' => [], 'fields' => [], 'ui' => [], 'runtime' => [], 'validation' => []];
+        $schema = (new HeadlessSchemaBuilder(
+            new UiComponentResolver(),
+            new ValidationExporter(),
+            $this->rendererConfig
+        ))->build($form, $this->schemaManager->export($form, $runtimeContext));
 
+        $schema['schema'] = ['version' => $this->config->schemaVersion()];
         $schema['sdk'] = [
             'framework' => $this->config->framework(),
             'schema_version' => $this->config->schemaVersion(),

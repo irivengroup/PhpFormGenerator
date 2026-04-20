@@ -180,4 +180,11 @@
 
 > V5.3.1 consolide le périmètre du schéma versionné et la non-régression des migrations.
 
+
+- [Frontend SDK Advanced](frontend-sdk-advanced.md)
+- [UI Component Overrides](ui-component-overrides.md)
+- [Frontend Schema Rendering](frontend-schema-rendering.md)
+
+> V5.4.0 enrichit le SDK frontend avec composants UI configurables et schéma de rendu avancé.
+
 [↑ Parent : racine docs](index.md)

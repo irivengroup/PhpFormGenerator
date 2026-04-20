@@ -75,8 +75,8 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V5.3.1 maintenance schéma et non-régression migrations",
-    "release_channel": "schema-maintenance"
+    "release_name": "V5.4.0 SDK frontend avancé et composants UI configurables",
+    "release_channel": "frontend-advanced"
   },
   "bin": [
     "bin/php-form-generator"

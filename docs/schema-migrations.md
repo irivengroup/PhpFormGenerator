@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Schema Migrations
+> Breadcrumb: [Docs](index.md) / schema-migrations.md
 
 # Schema Migrations
 
