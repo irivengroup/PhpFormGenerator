@@ -23,8 +23,8 @@ final class FrontendRenderingIntegrationTest extends TestCase
             )
         );
         $schema = $sdk->buildSchema($form, new FormRuntimeContext($form, 'tailwind', 'RendererClass', ['channel' => 'headless']));
-        self::assertSame('tailwind', $schema['rendering']['theme']);
-        self::assertSame('headless', $schema['rendering']['channel']);
-        self::assertArrayHasKey('theme_components', $schema['rendering']);
+        self::assertSame('tailwind', $schema['runtime']['rendering']['theme']);
+        self::assertSame('headless', $schema['runtime']['rendering']['channel']);
+        self::assertArrayHasKey('theme_components', $schema['runtime']['rendering']);
     }
 }
