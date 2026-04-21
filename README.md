@@ -1294,3 +1294,8 @@ Cette version améliore la productivité d’intégration avec génération assi
 ## V5.8.0 génération automatique DTO / schémas exemples
 
 Cette version ajoute l'inférence de types et la génération automatique de schémas de formulaires.
+
+
+## V5.8.1 maintenance génération DTO et non-régression schémas exemples
+
+Cette version stabilise l’inférence DTO et la génération de schémas exemples.

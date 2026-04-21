@@ -1,3 +1,17 @@
+## V5.8.1
+
+### Added
+- `tests/DtoGenerationRegressionTest.php`
+- `tests/DtoCliRegressionTest.php`
+- `docs/dto-generation-maintenance.md`
+- `releases.d/RELEASE_NOTES_V5.8.1.md`
+- `validations.d/VALIDATION_MANIFEST_V5.8.1.md`
+
+### Changed
+- hardening de `DtoFormGuesser`
+- hardening de `ExampleSchemaFormGenerator`
+- génération déterministe des champs
+
 ## V5.8.0
 
 ### Added

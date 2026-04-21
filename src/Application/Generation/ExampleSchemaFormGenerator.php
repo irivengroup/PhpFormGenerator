@@ -17,10 +17,16 @@ final class ExampleSchemaFormGenerator
      */
     public function generate(array $sample): array
     {
+        if ($sample === []) {
+            return ['fields' => []];
+        }
+
         $fields = [];
         foreach ($this->guesser->guess($sample) as $name => $type) {
             $fields[$name] = ['type' => $type];
         }
+
+        ksort($fields);
 
         return ['fields' => $fields];
     }

@@ -228,3 +228,7 @@
 - [Schema Example Generation](schema-example-generation.md)
 
 > V5.8.0 introduit la génération automatique de formulaires depuis DTO et schémas exemples.
+
+- [DTO Generation Maintenance](dto-generation-maintenance.md)
+
+> V5.8.1 consolide l’inférence DTO et la non-régression des schémas exemples.

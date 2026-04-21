@@ -13,11 +13,18 @@ final class DtoFormGuesser
     public function guess(object|array $source): array
     {
         $data = is_array($source) ? $source : get_object_vars($source);
+
+        if ($data === []) {
+            return [];
+        }
+
         $fields = [];
 
         foreach ($data as $name => $value) {
             $fields[(string) $name] = $this->guessType($value);
         }
+
+        ksort($fields);
 
         return $fields;
     }
@@ -25,6 +32,7 @@ final class DtoFormGuesser
     private function guessType(mixed $value): string
     {
         return match (true) {
+            is_null($value) => 'TextType',
             is_bool($value) => 'CheckboxType',
             is_int($value), is_float($value) => 'NumberType',
             is_array($value) => 'CollectionType',
