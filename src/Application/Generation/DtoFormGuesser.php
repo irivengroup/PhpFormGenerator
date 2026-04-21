@@ -49,16 +49,17 @@ final class DtoFormGuesser
 
             if ($hasRichMetadata) {
                 if (is_array($attribute) && isset($attribute['type'])) {
-                    $fields[$key] = ['type' => (string) $attribute['type']];
+                    $field = ['type' => (string) $attribute['type']];
 
                     if (isset($attribute['required'])) {
-                        $fields[$key]['required'] = (bool) $attribute['required'];
+                        $field['required'] = true;
                     }
 
                     if (array_key_exists('label', $attribute) && $attribute['label'] !== null) {
-                        $fields[$key]['label'] = (string) $attribute['label'];
+                        $field['label'] = (string) $attribute['label'];
                     }
 
+                    $fields[$key] = $field;
                     continue;
                 }
 

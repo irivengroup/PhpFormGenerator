@@ -1,3 +1,17 @@
+## V5.9.1
+
+### Added
+- `tests/DtoMetadataRegressionTest.php`
+- `tests/DtoMetadataCliRegressionTest.php`
+- `releases.d/RELEASE_NOTES_V5.9.1.md`
+- `validations.d/VALIDATION_MANIFEST_V5.9.1.md`
+
+### Changed
+- hardening de `DtoAttributeReader`
+- hardening de `DtoFormGuesser`
+- hardening de `ExampleSchemaFormGenerator`
+- stabilisation du contrat historique sans attributs
+
 ## V5.9.0
 
 ### Added

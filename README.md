@@ -1304,3 +1304,8 @@ Cette version stabilise l’inférence DTO et la génération de schémas exempl
 ## V5.9.0 conventions avancées via attributs & metadata
 
 Cette version ajoute des attributs PHP et une génération enrichie par metadata.
+
+
+## V5.9.1 maintenance attributs et non-régression metadata
+
+Cette version stabilise les attributs PHP, la metadata enrichie et la rétrocompatibilité du guesser.

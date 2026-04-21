@@ -32,11 +32,15 @@ final class DtoAttributeReader
             if ($fieldAttributes !== []) {
                 /** @var FormField $field */
                 $field = $fieldAttributes[0]->newInstance();
-                $result[$name] = [
-                    'type' => $field->type,
-                    'required' => $field->required,
-                    'label' => $field->label,
-                ];
+                $result[$name] = ['type' => $field->type];
+
+                if ($field->required) {
+                    $result[$name]['required'] = true;
+                }
+
+                if ($field->label !== null) {
+                    $result[$name]['label'] = $field->label;
+                }
             }
         }
 

@@ -3,7 +3,7 @@
 ## Objectif
 Documenter la stratégie de résolution.
 
-## Priorité
+## Maintenance V5.9.1
 1. attribut explicite
-2. type/valeur PHP
-3. fallback
+2. fallback type/valeur PHP
+3. compatibilité historique si aucun attribut

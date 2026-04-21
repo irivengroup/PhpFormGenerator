@@ -30,7 +30,7 @@ final class ExampleSchemaFormGenerator
                 $field = ['type' => (string) $definition['type']];
 
                 if (isset($definition['required'])) {
-                    $field['required'] = (bool) $definition['required'];
+                    $field['required'] = true;
                 }
 
                 if (array_key_exists('label', $definition) && $definition['label'] !== null) {

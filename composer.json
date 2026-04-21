@@ -75,8 +75,8 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V5.9.0 conventions avancées via attributs & metadata",
-    "release_channel": "attributes-metadata"
+    "release_name": "V5.9.1 maintenance attributs & non-régression metadata",
+    "release_channel": "attributes-maintenance"
   },
   "bin": [
     "bin/php-form-generator"

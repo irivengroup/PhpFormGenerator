@@ -238,3 +238,6 @@
 - [Generation Strategy](generation-strategy.md)
 
 > V5.9.0 introduit les attributs PHP et la génération enrichie par metadata.
+
+
+> V5.9.1 consolide les attributs PHP et la non-régression metadata.
