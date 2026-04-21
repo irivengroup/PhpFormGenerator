@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Iriven\PhpFormGenerator\Infrastructure\Extension;
 
 use Iriven\PhpFormGenerator\Domain\Contract\ExtensionInterface;
+use Iriven\PhpFormGenerator\Domain\Contract\FieldTypeExtensionInterface;
 
 /**
  * @api
@@ -21,6 +22,11 @@ final class ExtensionRegistry
         $this->fieldTypeExtensions[] = $extension;
     }
 
+    public function addFieldExtension(object $extension): void
+    {
+        $this->addFieldTypeExtension($extension);
+    }
+
     public function addFormTypeExtension(object $extension): void
     {
         $this->formTypeExtensions[] = $extension;
@@ -35,37 +41,76 @@ final class ExtensionRegistry
     }
 
     /**
-     * @return array<int, object>
+     * Generic registry resolution for ExtensionInterface-based extensions.
+     *
+     * @return array<int, ExtensionInterface>
      */
     public function for(string $type): array
     {
-        return array_values(array_filter(
-            $this->fieldTypeExtensions,
-            static function (object $extension) use ($type): bool {
-                if (!$extension instanceof ExtensionInterface) {
-                    return false;
-                }
+        $resolved = [];
 
-                return $extension->supports($type);
+        foreach ($this->fieldTypeExtensions as $extension) {
+            if (!$extension instanceof ExtensionInterface) {
+                continue;
             }
-        ));
+
+            try {
+                if ($extension->supports($type)) {
+                    $resolved[] = $extension;
+                }
+            } catch (\Throwable) {
+                continue;
+            }
+        }
+
+        return array_values($resolved);
     }
 
     /**
-     * @return array<int, object>
+     * Applies generic ExtensionInterface extensions in registration order.
+     *
+     * @param array<string, mixed> $options
+     * @return array<string, mixed>
+     */
+    public function apply(string $type, array $options): array
+    {
+        $resolved = $options;
+
+        foreach ($this->for($type) as $extension) {
+            try {
+                $resolved = $extension->apply($resolved);
+            } catch (\Throwable) {
+                continue;
+            }
+        }
+
+        return $resolved;
+    }
+
+    /**
+     * Resolves field-type extensions used by the form runtime.
+     *
+     * @return array<int, FieldTypeExtensionInterface>
      */
     public function fieldExtensionsFor(string $type): array
     {
-        return array_values(array_filter(
-            $this->fieldTypeExtensions,
-            static function (object $extension) use ($type): bool {
-                if ($extension instanceof ExtensionInterface) {
-                    return $extension->supports($type);
-                }
+        $resolved = [];
 
-                return false;
+        foreach ($this->fieldTypeExtensions as $extension) {
+            if (!$extension instanceof FieldTypeExtensionInterface) {
+                continue;
             }
-        ));
+
+            try {
+                if ($extension::getExtendedType() === $type) {
+                    $resolved[] = $extension;
+                }
+            } catch (\Throwable) {
+                continue;
+            }
+        }
+
+        return array_values($resolved);
     }
 
     /**
