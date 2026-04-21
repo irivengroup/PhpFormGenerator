@@ -48,20 +48,70 @@ final class ExampleSchemaFormGenerator
      */
     private function normalizeDefinition(mixed $definition): ?array
     {
-        if (is_string($definition)) {
-            return ['type' => $definition];
+        if ($this->isSimpleDefinition($definition)) {
+            return $this->normalizeSimpleDefinition($definition);
         }
 
-        if (!is_array($definition) || !isset($definition['type'])) {
+        if (!$this->isRichDefinition($definition)) {
             return null;
         }
 
-        $field = ['type' => (string) $definition['type']];
+        return $this->normalizeRichDefinition($definition);
+    }
 
+    private function isSimpleDefinition(mixed $definition): bool
+    {
+        return is_string($definition);
+    }
+
+    /**
+     * @param mixed $definition
+     * @return array{type: string}
+     */
+    private function normalizeSimpleDefinition(mixed $definition): array
+    {
+        return ['type' => (string) $definition];
+    }
+
+    private function isRichDefinition(mixed $definition): bool
+    {
+        return is_array($definition) && isset($definition['type']);
+    }
+
+    /**
+     * @param array<string, mixed> $definition
+     * @return array{type: string, required?: bool, label?: string}
+     */
+    private function normalizeRichDefinition(array $definition): array
+    {
+        $field = ['type' => (string) $definition['type']];
+        $field = $this->withRequiredFlag($field, $definition);
+        $field = $this->withLabel($field, $definition);
+
+        return $field;
+    }
+
+    /**
+     * @param array{type: string, required?: bool, label?: string} $field
+     * @param array<string, mixed> $definition
+     * @return array{type: string, required?: bool, label?: string}
+     */
+    private function withRequiredFlag(array $field, array $definition): array
+    {
         if (isset($definition['required'])) {
             $field['required'] = true;
         }
 
+        return $field;
+    }
+
+    /**
+     * @param array{type: string, required?: bool, label?: string} $field
+     * @param array<string, mixed> $definition
+     * @return array{type: string, required?: bool, label?: string}
+     */
+    private function withLabel(array $field, array $definition): array
+    {
         if (array_key_exists('label', $definition) && $definition['label'] !== null) {
             $field['label'] = (string) $definition['label'];
         }
