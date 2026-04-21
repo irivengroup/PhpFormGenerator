@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.2.md\n\n\n\n# V4.3.2 – Intégration hooks dans lifecycle complet\n\n## Objectif\nPoursuivre la feature line V4.3.x avec une intégration plus profonde des hooks dans le cycle de vie complet du formulaire.\n\n## Inclus\n- runtime thèmes branché via `HtmlRendererFactory`\n- runtime hooks exécutable via `FormHookKernel`\n- hooks lifecycle :\n  - `post_build`\n  - `pre_handle_request`\n  - `pre_submit`\n  - `validation_error`\n  - `post_submit`\n  - `post_handle_request`\n\n## Validation recommandée\n```bash\ncomposer dump-autoload -o\ncomposer validate:full\nvendor/bin/phpunit --colors=never\nvendor/bin/phpstan analyse src tests\n```\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.2.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

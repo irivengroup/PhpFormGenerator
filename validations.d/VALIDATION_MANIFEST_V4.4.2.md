@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.4.2.md\n\n\n\n# V4.4.2 Validation\n\n- Captcha regression coverage: OK\n- Validation manifest index regression coverage: OK\n- Stabilization closure doc: OK\n- Packaging coherence preserved: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.4.2.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

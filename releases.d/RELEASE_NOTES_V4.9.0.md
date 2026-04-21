@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.9.0.md\n\n\n\n# V4.9.0 – SDK frontend officiel\n\n## Objectif\nFournir une première couche SDK officielle au-dessus du mode headless.\n\n## Inclus\n- `FrontendSdk`\n- `FrontendSdkConfig`\n- `FrontendFrameworkPresets`\n- documentation SDK frontend\n- presets React / Vue / mobile\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.9.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

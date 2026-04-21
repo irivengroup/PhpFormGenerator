@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.1.4_RC.md\n\n\n\n# V4.1.4 RC – Validation complète, hardening final et tag release candidate\n\n## Objectif\nValider l’ensemble de la chaîne qualité et finaliser la documentation d’exploitation avant un tag stable.\n\n## Inclus\n- checklist de release\n- guide de publication de plugin\n- manifest de validation\n- préparation RC finale\n\n## Validation recommandée\n```bash\ncomposer dump-autoload -o\nvendor/bin/phpstan analyse src tests\nvendor/bin/phpunit --colors=never\ncomposer test:coverage\ncomposer release:check\n```\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.1.4_RC.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

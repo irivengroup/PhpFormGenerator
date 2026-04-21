@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.6.1.md\n\n\n\n# V4.6.1 – Maintenance runtime unifié et conformité statique complète\n\n## Objectif\nStabiliser le runtime unifié juste après son introduction.\n\n## Inclus\n- correction PHPStan sur `FormRenderManager`\n- annotations runtime complétées\n- tests de forme statique et de métadonnées runtime\n- documentation dédiée à la conformité statique\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.6.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

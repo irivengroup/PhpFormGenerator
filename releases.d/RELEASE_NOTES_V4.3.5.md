@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.5.md\n\n\n\n# V4.3.5 – Hardening final hooks, thèmes et schéma\n\n## Objectif\nDurcir la feature line V4.3.x avant promotion éventuelle vers une ligne de capacités avancées stables.\n\n## Inclus\n- export de schéma enrichi\n- tests runtime complémentaires\n- documentation dédiée lifecycle hooks et thèmes custom\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.5.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

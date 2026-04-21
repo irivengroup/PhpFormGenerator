@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.0.0.md\n\n\n\n# V5.0.0 Validation\n\n- Public API stability coverage: OK\n- Schema version compatibility coverage: OK\n- Plugin contract coverage: OK\n- Hook lifecycle completeness coverage: OK\n- Documentation contracts added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.0.0.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

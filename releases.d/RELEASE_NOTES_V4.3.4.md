@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.4.md\n\n\n\n# V4.3.4 – Export de schéma runtime et hooks avancés\n\n## Objectif\nCompléter la feature line V4.3.x avec un export de schéma réellement exploitable et des hooks avancés liés au schéma.\n\n## Inclus\n- `ArraySchemaExporter`\n- `FormSchemaManager` branché aux hooks de schéma\n- `before_schema_export`\n- `after_schema_export`\n- correction du sommaire `RELEASE_NOTES.md`\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.4.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

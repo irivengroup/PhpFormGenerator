@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.5.0.md\n\n\n\n# V4.5.0 – Nouvelles capacités avancées\n\n## Objectif\nRouvrir une ligne d’évolution produit au-dessus du socle avancé stabilisé.\n\n## Inclus\n- hooks de rendu\n- `FormRenderManager`\n- documentation de rendu avancé\n- nouveaux tests runtime\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.5.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

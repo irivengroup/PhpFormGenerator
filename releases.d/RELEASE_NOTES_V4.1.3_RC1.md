@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.1.3_RC1.md\n\n\n\n# V4.1.3 RC1 – Consolidation plugins, non-régression et release candidate\n\n## Objectif\nStabiliser définitivement la couche plugins avant une release V4 stable plus large.\n\n## Inclus\n- tests d’intégration plugins\n- tests de non-régression plugins\n- hardening registries\n- documentation wiki renforcée\n- préparation release candidate\n\n## Vérifications recommandées\n```bash\ncomposer dump-autoload -o\nvendor/bin/phpstan analyse src tests\nvendor/bin/phpunit --colors=never\ncomposer test:coverage\ncomposer release:check\n```\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.1.3_RC1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

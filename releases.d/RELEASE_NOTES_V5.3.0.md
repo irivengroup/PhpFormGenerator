@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.3.0.md\n\n\n\n# V5.3.0 – Versionnement avancé du schéma et migrations\n\n## Objectif\nIndustrialiser le contrat de schéma avec version explicite et migrations supportées.\n\n## Inclus\n- `SchemaVersionManager`\n- `SchemaMigrator`\n- migration `2.0 -> 2.1`\n- `debug:schema-version`\n- `migrate:schema`\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.3.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

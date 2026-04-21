@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.7.1.md\n\n\n\n# V4.7.1 Validation\n\n- Runtime payload regression coverage: OK\n- Prioritized hook kernel regression coverage: OK\n- Schema runtime/ui regression coverage: OK\n- Advanced runtime maintenance doc added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.7.1.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

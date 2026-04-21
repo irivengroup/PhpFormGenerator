@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Theme Inheritance
+> Breadcrumb: [Docs](index.md) / theme-inheritance.md
 
 # Theme Inheritance
 

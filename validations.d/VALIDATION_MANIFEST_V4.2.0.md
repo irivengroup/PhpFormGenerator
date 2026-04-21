@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.2.0.md\n\n\n\n# V4.2.0 Stable Validation Manifest\n\n- Stable release notes: OK\n- Public API document: OK\n- Support matrix: OK\n- Wiki index updated: OK\n- README stable section: OK\n- CHANGELOG stable entry: OK\n- Composer metadata stable channel: OK\n- Final package archive: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.2.0.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

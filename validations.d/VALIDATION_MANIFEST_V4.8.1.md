@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.8.1.md\n\n\n\n# V4.8.1 Validation\n\n- UI mapping regression coverage: OK\n- Validation export regression coverage: OK\n- Headless schema regression coverage: OK\n- Headless maintenance doc added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.8.1.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

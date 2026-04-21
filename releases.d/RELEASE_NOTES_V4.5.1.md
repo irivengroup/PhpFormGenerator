@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.5.1.md\n\n\n\n# V4.5.1 – Maintenance rendu avancé et non-régression\n\n## Objectif\nStabiliser le rendu avancé introduit en V4.5.0 avant une évolution plus ambitieuse.\n\n## Inclus\n- tests ciblés sur le rendu avancé\n- documentation de maintenance du rendu avancé\n- mise à jour des index centralisés\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.5.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

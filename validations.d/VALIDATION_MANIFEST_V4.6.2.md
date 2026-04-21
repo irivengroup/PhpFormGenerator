@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.6.2.md\n\n\n\n# V4.6.2 Validation\n\n- Runtime pipeline export hook coverage: OK\n- Runtime structured context coverage: OK\n- Runtime docs index regression coverage: OK\n- Runtime consolidation doc added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.6.2.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Rendering Channels
+> Breadcrumb: [Docs](index.md) / rendering-channels.md
 
 # Rendering Channels
 

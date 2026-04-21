@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Rendering Maintenance
+> Breadcrumb: [Docs](index.md) / rendering-maintenance.md
 
 # Rendering Maintenance
 

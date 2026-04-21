@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.4.0.md\n\n\n\n# V5.4.0 Validation\n\n- Advanced UI mapping coverage: OK\n- UI override coverage: OK\n- Frontend schema rendering coverage: OK\n- Frontend advanced docs added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.4.0.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

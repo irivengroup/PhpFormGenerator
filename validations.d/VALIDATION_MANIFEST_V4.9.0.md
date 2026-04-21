@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.9.0.md\n\n\n\n# V4.9.0 Validation\n\n- Frontend SDK schema coverage: OK\n- Frontend SDK payload coverage: OK\n- Framework presets coverage: OK\n- Frontend SDK docs added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.9.0.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

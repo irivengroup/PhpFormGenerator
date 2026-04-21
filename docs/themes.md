@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Themes
+> Breadcrumb: [Docs](index.md) / themes.md
 
 # Themes
 

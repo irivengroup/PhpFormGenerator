@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.3.1.md\n\n\n\n# V5.3.1 – Maintenance schéma et non-régression migrations\n\n## Objectif\nStabiliser le contrat de schéma versionné et les migrations.\n\n## Inclus\n- hardening de `SchemaVersionManager`\n- hardening de `SchemaMigrator`\n- non-régression export standard vs headless\n- documentation de maintenance schéma\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.3.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

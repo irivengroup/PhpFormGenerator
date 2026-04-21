@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.4.1.md\n\n\n\n# V5.4.1 Validation\n\n- Frontend SDK stability coverage: OK\n- UI resolution edge-case coverage: OK\n- Frontend props merge coverage: OK\n- Frontend schema shape coverage: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.4.1.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

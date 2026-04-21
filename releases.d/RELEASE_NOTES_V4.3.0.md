@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.0.md\n\n\n\n# V4.3.0 – Nouvelles capacités (feature line)\n\n## Objectif\nOuvrir une nouvelle ligne d’évolution orientée capacités supplémentaires sans remettre en cause la stabilité de V4.2.x.\n\n## Inclus\n- hooks officiels (contrats)\n- registry de thèmes\n- gestionnaire de schéma\n- documentation feature line\n\n## Validation recommandée\n```bash\ncomposer dump-autoload -o\ncomposer validate:full\nvendor/bin/phpunit --colors=never\nvendor/bin/phpstan analyse src tests\n```\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.3.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

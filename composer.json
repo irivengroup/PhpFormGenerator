@@ -75,8 +75,8 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
-    "release_name": "V5.5.1 maintenance rendu et non-régression multi-canal",
-    "release_channel": "rendering-maintenance"
+    "release_name": "V5.6.0 mode headless complet et API JSON-first",
+    "release_channel": "headless-json-first"
   },
   "bin": [
     "bin/php-form-generator"

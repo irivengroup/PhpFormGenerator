@@ -1,3 +1,28 @@
+## V5.6.0
+
+### Added
+- `src/Application/Headless/HeadlessFormState.php`
+- `src/Application/Headless/HeadlessPayloadNormalizer.php`
+- `src/Application/Headless/HeadlessErrorNormalizer.php`
+- `src/Application/Headless/HeadlessResponseBuilder.php`
+- `src/Application/Headless/HeadlessFormProcessor.php`
+- `src/Application/Cli/DebugHeadlessContractCommand.php`
+- `src/Application/Cli/DebugHeadlessSubmissionCommand.php`
+- `tests/HeadlessFormProcessorTest.php`
+- `tests/HeadlessResponseBuilderTest.php`
+- `tests/HeadlessCliCommandTest.php`
+- `tests/JsonContractRegressionTest.php`
+- `docs/headless-api.md`
+- `docs/json-contract.md`
+- `docs/headless-submission.md`
+- `docs/error-payloads.md`
+- `releases.d/RELEASE_NOTES_V5.6.0.md`
+- `validations.d/VALIDATION_MANIFEST_V5.6.0.md`
+
+### Changed
+- introduction d’un pipeline headless sérialisable
+- contrats JSON-first explicités
+
 ### Fixed
 - Removed redundant metadata guard in `RenderProfileManager` to satisfy PHPStan.
 - Normalized `composer.json` writing to avoid invalid literal `\\n` suffixes.

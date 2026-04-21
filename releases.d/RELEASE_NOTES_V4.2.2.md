@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.2.2.md\n\n\n\n# V4.2.2 – Bugfix & non-régression terrain\n\n## Objectif\nCorriger les anomalies remontées (CI, PHPStan, PHPUnit, usage plugins) sans modifier le contrat public.\n\n## Contenu\n- Corrections ciblées (runtime plugins, TypeResolver, rendering HTML, sécurité)\n- Ajout de tests de non-régression associés\n- Ajustements mineurs de documentation (rubriques concernées uniquement)\n\n## Vérifications\n```bash\ncomposer dump-autoload -o\ncomposer maintenance:check\nvendor/bin/phpunit --colors=never\nvendor/bin/phpstan analyse src tests\n```\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.2.2.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

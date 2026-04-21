@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.0.1.md\n\n\n\n# V5.0.1 – Stabilisation post-release et non-régression complète\n\n## Objectif\nAbsorber les derniers écarts post-release de la ligne majeure V5.0.0.\n\n## Inclus\n- couverture complémentaire plugin/runtime\n- couverture complémentaire SDK frontend\n- documentation de hardening post-release\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.0.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

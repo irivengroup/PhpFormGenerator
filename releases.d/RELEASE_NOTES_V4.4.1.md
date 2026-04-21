@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.4.1.md\n\n\n\n# V4.4.1 – Maintenance stable et non-régression complète\n\n## Objectif\nConsolider la ligne avancée stable sans élargir la surface API.\n\n## Inclus\n- tests de non-régression supplémentaires\n- cohérence renforcée des index de publication et validation\n- documentation de maintenance avancée\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.4.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

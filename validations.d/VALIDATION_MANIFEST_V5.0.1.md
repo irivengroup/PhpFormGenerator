@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.0.1.md\n\n\n\n# V5.0.1 Validation\n\n- Plugin kernel accessor regression coverage: OK\n- Plugin runtime chain regression coverage: OK\n- Frontend SDK post-release regression coverage: OK\n- Post-release hardening doc added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V5.0.1.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

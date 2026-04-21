@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.4.0.md\n\n\n\n# V4.4.0 – Capacités avancées stables\n\n## Objectif\nPromouvoir la feature line V4.3.x en ligne stable de capacités avancées.\n\n## Inclus\n- hooks officiels stabilisés\n- thèmes custom stabilisés\n- export de schéma stabilisé\n- notes et validations centralisées hors racine\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.4.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

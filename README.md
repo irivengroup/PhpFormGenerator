@@ -1275,3 +1275,7 @@ Cette version stabilise le SDK frontend avancé, la shape du schéma et la réso
 
 Cette version industrialise les thèmes et ajoute un socle de rendu multi-canal.
 \n\n## V5.5.1 maintenance rendu et non-régression multi-canal\n\nCette version stabilise les thèmes, les canaux et la shape de `runtime.rendering`.\n
+
+## V5.6.0 mode headless complet et API JSON-first
+
+Cette version transforme le projet en socle headless pleinement exploitable avec contrats JSON-first.

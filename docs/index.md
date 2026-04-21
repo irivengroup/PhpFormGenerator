@@ -202,4 +202,12 @@
 
 > V5.5.1 consolide les thèmes, les canaux et la stabilité de `runtime.rendering`.
 
+
+- [Headless API](headless-api.md)
+- [JSON Contract](json-contract.md)
+- [Headless Submission](headless-submission.md)
+- [Error Payloads](error-payloads.md)
+
+> V5.6.0 introduit un mode headless complet et un contrat API JSON-first.
+
 [↑ Parent : racine docs](index.md)

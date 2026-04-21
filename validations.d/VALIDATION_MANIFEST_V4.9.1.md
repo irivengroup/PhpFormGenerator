@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.9.1.md\n\n\n\n# V4.9.1 Validation\n\n- SDK schema normalization: OK\n- SDK payload normalization: OK\n- Regression tests: OK\n- Documentation updated: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.9.1.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

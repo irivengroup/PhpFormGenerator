@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.4.1.md\n\n\n\n# V4.4.1 Validation\n\n- Release notes index regression coverage: OK\n- Validation manifest index regression coverage: OK\n- Theme fallback regression coverage: OK\n- Schema top-level export regression coverage: OK\n- Maintenance docs added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.4.1.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

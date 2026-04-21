@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.5.1.md\n\n\n\n# V5.5.1 – Maintenance rendu et non-régression multi-canal\n\n## Objectif\nStabiliser les thèmes, les canaux et la shape de `runtime.rendering`.\n\n## Inclus\n- hardening de `ThemeRegistry`\n- hardening de `ThemeResolver`\n- hardening de `RenderProfile`\n- hardening de `RenderProfileManager`\n- stabilisation de `FrontendSdk`\n- non-régression sur `runtime.rendering`\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.5.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

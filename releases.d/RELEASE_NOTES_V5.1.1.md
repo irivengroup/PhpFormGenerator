@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.1.1.md\n\n\n\n# V5.1.1 – Maintenance écosystème et sécurisation complète\n\n## Objectif\nDurcir l’écosystème plugins et stabiliser le runtime d’extensions.\n\n## Inclus\n- `PluginValidator`\n- `ExtensionRegistry` résilient\n- tests de non-régression plugin/runtime/extensions\n- hardening CI avec `composer audit || true`\n- documentation des bonnes pratiques et du lifecycle plugin\n\n## Correctif compatibilité\n- restauration des méthodes legacy de `ExtensionRegistry` encore utilisées par le runtime existant\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.1.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.6.2.md\n\n\n\n# V4.6.2 – Bugfix runtime final et clôture de consolidation\n\n## Objectif\nFinaliser la consolidation du runtime unifié avant d’ouvrir une nouvelle ligne de capacités.\n\n## Inclus\n- tests ciblés sur le pipeline runtime\n- couverture complémentaire `before_export` / `after_export`\n- documentation de consolidation runtime\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.6.2.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

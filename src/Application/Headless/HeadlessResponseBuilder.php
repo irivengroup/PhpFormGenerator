@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+namespace Iriven\PhpFormGenerator\Application\Headless;
+/** @api */
+final class HeadlessResponseBuilder
+{
+    public function __construct(
+        private readonly HeadlessPayloadNormalizer $payloadNormalizer = new HeadlessPayloadNormalizer(),
+        private readonly HeadlessErrorNormalizer $errorNormalizer = new HeadlessErrorNormalizer(),
+    ) {}
+    /** @return array<string, mixed> */
+    public function build(HeadlessFormState $state): array
+    {
+        return [
+            'state' => ['submitted' => $state->submitted(), 'valid' => $state->valid()],
+            'payload' => $this->payloadNormalizer->normalize($state->payload()),
+            'errors' => $this->errorNormalizer->normalize($state->errors()),
+            'metadata' => $state->metadata(),
+        ];
+    }
+}

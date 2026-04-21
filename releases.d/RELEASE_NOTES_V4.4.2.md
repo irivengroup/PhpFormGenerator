@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.4.2.md\n\n\n\n# V4.4.2 – Bugfix final et clôture de stabilisation\n\n## Objectif\nAppliquer les derniers correctifs ciblés et fermer proprement la phase de stabilisation de la ligne avancée.\n\n## Inclus\n- tests de non-régression complémentaires\n- documentation de clôture\n- cohérence packaging et index consolidée\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.4.2.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

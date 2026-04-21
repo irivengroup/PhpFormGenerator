@@ -1,6 +1,6 @@
 [↑ Retour au sommaire docs](index.md)
 
-> Breadcrumb: [Docs](index.md) / Custom Renderers
+> Breadcrumb: [Docs](index.md) / custom-renderers.md
 
 # Custom Renderers
 

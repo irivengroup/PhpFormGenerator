@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.3.0.md\n\n\n\n# V4.3.0 Validation\n\n- Feature line docs: OK\n- Hooks contracts: OK\n- Themes registry: OK\n- Schema manager contracts: OK\n- Stable V4.2.x positioning preserved: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.3.0.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

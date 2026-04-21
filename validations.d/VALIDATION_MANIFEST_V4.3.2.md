@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.3.2.md\n\n\n\n# V4.3.2 Validation\n\n- Theme runtime factory: OK\n- Hook kernel registered: OK\n- Lifecycle hooks integrated: OK\n- Theme tests added: OK\n- Hook lifecycle tests added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.3.2.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

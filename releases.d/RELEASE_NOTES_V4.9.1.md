@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.9.1.md\n\n\n\n# V4.9.1 – Maintenance SDK frontend et non-régression\n\n## Inclus\n- normalisation du schéma SDK\n- robustesse du payload\n- tests de non-régression SDK\n- documentation maintenance SDK\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.9.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

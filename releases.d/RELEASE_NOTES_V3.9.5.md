@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V3.9.5.md\n\n\n\n# V3.9.5 – Stabilisation finale et préparation release\n\nCette version finalise la série 3.9.x avec une passe de stabilisation centrée sur la qualité, la cohérence d’architecture et la préparation d’une release propre.\n\n## Points clés\n- API publique alignée sur le nouveau standard uniquement\n- couche legacy retirée\n- décomposition des classes complexes principales\n- couverture PHPUnit branchée pour Scrutinizer\n- helpers réorganisés par responsabilité\n- documentation et changelog harmonisés\n\n## Vérifications recommandées avant tag\n```bash\ncomposer dump-autoload -o\nvendor/bin/phpstan analyse src tests\nvendor/bin/phpunit --colors=never\ncomposer test:coverage\n```\n\n## Périmètre technique consolidé\n- Construction de formulaire : `Application`, `Application\FormGenerator`\n- Soumission : `Domain\Form`, `Domain\Form\Submission`\n- Mapping / accès propriété : `Infrastructure\Mapping`, `Infrastructure\PropertyAccess`\n- Catalogues / sécurité / options : `Infrastructure\Catalog`, `Infrastructure\Security`, `Infrastructure\Options`\n- Rendu HTML : `Presentation\Html`, `Presentation\Html\Support`\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V3.9.5.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

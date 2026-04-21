@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.8.0.md\n\n\n\n# V4.8.0 Validation\n\n- UI component mapping coverage: OK\n- Validation export coverage: OK\n- Headless schema coverage: OK\n- Headless/frontend docs added: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.8.0.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

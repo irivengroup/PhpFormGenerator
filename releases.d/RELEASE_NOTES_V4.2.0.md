@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.2.0.md\n\n\n\n# V4.2.0 – Stable plugins-ready\n\n## Positionnement\nV4.2.0 constitue la publication stable de la ligne V4 avec support plugins-ready, runtime plugin branché, documentation d’exploitation consolidée et packaging finalisé.\n\n## Points clés\n- API builder stable\n- API factory stable\n- runtime plugin stable\n- registries durcis\n- tests d’intégration et de non-régression plugins\n- wiki d’exploitation structuré dans `docs/`\n- checklist de release et publication plugin documentées\n\n## Contrat public\nLes points d’entrée publics supportés sont documentés dans `docs/public-api.md`.\n\n## Validation recommandée\n```bash\ncomposer dump-autoload -o\ncomposer validate:full\ncomposer test:coverage\ncomposer rc:check\n```\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.2.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

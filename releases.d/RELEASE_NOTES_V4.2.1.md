@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.2.1.md\n\n\n\n# V4.2.1 – Maintenance stable\n\n## Positionnement\nV4.2.1 est un patch de maintenance de la ligne stable V4.2.x.\n\n## Objectifs\n- préserver la stabilité de l’API publique\n- durcir le runtime existant\n- renforcer la non-régression\n- clarifier la politique de maintenance et le workflow de correction\n\n## Vérifications recommandées\n```bash\ncomposer dump-autoload -o\ncomposer validate:full\ncomposer test:coverage\nvendor/bin/phpunit --colors=never\nvendor/bin/phpstan analyse src tests\n```\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V4.2.1.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

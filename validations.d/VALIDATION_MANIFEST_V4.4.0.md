@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.4.0.md\n\n\n\n# V4.4.0 Validation\n\n- Hooks stable contract: OK\n- Themes runtime stable: OK\n- Schema runtime stable: OK\n- Centralized release notes: OK\n- Centralized validation manifests: OK\n- Method optimization pass applied: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.4.0.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

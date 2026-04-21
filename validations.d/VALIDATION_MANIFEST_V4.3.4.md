@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.3.4.md\n\n\n\n# V4.3.4 Validation\n\n- Schema runtime exporter: OK\n- Schema export hooks: OK\n- Schema tests: OK\n- RELEASE_NOTES central index fixed: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.3.4.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)

@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.0.0.md\n\n\n\n# V5.0.0 – API publique figée et industrialisation finale\n\n## Objectif\nFiger les contrats publics et stabiliser la base industrielle du projet.\n\n## Inclus\n- API publique marquée `@api`\n- version de schéma publique `2.0`\n- contrats plugins officiels\n- hooks lifecycle documentés comme contrat public\n- SDK frontend enrichi\n\n## BC\nAucun breaking change supplémentaire par rapport à 4.9.x sur la surface générée ici.\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.0.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

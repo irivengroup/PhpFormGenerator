@@ -1,1 +1,7 @@
-[↑ Retour aux release notes](../RELEASE_NOTES.md)\n\n> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.2.0.md\n\n\n\n# V5.2.0 – CLI développeur et outillage officiel\n\n## Objectif\nIntroduire une CLI développeur et des outils d’inspection officiels.\n\n## Inclus\n- `CliApplication`\n- `make:form`\n- `make:plugin`\n- `debug:schema`\n- `debug:runtime`\n- documentation CLI et debug\n\n\n[↑ Retour aux release notes](../RELEASE_NOTES.md)\n
+[↑ Retour aux release notes](../RELEASE_NOTES.md)
+
+> Breadcrumb: [Release Notes](../RELEASE_NOTES.md) / RELEASE_NOTES_V5.2.0.md
+
+
+
+[↑ Retour aux release notes](../RELEASE_NOTES.md)

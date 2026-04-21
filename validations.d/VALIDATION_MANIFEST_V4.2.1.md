@@ -1,1 +1,7 @@
-[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n\n> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.2.1.md\n\n\n\n# V4.2.1 Maintenance Manifest\n\n- maintenance policy documented: OK\n- bugfix workflow documented: OK\n- docs index updated: OK\n- release notes patch added: OK\n- changelog patch added: OK\n- composer metadata patch updated: OK\n- stable API preserved by policy: OK\n\n\n[↑ Retour aux validations](../VALIDATION_MANIFEST.md)\n
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
+
+> Breadcrumb: [Validations](../VALIDATION_MANIFEST.md) / VALIDATION_MANIFEST_V4.2.1.md
+
+
+
+[↑ Retour aux validations](../VALIDATION_MANIFEST.md)
