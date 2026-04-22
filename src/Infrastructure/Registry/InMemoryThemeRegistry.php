@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Registry;
+namespace Iriven\Fluxon\Infrastructure\Registry;
 
 use InvalidArgumentException;
-use Iriven\Fluxa\Domain\Contract\ThemeRegistryInterface;
-use Iriven\Fluxa\Presentation\Html\Theme\ThemeInterface;
+use Iriven\Fluxon\Domain\Contract\ThemeRegistryInterface;
+use Iriven\Fluxon\Presentation\Html\Theme\ThemeInterface;
 
 final class InMemoryThemeRegistry implements ThemeRegistryInterface
 {

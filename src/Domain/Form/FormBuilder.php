@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
-use Iriven\Fluxa\Domain\Contract\EventDispatcherInterface;
-use Iriven\Fluxa\Domain\Contract\EventSubscriberInterface;
-use Iriven\Fluxa\Infrastructure\Event\EventDispatcher;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
-use Iriven\Fluxa\Infrastructure\Security\SessionCaptchaManager;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Contract\EventDispatcherInterface;
+use Iriven\Fluxon\Domain\Contract\EventSubscriberInterface;
+use Iriven\Fluxon\Infrastructure\Event\EventDispatcher;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Infrastructure\Security\SessionCaptchaManager;
 
 final class FormBuilder
 {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Attribute;
+namespace Iriven\Fluxon\Domain\Attribute;
 
 use Attribute;
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormHookKernel;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
-use Iriven\Fluxa\Tests\Fixtures\Hook\AfterSchemaExportHook;
-use Iriven\Fluxa\Tests\Fixtures\Hook\BeforeSchemaExportHook;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormHookKernel;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Tests\Fixtures\Hook\AfterSchemaExportHook;
+use Iriven\Fluxon\Tests\Fixtures\Hook\BeforeSchemaExportHook;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaRuntimeTest extends TestCase

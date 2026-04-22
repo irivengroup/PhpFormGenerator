@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Constraint;
+namespace Iriven\Fluxon\Domain\Constraint;
 
 use Closure;
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
 
 final class Callback implements ConstraintInterface
 {

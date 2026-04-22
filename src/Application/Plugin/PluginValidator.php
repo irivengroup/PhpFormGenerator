@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Plugin;
+namespace Iriven\Fluxon\Application\Plugin;
 
-use Iriven\Fluxa\Domain\Contract\PluginInterface;
+use Iriven\Fluxon\Domain\Contract\PluginInterface;
 use RuntimeException;
 
 /**

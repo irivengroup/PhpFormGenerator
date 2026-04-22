@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Frontend;
+namespace Iriven\Fluxon\Application\Frontend;
 
-use Iriven\Fluxa\Domain\Form\FieldConfig;
+use Iriven\Fluxon\Domain\Form\FieldConfig;
 
 final class ValidationExporter
 {

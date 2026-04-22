@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Runtime\ExecutionContext;
-use Iriven\Fluxa\Application\Runtime\FormRuntimeEngine;
+use Iriven\Fluxon\Application\Runtime\ExecutionContext;
+use Iriven\Fluxon\Application\Runtime\FormRuntimeEngine;
 use PHPUnit\Framework\TestCase;
 
 final class FormRuntimeEngineTest extends TestCase

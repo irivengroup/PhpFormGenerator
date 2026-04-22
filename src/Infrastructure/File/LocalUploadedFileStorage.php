@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\File;
+namespace Iriven\Fluxon\Infrastructure\File;
 
-use Iriven\Fluxa\Domain\Contract\UploadedFileStorageInterface;
-use Iriven\Fluxa\Domain\ValueObject\UploadedFile;
+use Iriven\Fluxon\Domain\Contract\UploadedFileStorageInterface;
+use Iriven\Fluxon\Domain\ValueObject\UploadedFile;
 
 final class LocalUploadedFileStorage implements UploadedFileStorageInterface
 {

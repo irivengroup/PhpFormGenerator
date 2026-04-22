@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
 use BackedEnum;
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Domain\Constraint\GroupedConstraint;
-use Iriven\Fluxa\Domain\Constraint\Required;
-use Iriven\Fluxa\Domain\Constraint\When;
-use Iriven\Fluxa\Domain\Field\SubmitType;
-use Iriven\Fluxa\Domain\Field\TextType;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
-use Iriven\Fluxa\Domain\Transformer\EnumTransformer;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
-use Iriven\Fluxa\Infrastructure\Extension\TrimTextFieldExtension;
-use Iriven\Fluxa\Infrastructure\Http\ArrayRequest;
-use Iriven\Fluxa\Infrastructure\Security\NullCsrfManager;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Domain\Constraint\GroupedConstraint;
+use Iriven\Fluxon\Domain\Constraint\Required;
+use Iriven\Fluxon\Domain\Constraint\When;
+use Iriven\Fluxon\Domain\Field\SubmitType;
+use Iriven\Fluxon\Domain\Field\TextType;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Domain\Transformer\EnumTransformer;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Infrastructure\Extension\TrimTextFieldExtension;
+use Iriven\Fluxon\Infrastructure\Http\ArrayRequest;
+use Iriven\Fluxon\Infrastructure\Security\NullCsrfManager;
 use PHPUnit\Framework\TestCase;
 
 enum LeadStatus: string

@@ -3,6 +3,6 @@
 > Breadcrumb: [Docs](index.md) / installation.md
 
 # Installation
-composer require iriven/fluxa
+composer require iriven/fluxon
 
 [↑ Retour au sommaire docs](index.md)

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests\Fixtures\Plugin;
+namespace Iriven\Fluxon\Tests\Fixtures\Plugin;
 
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Contract\OptionsResolverInterface;
-use Iriven\Fluxa\Domain\Field\EmailType;
-use Iriven\Fluxa\Domain\Field\SubmitType;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Contract\OptionsResolverInterface;
+use Iriven\Fluxon\Domain\Field\EmailType;
+use Iriven\Fluxon\Domain\Field\SubmitType;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
 
 final class NewsletterType implements FormTypeInterface
 {

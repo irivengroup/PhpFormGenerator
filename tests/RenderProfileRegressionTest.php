@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Rendering\RenderProfile;
-use Iriven\Fluxa\Application\Rendering\RenderProfileManager;
-use Iriven\Fluxa\Application\Rendering\RenderingChannel;
-use Iriven\Fluxa\Application\Rendering\ThemeDefinition;
-use Iriven\Fluxa\Application\Rendering\ThemeRegistry;
-use Iriven\Fluxa\Application\Rendering\ThemeResolver;
+use Iriven\Fluxon\Application\Rendering\RenderProfile;
+use Iriven\Fluxon\Application\Rendering\RenderProfileManager;
+use Iriven\Fluxon\Application\Rendering\RenderingChannel;
+use Iriven\Fluxon\Application\Rendering\ThemeDefinition;
+use Iriven\Fluxon\Application\Rendering\ThemeRegistry;
+use Iriven\Fluxon\Application\Rendering\ThemeResolver;
 use PHPUnit\Framework\TestCase;
 
 final class RenderProfileRegressionTest extends TestCase

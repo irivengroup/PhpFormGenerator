@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Infrastructure\Security\NullCsrfManager;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Infrastructure\Security\NullCsrfManager;
 use PHPUnit\Framework\TestCase;
 
 final class LoginTypeTest extends TestCase

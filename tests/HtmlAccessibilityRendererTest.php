@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Domain\Form\FormView;
-use Iriven\Fluxa\Presentation\Html\HtmlRenderer;
+use Iriven\Fluxon\Domain\Form\FormView;
+use Iriven\Fluxon\Presentation\Html\HtmlRenderer;
 use PHPUnit\Framework\TestCase;
 
 final class HtmlAccessibilityRendererTest extends TestCase
@@ -16,11 +16,11 @@ final class HtmlAccessibilityRendererTest extends TestCase
             'email',
             'contact[email]',
             'form_email',
-            'Iriven\\Fluxa\\Domain\\Field\\EmailType',
+            'Iriven\\Fluxon\\Domain\\Field\\EmailType',
             '',
             [
                 'label' => 'Email',
-                'type_class' => 'Iriven\\Fluxa\\Domain\\Field\\EmailType',
+                'type_class' => 'Iriven\\Fluxon\\Domain\\Field\\EmailType',
                 'required' => true,
                 'help' => 'Enter your email address',
             ],

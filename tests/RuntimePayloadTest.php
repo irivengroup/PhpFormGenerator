@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Runtime\RuntimePayload;
+use Iriven\Fluxon\Application\Runtime\RuntimePayload;
 use PHPUnit\Framework\TestCase;
 
 final class RuntimePayloadTest extends TestCase

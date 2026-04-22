@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Registry;
+namespace Iriven\Fluxon\Infrastructure\Registry;
 
-use Iriven\Fluxa\Domain\Contract\PluginInterface;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Domain\Contract\PluginInterface;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
 
 final class PluginRegistry
 {

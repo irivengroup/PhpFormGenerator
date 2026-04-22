@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Contract;
+namespace Iriven\Fluxon\Domain\Contract;
 
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
 
 /**
  * @api

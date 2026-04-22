@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\FormGenerator;
+namespace Iriven\Fluxon\Application\FormGenerator;
 
 final class AttributeNormalizer
 {

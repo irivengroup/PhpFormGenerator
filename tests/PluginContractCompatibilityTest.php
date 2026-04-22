@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
-use Iriven\Fluxa\Infrastructure\Registry\InMemoryFieldTypeRegistry;
-use Iriven\Fluxa\Infrastructure\Registry\InMemoryFormTypeRegistry;
-use Iriven\Fluxa\Infrastructure\Registry\PluginRegistry;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\DemoPlugin;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\InMemoryFieldTypeRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\InMemoryFormTypeRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\PluginRegistry;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\DemoPlugin;
 use PHPUnit\Framework\TestCase;
 
 final class PluginContractCompatibilityTest extends TestCase

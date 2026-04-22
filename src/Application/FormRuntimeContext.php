@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application;
+namespace Iriven\Fluxon\Application;
 
-use Iriven\Fluxa\Application\Runtime\RuntimePayload;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Application\Runtime\RuntimePayload;
+use Iriven\Fluxon\Domain\Form\Form;
 
 /**
  * @api

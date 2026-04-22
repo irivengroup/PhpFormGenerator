@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Generation;
+namespace Iriven\Fluxon\Application\Generation;
 
-use Iriven\Fluxa\Domain\Attribute\FormField;
-use Iriven\Fluxa\Domain\Attribute\FormIgnore;
+use Iriven\Fluxon\Domain\Attribute\FormField;
+use Iriven\Fluxon\Domain\Attribute\FormIgnore;
 use ReflectionClass;
 use ReflectionProperty;
 

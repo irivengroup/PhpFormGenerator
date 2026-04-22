@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Presentation\Html;
+namespace Iriven\Fluxon\Presentation\Html;
 
-use Iriven\Fluxa\Domain\Field\HiddenType;
-use Iriven\Fluxa\Domain\Form\FormView;
-use Iriven\Fluxa\Presentation\Html\Theme\ThemeInterface;
+use Iriven\Fluxon\Domain\Field\HiddenType;
+use Iriven\Fluxon\Domain\Form\FormView;
+use Iriven\Fluxon\Presentation\Html\Theme\ThemeInterface;
 
 final class HtmlRowRenderer
 {
@@ -86,7 +86,7 @@ final class HtmlRowRenderer
 
     private function isCheckboxView(FormView $view): bool
     {
-        return $view->type === 'Iriven\Fluxa\Domain\Field\CheckboxType';
+        return $view->type === 'Iriven\Fluxon\Domain\Field\CheckboxType';
     }
 
     private function renderPreWidgetLabel(FormView $view): string

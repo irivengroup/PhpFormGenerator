@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests\Fixtures\Plugin;
+namespace Iriven\Fluxon\Tests\Fixtures\Plugin;
 
-use Iriven\Fluxa\Domain\Contract\FieldTypeRegistryInterface;
-use Iriven\Fluxa\Domain\Contract\FormTypeRegistryInterface;
-use Iriven\Fluxa\Domain\Contract\PluginInterface;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Domain\Contract\FieldTypeRegistryInterface;
+use Iriven\Fluxon\Domain\Contract\FormTypeRegistryInterface;
+use Iriven\Fluxon\Domain\Contract\PluginInterface;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
 
 final class DemoPlugin implements PluginInterface
 {
@@ -26,7 +26,7 @@ final class DemoPlugin implements PluginInterface
         $registry->addFieldTypeExtension(new SlugTrimFieldExtension());
     }
 
-    public function register(\Iriven\Fluxa\Infrastructure\Registry\PluginRegistry $registry): void
+    public function register(\Iriven\Fluxon\Infrastructure\Registry\PluginRegistry $registry): void
     {
         $registry->register($this);
     }

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormRenderManager;
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\FormRuntimePipeline;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Application\FormThemeKernel;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
-use Iriven\Fluxa\Presentation\Html\HtmlRendererFactory;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormRenderManager;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\FormRuntimePipeline;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Application\FormThemeKernel;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Presentation\Html\HtmlRendererFactory;
 use PHPUnit\Framework\TestCase;
 
 final class RuntimeStaticShapeTest extends TestCase

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Generation\ExampleSchemaFormGenerator;
+use Iriven\Fluxon\Application\Generation\ExampleSchemaFormGenerator;
 
 /** @api */
 final class MakeDtoFormCommand implements CliCommandInterface

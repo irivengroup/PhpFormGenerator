@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Generation;
+namespace Iriven\Fluxon\Application\Generation;
 
 /** @api */
 final class DtoFormGuesser

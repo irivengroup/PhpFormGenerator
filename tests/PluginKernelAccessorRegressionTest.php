@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormPluginKernel;
-use Iriven\Fluxa\Infrastructure\Registry\PluginRegistry;
+use Iriven\Fluxon\Application\FormPluginKernel;
+use Iriven\Fluxon\Infrastructure\Registry\PluginRegistry;
 use PHPUnit\Framework\TestCase;
 
 final class PluginKernelAccessorRegressionTest extends TestCase

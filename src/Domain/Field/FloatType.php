@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Field;
+namespace Iriven\Fluxon\Domain\Field;
 
-use Iriven\Fluxa\Domain\Contract\DataTransformerInterface;
-use Iriven\Fluxa\Domain\Transformer\FloatTransformer;
+use Iriven\Fluxon\Domain\Contract\DataTransformerInterface;
+use Iriven\Fluxon\Domain\Transformer\FloatTransformer;
 
 class FloatType extends NumberType
 {

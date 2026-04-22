@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormThemeKernel;
-use Iriven\Fluxa\Presentation\Html\HtmlRenderer;
-use Iriven\Fluxa\Presentation\Html\HtmlRendererFactory;
-use Iriven\Fluxa\Tests\Fixtures\Theme\MinimalTheme;
+use Iriven\Fluxon\Application\FormThemeKernel;
+use Iriven\Fluxon\Presentation\Html\HtmlRenderer;
+use Iriven\Fluxon\Presentation\Html\HtmlRendererFactory;
+use Iriven\Fluxon\Tests\Fixtures\Theme\MinimalTheme;
 use PHPUnit\Framework\TestCase;
 
 final class ThemeCustomRuntimeTest extends TestCase

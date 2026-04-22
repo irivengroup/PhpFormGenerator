@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Extension;
+namespace Iriven\Fluxon\Infrastructure\Extension;
 
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
-use Iriven\Fluxa\Domain\Contract\DataTransformerInterface;
-use Iriven\Fluxa\Domain\Contract\FieldTypeExtensionInterface;
-use Iriven\Fluxa\Domain\Field\TextType;
-use Iriven\Fluxa\Domain\Transformer\StringTrimTransformer;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Contract\DataTransformerInterface;
+use Iriven\Fluxon\Domain\Contract\FieldTypeExtensionInterface;
+use Iriven\Fluxon\Domain\Field\TextType;
+use Iriven\Fluxon\Domain\Transformer\StringTrimTransformer;
 
 final class TrimTextFieldExtension implements FieldTypeExtensionInterface
 {

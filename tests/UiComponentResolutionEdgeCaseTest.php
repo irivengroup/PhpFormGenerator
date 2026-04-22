@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Frontend\AdvancedUiComponentResolver;
-use Iriven\Fluxa\Application\Frontend\UiComponentMap;
-use Iriven\Fluxa\Application\Frontend\UiComponentResolver;
+use Iriven\Fluxon\Application\Frontend\AdvancedUiComponentResolver;
+use Iriven\Fluxon\Application\Frontend\UiComponentMap;
+use Iriven\Fluxon\Application\Frontend\UiComponentResolver;
 use PHPUnit\Framework\TestCase;
 
 final class UiComponentResolutionEdgeCaseTest extends TestCase
@@ -28,6 +28,6 @@ final class UiComponentResolutionEdgeCaseTest extends TestCase
             new UiComponentMap(['TextType' => 'ui.text.short'])
         );
 
-        self::assertSame('ui.text.short', $resolver->resolve('Iriven\Fluxa\Domain\Field\TextType'));
+        self::assertSame('ui.text.short', $resolver->resolve('Iriven\Fluxon\Domain\Field\TextType'));
     }
 }

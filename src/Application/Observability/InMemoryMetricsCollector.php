@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Observability;
+namespace Iriven\Fluxon\Application\Observability;
 
 /** @api */
 final class InMemoryMetricsCollector

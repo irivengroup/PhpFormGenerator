@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
-use Iriven\Fluxa\Domain\Contract\CaptchaManagerInterface;
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
-use Iriven\Fluxa\Domain\Event\ValidationErrorEvent;
-use Iriven\Fluxa\Domain\Validation\Validator;
+use Iriven\Fluxon\Domain\Contract\CaptchaManagerInterface;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Event\ValidationErrorEvent;
+use Iriven\Fluxon\Domain\Validation\Validator;
 
 final class FormValidationProcessor
 {

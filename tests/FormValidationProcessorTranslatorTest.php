@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormGenerator;
-use Iriven\Fluxa\Infrastructure\Http\ArrayRequest;
-use Iriven\Fluxa\Infrastructure\Translation\ArrayTranslator;
+use Iriven\Fluxon\Application\FormGenerator;
+use Iriven\Fluxon\Infrastructure\Http\ArrayRequest;
+use Iriven\Fluxon\Infrastructure\Translation\ArrayTranslator;
 use PHPUnit\Framework\TestCase;
 
 final class FormValidationProcessorTranslatorTest extends TestCase

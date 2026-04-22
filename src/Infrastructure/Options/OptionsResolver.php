@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Options;
+namespace Iriven\Fluxon\Infrastructure\Options;
 
 use InvalidArgumentException;
-use Iriven\Fluxa\Domain\Contract\OptionsResolverInterface;
+use Iriven\Fluxon\Domain\Contract\OptionsResolverInterface;
 
 final class OptionsResolver implements OptionsResolverInterface
 {

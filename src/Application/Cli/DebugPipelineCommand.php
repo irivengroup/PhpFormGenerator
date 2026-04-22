@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Debug\RuntimeInspector;
-use Iriven\Fluxa\Application\FormFactory;
+use Iriven\Fluxon\Application\Debug\RuntimeInspector;
+use Iriven\Fluxon\Application\FormFactory;
 
 /** @api */
 final class DebugPipelineCommand implements CliCommandInterface

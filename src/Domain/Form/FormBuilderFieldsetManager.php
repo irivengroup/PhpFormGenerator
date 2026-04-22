@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
 final class FormBuilderFieldsetManager
 {

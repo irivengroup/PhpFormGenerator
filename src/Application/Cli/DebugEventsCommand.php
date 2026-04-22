@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Events\FormEvents;
+use Iriven\Fluxon\Application\Events\FormEvents;
 
 /** @api */
 final class DebugEventsCommand implements CliCommandInterface

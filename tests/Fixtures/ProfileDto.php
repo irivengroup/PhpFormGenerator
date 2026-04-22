@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests\Fixtures;
+namespace Iriven\Fluxon\Tests\Fixtures;
 
 final class ProfileDto
 {

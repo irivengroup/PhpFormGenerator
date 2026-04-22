@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaIndexRegressionTest extends TestCase

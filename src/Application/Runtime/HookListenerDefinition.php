@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Runtime;
+namespace Iriven\Fluxon\Application\Runtime;
 
-use Iriven\Fluxa\Domain\Contract\FormHookInterface;
+use Iriven\Fluxon\Domain\Contract\FormHookInterface;
 
 final class HookListenerDefinition
 {

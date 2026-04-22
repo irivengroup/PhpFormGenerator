@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Extension;
+namespace Iriven\Fluxon\Infrastructure\Extension;
 
-use Iriven\Fluxa\Domain\Contract\ExtensionInterface;
-use Iriven\Fluxa\Domain\Contract\FieldTypeExtensionInterface;
+use Iriven\Fluxon\Domain\Contract\ExtensionInterface;
+use Iriven\Fluxon\Domain\Contract\FieldTypeExtensionInterface;
 
 /**
  * @api

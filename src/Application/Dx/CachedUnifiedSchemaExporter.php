@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Dx;
+namespace Iriven\Fluxon\Application\Dx;
 
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\PublicApi\UnifiedSchemaExporter;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\PublicApi\UnifiedSchemaExporter;
+use Iriven\Fluxon\Domain\Form\Form;
 
 /** @api */
 final class CachedUnifiedSchemaExporter

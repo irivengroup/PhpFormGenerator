@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Field;
+namespace Iriven\Fluxon\Domain\Field;
 
 class ButtonType extends AbstractFieldType
 {

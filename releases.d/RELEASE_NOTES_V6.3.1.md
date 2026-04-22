@@ -5,7 +5,7 @@
 # V6.3.1 – Packaging Packagist et release ready
 
 ## Inclus
-- package name `iriven/fluxa`
+- package name `iriven/fluxon`
 - type `library`
 - description Packagist
 - keywords Packagist

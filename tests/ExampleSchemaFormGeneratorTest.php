@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Generation\ExampleSchemaFormGenerator;
+use Iriven\Fluxon\Application\Generation\ExampleSchemaFormGenerator;
 use PHPUnit\Framework\TestCase;
 
 final class ExampleSchemaFormGeneratorTest extends TestCase

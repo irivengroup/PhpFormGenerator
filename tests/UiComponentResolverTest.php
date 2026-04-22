@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Frontend\UiComponentResolver;
+use Iriven\Fluxon\Application\Frontend\UiComponentResolver;
 use PHPUnit\Framework\TestCase;
 
 final class UiComponentResolverTest extends TestCase

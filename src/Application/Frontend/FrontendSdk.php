@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Frontend;
+namespace Iriven\Fluxon\Application\Frontend;
 
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Application\Rendering\RenderProfile;
-use Iriven\Fluxa\Application\Rendering\RenderProfileManager;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Application\Rendering\RenderProfile;
+use Iriven\Fluxon\Application\Rendering\RenderProfileManager;
+use Iriven\Fluxon\Domain\Form\Form;
 
 /**
  * @api

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Headless;
+namespace Iriven\Fluxon\Application\Headless;
 
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Domain\Form\Form;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Domain\Form\Form;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
 
 /**
  * @api

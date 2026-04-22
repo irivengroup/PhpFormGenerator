@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Diagnostics;
+namespace Iriven\Fluxon\Application\Diagnostics;
 
-use Iriven\Fluxa\Application\Profiling\Profiler;
+use Iriven\Fluxon\Application\Profiling\Profiler;
 
 /** @api */
 final class DiagnosticsRunner

@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Cli\DebugCacheCommand;
-use Iriven\Fluxa\Application\Cli\DebugEventsCommand;
-use Iriven\Fluxa\Application\Cli\DebugFormCommand;
-use Iriven\Fluxa\Application\Cli\DebugPipelineCommand;
+use Iriven\Fluxon\Application\Cli\DebugCacheCommand;
+use Iriven\Fluxon\Application\Cli\DebugEventsCommand;
+use Iriven\Fluxon\Application\Cli\DebugFormCommand;
+use Iriven\Fluxon\Application\Cli\DebugPipelineCommand;
 use PHPUnit\Framework\TestCase;
 
 final class DebugRuntimeCliRegressionTest extends TestCase

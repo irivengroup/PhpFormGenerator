@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Constraint;
+namespace Iriven\Fluxon\Domain\Constraint;
 
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
-use Iriven\Fluxa\Domain\Contract\ValidationGroupAwareInterface;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Contract\ValidationGroupAwareInterface;
 
 final class GroupedConstraint implements ConstraintInterface, ValidationGroupAwareInterface
 {

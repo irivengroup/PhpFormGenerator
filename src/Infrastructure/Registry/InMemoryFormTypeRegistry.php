@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Registry;
+namespace Iriven\Fluxon\Infrastructure\Registry;
 
 use InvalidArgumentException;
-use Iriven\Fluxa\Domain\Contract\FormTypeRegistryInterface;
+use Iriven\Fluxon\Domain\Contract\FormTypeRegistryInterface;
 
 final class InMemoryFormTypeRegistry implements FormTypeRegistryInterface
 {

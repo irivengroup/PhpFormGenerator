@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Generation\DtoFormGuesser;
-use Iriven\Fluxa\Domain\Attribute\FormField;
-use Iriven\Fluxa\Domain\Attribute\FormIgnore;
+use Iriven\Fluxon\Application\Generation\DtoFormGuesser;
+use Iriven\Fluxon\Domain\Attribute\FormField;
+use Iriven\Fluxon\Domain\Attribute\FormIgnore;
 use PHPUnit\Framework\TestCase;
 
 final class DtoFormGuesserAttributeTest extends TestCase

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Constraint;
+namespace Iriven\Fluxon\Domain\Constraint;
 
-use Iriven\Fluxa\Infrastructure\Translation\TranslatorInterface;
+use Iriven\Fluxon\Infrastructure\Translation\TranslatorInterface;
 
 trait TranslatableConstraintMessageTrait
 {

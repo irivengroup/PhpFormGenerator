@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Application\Frontend\FrontendSchemaRendererConfig;
-use Iriven\Fluxa\Application\Frontend\FrontendSdk;
-use Iriven\Fluxa\Application\Frontend\UiComponentMap;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Application\Frontend\FrontendSchemaRendererConfig;
+use Iriven\Fluxon\Application\Frontend\FrontendSdk;
+use Iriven\Fluxon\Application\Frontend\UiComponentMap;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
 use PHPUnit\Framework\TestCase;
 
 final class FrontendSdkAdvancedTest extends TestCase

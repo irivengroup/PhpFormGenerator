@@ -1,7 +1,7 @@
 # Production Hardening
 
 ## Objectif
-Documenter le durcissement de Fluxa en production.
+Documenter le durcissement de Fluxon en production.
 
 ## Axes
 - listeners fautifs

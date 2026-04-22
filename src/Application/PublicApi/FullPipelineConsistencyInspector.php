@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Application\PublicApi;
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\Headless\HeadlessFormProcessor;
-use Iriven\Fluxa\Domain\Form\Form;
+namespace Iriven\Fluxon\Application\PublicApi;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\Headless\HeadlessFormProcessor;
+use Iriven\Fluxon\Domain\Form\Form;
 /** @api */
 final class FullPipelineConsistencyInspector
 {

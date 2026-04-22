@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Observability\InMemoryMetricsCollector;
-use Iriven\Fluxa\Application\Observability\StructuredLogger;
+use Iriven\Fluxon\Application\Observability\InMemoryMetricsCollector;
+use Iriven\Fluxon\Application\Observability\StructuredLogger;
 use PHPUnit\Framework\TestCase;
 
 final class ObservabilitySmokeTest extends TestCase

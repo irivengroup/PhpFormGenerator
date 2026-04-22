@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Schema;
+namespace Iriven\Fluxon\Infrastructure\Schema;
 
-use Iriven\Fluxa\Domain\Contract\SchemaExporterInterface;
-use Iriven\Fluxa\Domain\Form\FieldConfig;
-use Iriven\Fluxa\Domain\Form\Form;
-use Iriven\Fluxa\Infrastructure\Type\TypeResolver;
+use Iriven\Fluxon\Domain\Contract\SchemaExporterInterface;
+use Iriven\Fluxon\Domain\Form\FieldConfig;
+use Iriven\Fluxon\Domain\Form\Form;
+use Iriven\Fluxon\Infrastructure\Type\TypeResolver;
 
 final class ArraySchemaExporter implements SchemaExporterInterface
 {

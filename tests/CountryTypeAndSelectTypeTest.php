@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Domain\Field\CountryType;
-use Iriven\Fluxa\Domain\Field\SelectType;
+use Iriven\Fluxon\Domain\Field\CountryType;
+use Iriven\Fluxon\Domain\Field\SelectType;
 use PHPUnit\Framework\TestCase;
 
 final class CountryTypeAndSelectTypeTest extends TestCase

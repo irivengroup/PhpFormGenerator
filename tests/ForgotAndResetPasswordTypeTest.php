@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Tests;
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Infrastructure\Security\NullCsrfManager;
+namespace Iriven\Fluxon\Tests;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Infrastructure\Security\NullCsrfManager;
 use PHPUnit\Framework\TestCase;
 final class ForgotAndResetPasswordTypeTest extends TestCase
 {

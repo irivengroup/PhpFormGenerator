@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Transformer;
+namespace Iriven\Fluxon\Domain\Transformer;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use Iriven\Fluxa\Domain\Contract\DataTransformerInterface;
+use Iriven\Fluxon\Domain\Contract\DataTransformerInterface;
 
 final class DateTimeTransformer implements DataTransformerInterface
 {

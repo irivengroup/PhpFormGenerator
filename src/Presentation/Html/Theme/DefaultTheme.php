@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Presentation\Html\Theme;
+namespace Iriven\Fluxon\Presentation\Html\Theme;
 
 class DefaultTheme implements ThemeInterface
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Debug\RuntimeInspector;
-use Iriven\Fluxa\Application\FormFactory;
+use Iriven\Fluxon\Application\Debug\RuntimeInspector;
+use Iriven\Fluxon\Application\FormFactory;
 use PHPUnit\Framework\TestCase;
 
 final class RuntimeInspectorTest extends TestCase

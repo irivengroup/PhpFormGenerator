@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
 use DateTimeImmutable;
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Infrastructure\Http\ArrayRequest;
-use Iriven\Fluxa\Infrastructure\Security\NullCsrfManager;
-use Iriven\Fluxa\Presentation\Html\HtmlRenderer;
-use Iriven\Fluxa\Presentation\Html\Theme\Bootstrap5Theme;
-use Iriven\Fluxa\Tests\Fixtures\InvoiceType;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Infrastructure\Http\ArrayRequest;
+use Iriven\Fluxon\Infrastructure\Security\NullCsrfManager;
+use Iriven\Fluxon\Presentation\Html\HtmlRenderer;
+use Iriven\Fluxon\Presentation\Html\Theme\Bootstrap5Theme;
+use Iriven\Fluxon\Tests\Fixtures\InvoiceType;
 use PHPUnit\Framework\TestCase;
 
 final class NestedFormsAndCollectionsTest extends TestCase

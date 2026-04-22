@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Domain\Form\Form;
 
 /**
  * @api

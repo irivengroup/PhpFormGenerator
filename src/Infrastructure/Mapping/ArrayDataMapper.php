@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Mapping;
+namespace Iriven\Fluxon\Infrastructure\Mapping;
 
 final class ArrayDataMapper
 {

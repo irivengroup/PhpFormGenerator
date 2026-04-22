@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Event;
+namespace Iriven\Fluxon\Domain\Event;
 
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Domain\Form\Form;
 
 class FormEvent
 {

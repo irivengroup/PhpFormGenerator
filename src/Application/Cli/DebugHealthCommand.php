@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
 /** @api */
 final class DebugHealthCommand implements CliCommandInterface
@@ -18,7 +18,7 @@ final class DebugHealthCommand implements CliCommandInterface
     {
         return json_encode([
             'status' => 'ok',
-            'service' => 'fluxa',
+            'service' => 'fluxon',
         ], JSON_PRETTY_PRINT) ?: '{}';
     }
 }

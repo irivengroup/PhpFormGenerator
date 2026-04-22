@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Integration\Laravel;
+namespace Iriven\Fluxon\Integration\Laravel;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Domain\Form\Form;
 
 /** @api */
 final class LaravelFormBridge

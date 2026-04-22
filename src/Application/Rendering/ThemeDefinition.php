@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Application\Rendering;
+namespace Iriven\Fluxon\Application\Rendering;
 /** @api */
 final class ThemeDefinition
 {

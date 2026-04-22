@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
-use Iriven\Fluxa\Domain\Contract\DataTransformerInterface;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Contract\DataTransformerInterface;
 
 final class FieldConfig
 {

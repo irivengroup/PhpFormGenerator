@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Presentation\Html;
+namespace Iriven\Fluxon\Presentation\Html;
 
-use Iriven\Fluxa\Domain\Form\FormView;
-use Iriven\Fluxa\Presentation\Html\Theme\ThemeInterface;
+use Iriven\Fluxon\Domain\Form\FormView;
+use Iriven\Fluxon\Presentation\Html\Theme\ThemeInterface;
 
 final class HtmlWidgetRenderer
 {

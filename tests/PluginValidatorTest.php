@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Plugin\PluginValidator;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\DemoPlugin;
+use Iriven\Fluxon\Application\Plugin\PluginValidator;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\DemoPlugin;
 use PHPUnit\Framework\TestCase;
 
 final class PluginValidatorTest extends TestCase

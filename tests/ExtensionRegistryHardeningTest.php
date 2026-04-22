@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Domain\Contract\ExtensionInterface;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Domain\Contract\ExtensionInterface;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
 use PHPUnit\Framework\TestCase;
 
 final class ExtensionRegistryHardeningTest extends TestCase

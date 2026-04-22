@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Presentation\Html;
+namespace Iriven\Fluxon\Presentation\Html;
 
 final class CaptchaSvgRenderer
 {

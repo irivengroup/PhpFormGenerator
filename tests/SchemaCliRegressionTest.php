@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Cli\MigrateSchemaCommand;
+use Iriven\Fluxon\Application\Cli\MigrateSchemaCommand;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaCliRegressionTest extends TestCase

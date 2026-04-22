@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Cli\CliApplication;
-use Iriven\Fluxa\Application\Cli\MakeFormCommand;
-use Iriven\Fluxa\Application\Cli\MakePluginCommand;
+use Iriven\Fluxon\Application\Cli\CliApplication;
+use Iriven\Fluxon\Application\Cli\MakeFormCommand;
+use Iriven\Fluxon\Application\Cli\MakePluginCommand;
 use PHPUnit\Framework\TestCase;
 
 final class CliRegressionTest extends TestCase

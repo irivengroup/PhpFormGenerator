@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Runtime;
+namespace Iriven\Fluxon\Application\Runtime;
 
 final class RuntimePayload
 {

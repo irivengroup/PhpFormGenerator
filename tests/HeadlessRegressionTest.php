@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Tests;
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\Headless\HeadlessFormProcessor;
-use Iriven\Fluxa\Application\Headless\HeadlessFormState;
-use Iriven\Fluxa\Application\Headless\HeadlessResponseBuilder;
+namespace Iriven\Fluxon\Tests;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\Headless\HeadlessFormProcessor;
+use Iriven\Fluxon\Application\Headless\HeadlessFormState;
+use Iriven\Fluxon\Application\Headless\HeadlessResponseBuilder;
 use PHPUnit\Framework\TestCase;
 final class HeadlessRegressionTest extends TestCase
 {

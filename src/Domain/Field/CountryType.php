@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Field;
+namespace Iriven\Fluxon\Domain\Field;
 
-use Iriven\Fluxa\Infrastructure\Catalog\CountryCatalog;
+use Iriven\Fluxon\Infrastructure\Catalog\CountryCatalog;
 
 class CountryType extends SelectType
 {

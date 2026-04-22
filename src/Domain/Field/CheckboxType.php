@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Field;
+namespace Iriven\Fluxon\Domain\Field;
 
-use Iriven\Fluxa\Domain\Contract\DataTransformerInterface;
-use Iriven\Fluxa\Domain\Transformer\BooleanTransformer;
+use Iriven\Fluxon\Domain\Contract\DataTransformerInterface;
+use Iriven\Fluxon\Domain\Transformer\BooleanTransformer;
 
 class CheckboxType extends AbstractFieldType
 {

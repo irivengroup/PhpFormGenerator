@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\FormType;
+namespace Iriven\Fluxon\Application\FormType;
 
-use Iriven\Fluxa\Domain\Constraint\Callback;
-use Iriven\Fluxa\Domain\Constraint\Email;
-use Iriven\Fluxa\Domain\Constraint\Required;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Contract\OptionsResolverInterface;
-use Iriven\Fluxa\Domain\Field\CaptchaType;
-use Iriven\Fluxa\Domain\Field\CheckboxType;
-use Iriven\Fluxa\Domain\Field\EmailType;
-use Iriven\Fluxa\Domain\Field\PasswordType;
-use Iriven\Fluxa\Domain\Field\SubmitType;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Domain\Constraint\Callback;
+use Iriven\Fluxon\Domain\Constraint\Email;
+use Iriven\Fluxon\Domain\Constraint\Required;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Contract\OptionsResolverInterface;
+use Iriven\Fluxon\Domain\Field\CaptchaType;
+use Iriven\Fluxon\Domain\Field\CheckboxType;
+use Iriven\Fluxon\Domain\Field\EmailType;
+use Iriven\Fluxon\Domain\Field\PasswordType;
+use Iriven\Fluxon\Domain\Field\SubmitType;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
 
 final class RegistrationType implements FormTypeInterface
 {

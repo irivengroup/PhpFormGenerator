@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Presentation\Html;
+namespace Iriven\Fluxon\Presentation\Html;
 
-use Iriven\Fluxa\Domain\Field\AbstractFieldType;
-use Iriven\Fluxa\Domain\Form\FormView;
+use Iriven\Fluxon\Domain\Field\AbstractFieldType;
+use Iriven\Fluxon\Domain\Form\FormView;
 
 final class HtmlWidgetAttributeBuilder
 {

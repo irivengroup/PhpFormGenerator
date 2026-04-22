@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Type;
+namespace Iriven\Fluxon\Infrastructure\Type;
 
-use Iriven\Fluxa\Infrastructure\Registry\InMemoryFieldTypeRegistry;
-use Iriven\Fluxa\Infrastructure\Registry\InMemoryFormTypeRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\InMemoryFieldTypeRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\InMemoryFormTypeRegistry;
 
 final class TypeResolver
 {

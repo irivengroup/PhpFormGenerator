@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormThemeKernel;
-use Iriven\Fluxa\Presentation\Html\HtmlRenderer;
-use Iriven\Fluxa\Presentation\Html\HtmlRendererFactory;
+use Iriven\Fluxon\Application\FormThemeKernel;
+use Iriven\Fluxon\Presentation\Html\HtmlRenderer;
+use Iriven\Fluxon\Presentation\Html\HtmlRendererFactory;
 use PHPUnit\Framework\TestCase;
 
 final class ThemeFallbackRegressionTest extends TestCase

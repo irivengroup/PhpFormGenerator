@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Domain\Contract\FieldExtensionInterface;
-use Iriven\Fluxa\Domain\Contract\PluginInterface;
+use Iriven\Fluxon\Domain\Contract\FieldExtensionInterface;
+use Iriven\Fluxon\Domain\Contract\PluginInterface;
 use PHPUnit\Framework\TestCase;
 
 final class PluginContractTest extends TestCase

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Runtime\HttpTransport;
-use Iriven\Fluxa\Application\Runtime\InMemoryTransport;
+use Iriven\Fluxon\Application\Runtime\HttpTransport;
+use Iriven\Fluxon\Application\Runtime\InMemoryTransport;
 use PHPUnit\Framework\TestCase;
 
 final class TransportTest extends TestCase

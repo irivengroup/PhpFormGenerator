@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Profiling;
+namespace Iriven\Fluxon\Application\Profiling;
 
 /** @api */
 final class ProfileTimeline

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaHardeningRuntimeTest extends TestCase
@@ -25,7 +25,7 @@ final class SchemaHardeningRuntimeTest extends TestCase
         $schema = (new FormSchemaManager(new ArraySchemaExporter()))->export($form);
 
         self::assertTrue($schema['fields']['tags']['collection']);
-        self::assertSame('Iriven\Fluxa\Domain\Field\TextType', $schema['fields']['tags']['entry_type']);
+        self::assertSame('Iriven\Fluxon\Domain\Field\TextType', $schema['fields']['tags']['entry_type']);
         self::assertSame(['label' => 'Tag'], $schema['fields']['tags']['entry_options']);
     }
 
@@ -39,7 +39,7 @@ final class SchemaHardeningRuntimeTest extends TestCase
             ->add('street', 'TextType', ['label' => 'Street'])
             ->add('zip', 'TextType', ['label' => 'ZIP']);
 
-        $builder->add('address', 'Iriven\Fluxa\Domain\Field\FormType', [
+        $builder->add('address', 'Iriven\Fluxon\Domain\Field\FormType', [
             'label' => 'Address',
         ]);
 

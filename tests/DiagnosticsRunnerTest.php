@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Diagnostics\DiagnosticsRunner;
+use Iriven\Fluxon\Application\Diagnostics\DiagnosticsRunner;
 use PHPUnit\Framework\TestCase;
 
 final class DiagnosticsRunnerTest extends TestCase

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Cli\DebugDiagnosticsCommand;
-use Iriven\Fluxa\Application\Cli\DebugHealthCommand;
-use Iriven\Fluxa\Application\Cli\DebugProfileCommand;
+use Iriven\Fluxon\Application\Cli\DebugDiagnosticsCommand;
+use Iriven\Fluxon\Application\Cli\DebugHealthCommand;
+use Iriven\Fluxon\Application\Cli\DebugProfileCommand;
 use PHPUnit\Framework\TestCase;
 
 final class DebugDiagnosticsCliTest extends TestCase

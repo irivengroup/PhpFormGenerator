@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\FormType;
+namespace Iriven\Fluxon\Application\FormType;
 
-use Iriven\Fluxa\Domain\Constraint\Email;
-use Iriven\Fluxa\Domain\Constraint\Length;
-use Iriven\Fluxa\Domain\Constraint\Required;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Contract\OptionsResolverInterface;
-use Iriven\Fluxa\Domain\Field\CaptchaType;
-use Iriven\Fluxa\Domain\Field\CountryType;
-use Iriven\Fluxa\Domain\Field\EmailType;
-use Iriven\Fluxa\Domain\Field\PhoneType;
-use Iriven\Fluxa\Domain\Field\SubmitType;
-use Iriven\Fluxa\Domain\Field\TextareaType;
-use Iriven\Fluxa\Domain\Field\TextType;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Domain\Constraint\Email;
+use Iriven\Fluxon\Domain\Constraint\Length;
+use Iriven\Fluxon\Domain\Constraint\Required;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Contract\OptionsResolverInterface;
+use Iriven\Fluxon\Domain\Field\CaptchaType;
+use Iriven\Fluxon\Domain\Field\CountryType;
+use Iriven\Fluxon\Domain\Field\EmailType;
+use Iriven\Fluxon\Domain\Field\PhoneType;
+use Iriven\Fluxon\Domain\Field\SubmitType;
+use Iriven\Fluxon\Domain\Field\TextareaType;
+use Iriven\Fluxon\Domain\Field\TextType;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
 
 final class ContactType implements FormTypeInterface
 {

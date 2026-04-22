@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Tests;
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Application\Frontend\FrontendSdk;
-use Iriven\Fluxa\Application\Headless\HeadlessFormProcessor;
-use Iriven\Fluxa\Application\PublicApi\FullPipelineConsistencyInspector;
-use Iriven\Fluxa\Application\PublicApi\UnifiedSchemaExporter;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
+namespace Iriven\Fluxon\Tests;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Application\Frontend\FrontendSdk;
+use Iriven\Fluxon\Application\Headless\HeadlessFormProcessor;
+use Iriven\Fluxon\Application\PublicApi\FullPipelineConsistencyInspector;
+use Iriven\Fluxon\Application\PublicApi\UnifiedSchemaExporter;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
 use PHPUnit\Framework\TestCase;
 final class FullPipelineConsistencyTest extends TestCase
 {

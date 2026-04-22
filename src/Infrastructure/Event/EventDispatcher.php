@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Event;
+namespace Iriven\Fluxon\Infrastructure\Event;
 
-use Iriven\Fluxa\Domain\Contract\EventDispatcherInterface;
-use Iriven\Fluxa\Domain\Contract\EventSubscriberInterface;
+use Iriven\Fluxon\Domain\Contract\EventDispatcherInterface;
+use Iriven\Fluxon\Domain\Contract\EventSubscriberInterface;
 
 final class EventDispatcher implements EventDispatcherInterface
 {

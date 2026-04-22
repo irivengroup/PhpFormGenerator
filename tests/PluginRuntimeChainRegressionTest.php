@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormPluginKernel;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\DemoPlugin;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\EmptyPlugin;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\OverridePlugin;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormPluginKernel;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\DemoPlugin;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\EmptyPlugin;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\OverridePlugin;
 use PHPUnit\Framework\TestCase;
 
 final class PluginRuntimeChainRegressionTest extends TestCase

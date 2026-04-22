@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Frontend\FrontendSchemaRendererConfig;
-use Iriven\Fluxa\Application\Frontend\UiComponentMap;
+use Iriven\Fluxon\Application\Frontend\FrontendSchemaRendererConfig;
+use Iriven\Fluxon\Application\Frontend\UiComponentMap;
 use PHPUnit\Framework\TestCase;
 
 final class FrontendSchemaRendererConfigTest extends TestCase

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Validation;
+namespace Iriven\Fluxon\Domain\Validation;
 
 final class ValidationResult
 {

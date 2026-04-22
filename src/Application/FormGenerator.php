@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application;
+namespace Iriven\Fluxon\Application;
 
-use Iriven\Fluxa\Application\FormGenerator\OpenNormalizer;
-use Iriven\Fluxa\Domain\Form\Form;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Application\FormGenerator\OpenNormalizer;
+use Iriven\Fluxon\Domain\Form\Form;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
 
 final class FormGenerator
 {

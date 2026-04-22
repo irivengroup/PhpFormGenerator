@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Generation\ExampleSchemaFormGenerator;
-use Iriven\Fluxa\Domain\Attribute\FormField;
+use Iriven\Fluxon\Application\Generation\ExampleSchemaFormGenerator;
+use Iriven\Fluxon\Domain\Attribute\FormField;
 use PHPUnit\Framework\TestCase;
 
 final class ExampleSchemaFormGeneratorAttributeTest extends TestCase

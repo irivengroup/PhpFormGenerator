@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Debug;
+namespace Iriven\Fluxon\Application\Debug;
 
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\Observability\InMemoryMetricsCollector;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\Observability\InMemoryMetricsCollector;
+use Iriven\Fluxon\Domain\Form\Form;
 
 /** @api */
 final class RuntimeInspector

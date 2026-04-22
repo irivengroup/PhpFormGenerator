@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests\Fixtures\Hook;
+namespace Iriven\Fluxon\Tests\Fixtures\Hook;
 
-use Iriven\Fluxa\Domain\Contract\FormHookInterface;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Domain\Contract\FormHookInterface;
+use Iriven\Fluxon\Domain\Form\Form;
 
 final class AfterSchemaExportHook implements FormHookInterface
 {

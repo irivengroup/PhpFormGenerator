@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Application\PublicApi;
+namespace Iriven\Fluxon\Application\PublicApi;
 /** @api */
 final class PublicApiStabilityChecker
 {

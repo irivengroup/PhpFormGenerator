@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form\Submission;
+namespace Iriven\Fluxon\Domain\Form\Submission;
 
-use Iriven\Fluxa\Domain\Contract\DataTransformerInterface;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Form\FieldConfig;
-use Iriven\Fluxa\Domain\Form\Form;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
-use Iriven\Fluxa\Domain\Form\FormValidationProcessor;
-use Iriven\Fluxa\Infrastructure\Options\OptionsResolver;
+use Iriven\Fluxon\Domain\Contract\DataTransformerInterface;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Form\FieldConfig;
+use Iriven\Fluxon\Domain\Form\Form;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Domain\Form\FormValidationProcessor;
+use Iriven\Fluxon\Infrastructure\Options\OptionsResolver;
 
 final class FieldSubmissionProcessor
 {
@@ -156,7 +156,7 @@ final class FieldSubmissionProcessor
 
     private function normalizeScalarFieldRawValue(FieldConfig $field, mixed $raw): mixed
     {
-        if ($field->typeClass === 'Iriven\Fluxa\Domain\Field\CheckboxType' && $raw === null) {
+        if ($field->typeClass === 'Iriven\Fluxon\Domain\Field\CheckboxType' && $raw === null) {
             return false;
         }
 
@@ -165,7 +165,7 @@ final class FieldSubmissionProcessor
 
     private function validateSpecializedField(Form $form, FieldConfig $field, mixed $raw, string $path): void
     {
-        if (is_a($field->typeClass, 'Iriven\Fluxa\Domain\Field\CaptchaType', true)) {
+        if (is_a($field->typeClass, 'Iriven\Fluxon\Domain\Field\CaptchaType', true)) {
             $this->validationProcessor->validateCaptchaField($form, $field, is_string($raw) ? $raw : null, $path);
         }
     }

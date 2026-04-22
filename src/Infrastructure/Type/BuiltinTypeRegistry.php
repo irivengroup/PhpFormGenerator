@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Type;
+namespace Iriven\Fluxon\Infrastructure\Type;
 
 final class BuiltinTypeRegistry
 {
@@ -12,41 +12,41 @@ final class BuiltinTypeRegistry
     public static function fieldTypes(): array
     {
         return [
-            'AudioType' => \Iriven\Fluxa\Domain\Field\AudioType::class,
-            'ButtonType' => \Iriven\Fluxa\Domain\Field\ButtonType::class,
-            'CaptchaType' => \Iriven\Fluxa\Domain\Field\CaptchaType::class,
-            'CheckboxType' => \Iriven\Fluxa\Domain\Field\CheckboxType::class,
-            'CollectionType' => \Iriven\Fluxa\Domain\Field\CollectionType::class,
-            'ColorType' => \Iriven\Fluxa\Domain\Field\ColorType::class,
-            'CountryType' => \Iriven\Fluxa\Domain\Field\CountryType::class,
-            'DatalistType' => \Iriven\Fluxa\Domain\Field\DatalistType::class,
-            'DateType' => \Iriven\Fluxa\Domain\Field\DateType::class,
-            'DatetimeLocalType' => \Iriven\Fluxa\Domain\Field\DatetimeLocalType::class,
-            'DatetimeType' => \Iriven\Fluxa\Domain\Field\DatetimeType::class,
-            'EditorType' => \Iriven\Fluxa\Domain\Field\EditorType::class,
-            'EmailType' => \Iriven\Fluxa\Domain\Field\EmailType::class,
-            'FileType' => \Iriven\Fluxa\Domain\Field\FileType::class,
-            'FloatType' => \Iriven\Fluxa\Domain\Field\FloatType::class,
-            'HiddenType' => \Iriven\Fluxa\Domain\Field\HiddenType::class,
-            'ImageType' => \Iriven\Fluxa\Domain\Field\ImageType::class,
-            'IntegerType' => \Iriven\Fluxa\Domain\Field\IntegerType::class,
-            'MonthType' => \Iriven\Fluxa\Domain\Field\MonthType::class,
-            'NumberType' => \Iriven\Fluxa\Domain\Field\NumberType::class,
-            'PasswordType' => \Iriven\Fluxa\Domain\Field\PasswordType::class,
-            'PhoneType' => \Iriven\Fluxa\Domain\Field\PhoneType::class,
-            'RadioType' => \Iriven\Fluxa\Domain\Field\RadioType::class,
-            'RangeType' => \Iriven\Fluxa\Domain\Field\RangeType::class,
-            'ResetType' => \Iriven\Fluxa\Domain\Field\ResetType::class,
-            'SearchType' => \Iriven\Fluxa\Domain\Field\SearchType::class,
-            'SelectType' => \Iriven\Fluxa\Domain\Field\SelectType::class,
-            'SubmitType' => \Iriven\Fluxa\Domain\Field\SubmitType::class,
-            'TextareaType' => \Iriven\Fluxa\Domain\Field\TextareaType::class,
-            'TextType' => \Iriven\Fluxa\Domain\Field\TextType::class,
-            'TimeType' => \Iriven\Fluxa\Domain\Field\TimeType::class,
-            'UrlType' => \Iriven\Fluxa\Domain\Field\UrlType::class,
-            'VideoType' => \Iriven\Fluxa\Domain\Field\VideoType::class,
-            'WeekType' => \Iriven\Fluxa\Domain\Field\WeekType::class,
-            'YesNoType' => \Iriven\Fluxa\Domain\Field\YesNoType::class,
+            'AudioType' => \Iriven\Fluxon\Domain\Field\AudioType::class,
+            'ButtonType' => \Iriven\Fluxon\Domain\Field\ButtonType::class,
+            'CaptchaType' => \Iriven\Fluxon\Domain\Field\CaptchaType::class,
+            'CheckboxType' => \Iriven\Fluxon\Domain\Field\CheckboxType::class,
+            'CollectionType' => \Iriven\Fluxon\Domain\Field\CollectionType::class,
+            'ColorType' => \Iriven\Fluxon\Domain\Field\ColorType::class,
+            'CountryType' => \Iriven\Fluxon\Domain\Field\CountryType::class,
+            'DatalistType' => \Iriven\Fluxon\Domain\Field\DatalistType::class,
+            'DateType' => \Iriven\Fluxon\Domain\Field\DateType::class,
+            'DatetimeLocalType' => \Iriven\Fluxon\Domain\Field\DatetimeLocalType::class,
+            'DatetimeType' => \Iriven\Fluxon\Domain\Field\DatetimeType::class,
+            'EditorType' => \Iriven\Fluxon\Domain\Field\EditorType::class,
+            'EmailType' => \Iriven\Fluxon\Domain\Field\EmailType::class,
+            'FileType' => \Iriven\Fluxon\Domain\Field\FileType::class,
+            'FloatType' => \Iriven\Fluxon\Domain\Field\FloatType::class,
+            'HiddenType' => \Iriven\Fluxon\Domain\Field\HiddenType::class,
+            'ImageType' => \Iriven\Fluxon\Domain\Field\ImageType::class,
+            'IntegerType' => \Iriven\Fluxon\Domain\Field\IntegerType::class,
+            'MonthType' => \Iriven\Fluxon\Domain\Field\MonthType::class,
+            'NumberType' => \Iriven\Fluxon\Domain\Field\NumberType::class,
+            'PasswordType' => \Iriven\Fluxon\Domain\Field\PasswordType::class,
+            'PhoneType' => \Iriven\Fluxon\Domain\Field\PhoneType::class,
+            'RadioType' => \Iriven\Fluxon\Domain\Field\RadioType::class,
+            'RangeType' => \Iriven\Fluxon\Domain\Field\RangeType::class,
+            'ResetType' => \Iriven\Fluxon\Domain\Field\ResetType::class,
+            'SearchType' => \Iriven\Fluxon\Domain\Field\SearchType::class,
+            'SelectType' => \Iriven\Fluxon\Domain\Field\SelectType::class,
+            'SubmitType' => \Iriven\Fluxon\Domain\Field\SubmitType::class,
+            'TextareaType' => \Iriven\Fluxon\Domain\Field\TextareaType::class,
+            'TextType' => \Iriven\Fluxon\Domain\Field\TextType::class,
+            'TimeType' => \Iriven\Fluxon\Domain\Field\TimeType::class,
+            'UrlType' => \Iriven\Fluxon\Domain\Field\UrlType::class,
+            'VideoType' => \Iriven\Fluxon\Domain\Field\VideoType::class,
+            'WeekType' => \Iriven\Fluxon\Domain\Field\WeekType::class,
+            'YesNoType' => \Iriven\Fluxon\Domain\Field\YesNoType::class,
         ];
     }
 
@@ -56,14 +56,14 @@ final class BuiltinTypeRegistry
     public static function formTypes(): array
     {
         return [
-            'ContactType' => \Iriven\Fluxa\Application\FormType\ContactType::class,
-            'CustomerType' => \Iriven\Fluxa\Application\FormType\CustomerType::class,
-            'ForgotPasswordType' => \Iriven\Fluxa\Application\FormType\ForgotPasswordType::class,
-            'LoginType' => \Iriven\Fluxa\Application\FormType\LoginType::class,
-            'InvoiceLineType' => \Iriven\Fluxa\Application\FormType\InvoiceLineType::class,
-            'InvoiceType' => \Iriven\Fluxa\Application\FormType\InvoiceType::class,
-            'RegistrationType' => \Iriven\Fluxa\Application\FormType\RegistrationType::class,
-            'ResetPasswordType' => \Iriven\Fluxa\Application\FormType\ResetPasswordType::class,
+            'ContactType' => \Iriven\Fluxon\Application\FormType\ContactType::class,
+            'CustomerType' => \Iriven\Fluxon\Application\FormType\CustomerType::class,
+            'ForgotPasswordType' => \Iriven\Fluxon\Application\FormType\ForgotPasswordType::class,
+            'LoginType' => \Iriven\Fluxon\Application\FormType\LoginType::class,
+            'InvoiceLineType' => \Iriven\Fluxon\Application\FormType\InvoiceLineType::class,
+            'InvoiceType' => \Iriven\Fluxon\Application\FormType\InvoiceType::class,
+            'RegistrationType' => \Iriven\Fluxon\Application\FormType\RegistrationType::class,
+            'ResetPasswordType' => \Iriven\Fluxon\Application\FormType\ResetPasswordType::class,
         ];
     }
 }

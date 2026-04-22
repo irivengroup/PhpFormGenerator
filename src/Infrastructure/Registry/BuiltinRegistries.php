@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Registry;
+namespace Iriven\Fluxon\Infrastructure\Registry;
 
-use Iriven\Fluxa\Infrastructure\Type\BuiltinTypeRegistry;
+use Iriven\Fluxon\Infrastructure\Type\BuiltinTypeRegistry;
 
 final class BuiltinRegistries
 {

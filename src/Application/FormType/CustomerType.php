@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\FormType;
+namespace Iriven\Fluxon\Application\FormType;
 
-use Iriven\Fluxa\Domain\Constraint\Required;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Contract\OptionsResolverInterface;
-use Iriven\Fluxa\Domain\Field\EmailType;
-use Iriven\Fluxa\Domain\Field\TextType;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Domain\Constraint\Required;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Contract\OptionsResolverInterface;
+use Iriven\Fluxon\Domain\Field\EmailType;
+use Iriven\Fluxon\Domain\Field\TextType;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
 
 final class CustomerType implements FormTypeInterface
 {

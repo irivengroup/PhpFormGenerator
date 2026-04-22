@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Diagnostics\DiagnosticsRunner;
+use Iriven\Fluxon\Application\Diagnostics\DiagnosticsRunner;
 
 /** @api */
 final class DebugDiagnosticsCommand implements CliCommandInterface

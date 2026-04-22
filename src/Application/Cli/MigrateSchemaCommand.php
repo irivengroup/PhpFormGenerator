@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Schema\Migration\V20ToV21SchemaMigration;
-use Iriven\Fluxa\Application\Schema\SchemaMigrator;
+use Iriven\Fluxon\Application\Schema\Migration\V20ToV21SchemaMigration;
+use Iriven\Fluxon\Application\Schema\SchemaMigrator;
 
 /**
  * @api

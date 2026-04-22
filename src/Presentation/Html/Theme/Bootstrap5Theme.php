@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Presentation\Html\Theme;
+namespace Iriven\Fluxon\Presentation\Html\Theme;
 
 final class Bootstrap5Theme extends DefaultTheme
 {

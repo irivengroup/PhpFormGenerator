@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Frontend\ValidationExporter;
-use Iriven\Fluxa\Domain\Form\FieldConfig;
+use Iriven\Fluxon\Application\Frontend\ValidationExporter;
+use Iriven\Fluxon\Domain\Form\FieldConfig;
 use PHPUnit\Framework\TestCase;
 
 final class ValidationExporterRegressionTest extends TestCase

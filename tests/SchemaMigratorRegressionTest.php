@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Schema\Migration\V20ToV21SchemaMigration;
-use Iriven\Fluxa\Application\Schema\SchemaMigrator;
+use Iriven\Fluxon\Application\Schema\Migration\V20ToV21SchemaMigration;
+use Iriven\Fluxon\Application\Schema\SchemaMigrator;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaMigratorRegressionTest extends TestCase

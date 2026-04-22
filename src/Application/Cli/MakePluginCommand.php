@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
 /**
  * @api
@@ -27,10 +27,10 @@ final class MakePluginCommand implements CliCommandInterface
 
 declare(strict_types=1);
 
-use Iriven\Fluxa\Domain\Contract\PluginInterface;
-use Iriven\Fluxa\Domain\Contract\FieldTypeRegistryInterface;
-use Iriven\Fluxa\Domain\Contract\FormTypeRegistryInterface;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Domain\Contract\PluginInterface;
+use Iriven\Fluxon\Domain\Contract\FieldTypeRegistryInterface;
+use Iriven\Fluxon\Domain\Contract\FormTypeRegistryInterface;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
 
 final class {$name} implements PluginInterface
 {

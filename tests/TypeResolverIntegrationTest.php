@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Contract\OptionsResolverInterface;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
-use Iriven\Fluxa\Infrastructure\Http\ArrayRequest;
-use Iriven\Fluxa\Infrastructure\Security\NullCsrfManager;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Contract\OptionsResolverInterface;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Infrastructure\Http\ArrayRequest;
+use Iriven\Fluxon\Infrastructure\Security\NullCsrfManager;
 use PHPUnit\Framework\TestCase;
 
 final class TypeResolverIntegrationTest extends TestCase

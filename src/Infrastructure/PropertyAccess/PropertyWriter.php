@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\PropertyAccess;
+namespace Iriven\Fluxon\Infrastructure\PropertyAccess;
 
 use RuntimeException;
 

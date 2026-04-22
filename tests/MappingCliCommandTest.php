@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Tests;
-use Iriven\Fluxa\Application\Cli\MakeMappingCommand;
-use Iriven\Fluxa\Application\Cli\DebugMappingCommand;
+namespace Iriven\Fluxon\Tests;
+use Iriven\Fluxon\Application\Cli\MakeMappingCommand;
+use Iriven\Fluxon\Application\Cli\DebugMappingCommand;
 use PHPUnit\Framework\TestCase;
 final class MappingCliCommandTest extends TestCase
 {

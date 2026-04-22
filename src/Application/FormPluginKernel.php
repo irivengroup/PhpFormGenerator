@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application;
+namespace Iriven\Fluxon\Application;
 
-use Iriven\Fluxa\Application\Plugin\PluginValidator;
-use Iriven\Fluxa\Domain\Contract\PluginInterface;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
-use Iriven\Fluxa\Infrastructure\Registry\BuiltinRegistries;
-use Iriven\Fluxa\Infrastructure\Registry\InMemoryFieldTypeRegistry;
-use Iriven\Fluxa\Infrastructure\Registry\InMemoryFormTypeRegistry;
-use Iriven\Fluxa\Infrastructure\Registry\PluginRegistry;
-use Iriven\Fluxa\Infrastructure\Type\TypeResolver;
+use Iriven\Fluxon\Application\Plugin\PluginValidator;
+use Iriven\Fluxon\Domain\Contract\PluginInterface;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\BuiltinRegistries;
+use Iriven\Fluxon\Infrastructure\Registry\InMemoryFieldTypeRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\InMemoryFormTypeRegistry;
+use Iriven\Fluxon\Infrastructure\Registry\PluginRegistry;
+use Iriven\Fluxon\Infrastructure\Type\TypeResolver;
 
 final class FormPluginKernel
 {

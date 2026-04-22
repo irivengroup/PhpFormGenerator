@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Infrastructure\Security\SessionCaptchaManager;
-use Iriven\Fluxa\Infrastructure\Security\SessionCsrfManager;
+use Iriven\Fluxon\Infrastructure\Security\SessionCaptchaManager;
+use Iriven\Fluxon\Infrastructure\Security\SessionCsrfManager;
 use PHPUnit\Framework\TestCase;
 
 final class SessionSecurityManagersTest extends TestCase

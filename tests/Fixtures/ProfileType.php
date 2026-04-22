@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests\Fixtures;
+namespace Iriven\Fluxon\Tests\Fixtures;
 
-use Iriven\Fluxa\Domain\Constraint\Callback;
-use Iriven\Fluxa\Domain\Constraint\Required;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Contract\OptionsResolverInterface;
-use Iriven\Fluxa\Domain\Event\FormEvents;
-use Iriven\Fluxa\Domain\Event\PreSubmitEvent;
-use Iriven\Fluxa\Domain\Field\CheckboxType;
-use Iriven\Fluxa\Domain\Field\CollectionType;
-use Iriven\Fluxa\Domain\Field\TextType;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Domain\Constraint\Callback;
+use Iriven\Fluxon\Domain\Constraint\Required;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Contract\OptionsResolverInterface;
+use Iriven\Fluxon\Domain\Event\FormEvents;
+use Iriven\Fluxon\Domain\Event\PreSubmitEvent;
+use Iriven\Fluxon\Domain\Field\CheckboxType;
+use Iriven\Fluxon\Domain\Field\CollectionType;
+use Iriven\Fluxon\Domain\Field\TextType;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
 
 final class ProfileType implements FormTypeInterface
 {

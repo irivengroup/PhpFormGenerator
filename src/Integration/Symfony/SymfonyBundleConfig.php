@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Integration\Symfony;
+namespace Iriven\Fluxon\Integration\Symfony;
 
 /** @api */
 final class SymfonyBundleConfig

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Contract;
+namespace Iriven\Fluxon\Domain\Contract;
 
-use Iriven\Fluxa\Domain\ValueObject\UploadedFile;
+use Iriven\Fluxon\Domain\ValueObject\UploadedFile;
 
 interface UploadedFileStorageInterface
 {

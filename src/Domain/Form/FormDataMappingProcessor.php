@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
-use Iriven\Fluxa\Infrastructure\Mapping\ArrayDataMapper;
-use Iriven\Fluxa\Infrastructure\Mapping\ObjectDataMapper;
+use Iriven\Fluxon\Infrastructure\Mapping\ArrayDataMapper;
+use Iriven\Fluxon\Infrastructure\Mapping\ObjectDataMapper;
 
 final class FormDataMappingProcessor
 {

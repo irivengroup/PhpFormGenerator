@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Http;
+namespace Iriven\Fluxon\Infrastructure\Http;
 
-use Iriven\Fluxa\Domain\Contract\RequestInterface;
+use Iriven\Fluxon\Domain\Contract\RequestInterface;
 
 final class ArrayRequest implements RequestInterface
 {

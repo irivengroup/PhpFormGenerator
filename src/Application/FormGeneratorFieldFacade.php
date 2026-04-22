@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application;
+namespace Iriven\Fluxon\Application;
 
-use Iriven\Fluxa\Application\FormGenerator\AttributeNormalizer;
-use Iriven\Fluxa\Application\FormGenerator\BasicFieldFacade;
-use Iriven\Fluxa\Application\FormGenerator\ChoiceFieldFacade;
-use Iriven\Fluxa\Domain\Form\FormBuilder;
+use Iriven\Fluxon\Application\FormGenerator\AttributeNormalizer;
+use Iriven\Fluxon\Application\FormGenerator\BasicFieldFacade;
+use Iriven\Fluxon\Application\FormGenerator\ChoiceFieldFacade;
+use Iriven\Fluxon\Domain\Form\FormBuilder;
 
 final class FormGeneratorFieldFacade
 {

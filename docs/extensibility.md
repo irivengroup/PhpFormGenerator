@@ -6,7 +6,7 @@
 
 ## Objectif
 
-Fluxa V4.1.0 expose une base officielle orientée extension et plugins.
+Fluxon V4.1.0 expose une base officielle orientée extension et plugins.
 À partir de V4.1.1, cette base est réellement branchée dans le runtime.
 À partir de V4.1.2, elle est durcie et couverte par des tests d’intégration.
 À partir de V4.1.3, elle est consolidée par des tests de non-régression orientés runtime.

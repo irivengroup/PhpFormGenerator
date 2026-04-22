@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
-use Iriven\Fluxa\Domain\Contract\CaptchaManagerInterface;
-use Iriven\Fluxa\Domain\Contract\EventDispatcherInterface;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Infrastructure\Options\OptionsResolver;
-use Iriven\Fluxa\Presentation\Html\CaptchaSvgRenderer;
+use Iriven\Fluxon\Domain\Contract\CaptchaManagerInterface;
+use Iriven\Fluxon\Domain\Contract\EventDispatcherInterface;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Infrastructure\Options\OptionsResolver;
+use Iriven\Fluxon\Presentation\Html\CaptchaSvgRenderer;
 
 final class FormViewBuilder
 {
@@ -101,7 +101,7 @@ final class FormViewBuilder
     /** @param array<string,mixed> $vars */
     private function hydrateCaptchaViewVars(Form $form, string $name, FieldConfig $field, string $id, array &$vars): void
     {
-        if (!is_a($field->typeClass, 'Iriven\\Fluxa\\Domain\\Field\\CaptchaType', true)) {
+        if (!is_a($field->typeClass, 'Iriven\\Fluxon\\Domain\\Field\\CaptchaType', true)) {
             return;
         }
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormGenerator;
-use Iriven\Fluxa\Infrastructure\Security\NullCsrfManager;
+use Iriven\Fluxon\Application\FormGenerator;
+use Iriven\Fluxon\Infrastructure\Security\NullCsrfManager;
 use PHPUnit\Framework\TestCase;
 
 final class PublicApiAttributesOptionsTest extends TestCase

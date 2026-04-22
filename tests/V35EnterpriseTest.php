@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\JsonSchemaExporter;
-use Iriven\Fluxa\Infrastructure\Http\ArrayRequest;
-use Iriven\Fluxa\Infrastructure\Security\NullCsrfManager;
-use Iriven\Fluxa\Presentation\Html\HtmlRenderer;
-use Iriven\Fluxa\Presentation\Html\Theme\TailwindTheme;
-use Iriven\Fluxa\Tests\Fixtures\ProfileDto;
-use Iriven\Fluxa\Tests\Fixtures\ProfileType;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\JsonSchemaExporter;
+use Iriven\Fluxon\Infrastructure\Http\ArrayRequest;
+use Iriven\Fluxon\Infrastructure\Security\NullCsrfManager;
+use Iriven\Fluxon\Presentation\Html\HtmlRenderer;
+use Iriven\Fluxon\Presentation\Html\Theme\TailwindTheme;
+use Iriven\Fluxon\Tests\Fixtures\ProfileDto;
+use Iriven\Fluxon\Tests\Fixtures\ProfileType;
 use PHPUnit\Framework\TestCase;
 
 final class V35EnterpriseTest extends TestCase

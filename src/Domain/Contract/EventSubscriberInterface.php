@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Contract;
+namespace Iriven\Fluxon\Domain\Contract;
 
 interface EventSubscriberInterface
 {

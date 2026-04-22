@@ -26,7 +26,7 @@
 
 ### Changed
 - `composer.json` préparé pour publication Packagist
-- package renommé en `iriven/fluxa`
+- package renommé en `iriven/fluxon`
 - ajout de `type`, `description` et `keywords`
 
 ## V6.3.0

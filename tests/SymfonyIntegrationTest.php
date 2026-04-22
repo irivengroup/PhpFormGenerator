@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Integration\Symfony\SymfonyFormBridge;
+use Iriven\Fluxon\Integration\Symfony\SymfonyFormBridge;
 use PHPUnit\Framework\TestCase;
 
 final class SymfonyIntegrationTest extends TestCase

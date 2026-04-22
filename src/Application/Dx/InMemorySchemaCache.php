@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Dx;
+namespace Iriven\Fluxon\Application\Dx;
 
 /** @api */
 final class InMemorySchemaCache

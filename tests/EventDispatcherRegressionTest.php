@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Events\FormBuildEvent;
-use Iriven\Fluxa\Application\Events\InMemoryEventDispatcher;
-use Iriven\Fluxa\Application\FormFactory;
+use Iriven\Fluxon\Application\Events\FormBuildEvent;
+use Iriven\Fluxon\Application\Events\InMemoryEventDispatcher;
+use Iriven\Fluxon\Application\FormFactory;
 use PHPUnit\Framework\TestCase;
 
 final class EventDispatcherRegressionTest extends TestCase

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Contract;
+namespace Iriven\Fluxon\Domain\Contract;
 
-use Iriven\Fluxa\Presentation\Html\Theme\ThemeInterface;
+use Iriven\Fluxon\Presentation\Html\Theme\ThemeInterface;
 
 interface ThemeRegistryInterface
 {

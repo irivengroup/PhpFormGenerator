@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
 use ArrayObject;
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormHookKernel;
-use Iriven\Fluxa\Application\FormRuntimeContext;
-use Iriven\Fluxa\Application\FormRuntimePipeline;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormHookKernel;
+use Iriven\Fluxon\Application\FormRuntimeContext;
+use Iriven\Fluxon\Application\FormRuntimePipeline;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
 use PHPUnit\Framework\TestCase;
 
 final class RuntimePipelineDispatchRegressionTest extends TestCase
@@ -20,17 +20,17 @@ final class RuntimePipelineDispatchRegressionTest extends TestCase
         $captured = new ArrayObject();
 
         $hooks = new FormHookKernel();
-        $hooks->register(new class($captured) implements \Iriven\Fluxa\Domain\Contract\FormHookInterface {
+        $hooks->register(new class($captured) implements \Iriven\Fluxon\Domain\Contract\FormHookInterface {
             /** @param ArrayObject<int, string> $captured */
             public function __construct(private ArrayObject $captured) {}
             public static function getName(): string { return 'before_export'; }
-            public function __invoke(\Iriven\Fluxa\Domain\Form\Form $form, array $context = []): void { $this->captured->append('before_export'); }
+            public function __invoke(\Iriven\Fluxon\Domain\Form\Form $form, array $context = []): void { $this->captured->append('before_export'); }
         });
-        $hooks->register(new class($captured) implements \Iriven\Fluxa\Domain\Contract\FormHookInterface {
+        $hooks->register(new class($captured) implements \Iriven\Fluxon\Domain\Contract\FormHookInterface {
             /** @param ArrayObject<int, string> $captured */
             public function __construct(private ArrayObject $captured) {}
             public static function getName(): string { return 'after_export'; }
-            public function __invoke(\Iriven\Fluxa\Domain\Form\Form $form, array $context = []): void { $this->captured->append('after_export'); }
+            public function __invoke(\Iriven\Fluxon\Domain\Form\Form $form, array $context = []): void { $this->captured->append('after_export'); }
         });
 
         $builder = (new FormFactory())->createBuilder('contact');
@@ -49,11 +49,11 @@ final class RuntimePipelineDispatchRegressionTest extends TestCase
         $captured = new ArrayObject();
 
         $hooks = new FormHookKernel();
-        $hooks->register(new class($captured) implements \Iriven\Fluxa\Domain\Contract\FormHookInterface {
+        $hooks->register(new class($captured) implements \Iriven\Fluxon\Domain\Contract\FormHookInterface {
             /** @param ArrayObject<int, string> $captured */
             public function __construct(private ArrayObject $captured) {}
             public static function getName(): string { return 'before_render'; }
-            public function __invoke(\Iriven\Fluxa\Domain\Form\Form $form, array $context = []): void
+            public function __invoke(\Iriven\Fluxon\Domain\Form\Form $form, array $context = []): void
             {
                 if (($context['runtime'] ?? null) instanceof FormRuntimeContext) {
                     $this->captured->append('runtime');

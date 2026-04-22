@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Application\Cli;
-use Iriven\Fluxa\Application\Mapping\FormHydrator;
+namespace Iriven\Fluxon\Application\Cli;
+use Iriven\Fluxon\Application\Mapping\FormHydrator;
 /** @api */
 final class DebugMappingCommand implements CliCommandInterface
 {

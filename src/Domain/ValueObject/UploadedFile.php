@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\ValueObject;
+namespace Iriven\Fluxon\Domain\ValueObject;
 
 final class UploadedFile
 {

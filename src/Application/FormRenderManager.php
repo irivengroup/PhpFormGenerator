@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application;
+namespace Iriven\Fluxon\Application;
 
-use Iriven\Fluxa\Domain\Form\Form;
-use Iriven\Fluxa\Presentation\Html\HtmlRendererFactory;
+use Iriven\Fluxon\Domain\Form\Form;
+use Iriven\Fluxon\Presentation\Html\HtmlRendererFactory;
 
 final class FormRenderManager
 {

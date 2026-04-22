@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Domain\Contract\PluginInterface;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\DemoPlugin;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\EmptyPlugin;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\OverridePlugin;
+use Iriven\Fluxon\Domain\Contract\PluginInterface;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\DemoPlugin;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\EmptyPlugin;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\OverridePlugin;
 use PHPUnit\Framework\TestCase;
 
 final class PluginInterfaceSignatureRegressionTest extends TestCase

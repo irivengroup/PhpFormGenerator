@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Frontend\FrontendSdkConfig;
+use Iriven\Fluxon\Application\Frontend\FrontendSdkConfig;
 use PHPUnit\Framework\TestCase;
 
 final class SchemaVersionCompatibilityTest extends TestCase

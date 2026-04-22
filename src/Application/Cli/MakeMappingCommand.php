@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Application\Cli;
-use Iriven\Fluxa\Application\Mapping\MappingBlueprintGenerator;
+namespace Iriven\Fluxon\Application\Cli;
+use Iriven\Fluxon\Application\Mapping\MappingBlueprintGenerator;
 /** @api */
 final class MakeMappingCommand implements CliCommandInterface
 {

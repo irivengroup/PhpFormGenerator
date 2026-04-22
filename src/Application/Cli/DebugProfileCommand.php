@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Profiling\Profiler;
+use Iriven\Fluxon\Application\Profiling\Profiler;
 
 /** @api */
 final class DebugProfileCommand implements CliCommandInterface

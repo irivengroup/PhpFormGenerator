@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests\Fixtures\Plugin;
+namespace Iriven\Fluxon\Tests\Fixtures\Plugin;
 
-use Iriven\Fluxa\Domain\Contract\FieldTypeExtensionInterface;
-use Iriven\Fluxa\Domain\Transformer\StringTrimTransformer;
+use Iriven\Fluxon\Domain\Contract\FieldTypeExtensionInterface;
+use Iriven\Fluxon\Domain\Transformer\StringTrimTransformer;
 
 final class SlugTrimFieldExtension implements FieldTypeExtensionInterface
 {

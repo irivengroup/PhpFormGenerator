@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Integration\Laravel;
+namespace Iriven\Fluxon\Integration\Laravel;
 
 /** @api */
 final class LaravelServiceProviderConfig

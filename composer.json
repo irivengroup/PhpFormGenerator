@@ -1,6 +1,6 @@
 {
-  "name": "iriven/fluxa",
-  "description": "Fluxa is a PHP form engine for headless, frontend, runtime, and distributed form workflows.",
+  "name": "iriven/fluxon",
+  "description": "Fluxon is a PHP form engine for headless, frontend, runtime, and distributed form workflows.",
   "type": "library",
   "license": "MIT",
   "require": {
@@ -15,12 +15,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Iriven\\Fluxa\\": "src/"
+      "Iriven\\Fluxon\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Iriven\\Fluxa\\Tests\\": "tests/"
+      "Iriven\\Fluxon\\Tests\\": "tests/"
     }
   },
   "scripts": {
@@ -79,7 +79,7 @@
     "release_channel": "profiling-diagnostics"
   },
   "bin": [
-    "bin/fluxa"
+    "bin/fluxon"
   ],
   "keywords": [
     "php",

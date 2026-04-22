@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Runtime;
+namespace Iriven\Fluxon\Application\Runtime;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormSchemaManager;
-use Iriven\Fluxa\Application\Frontend\FrontendSdk;
-use Iriven\Fluxa\Application\Headless\HeadlessFormProcessor;
-use Iriven\Fluxa\Application\PublicApi\UnifiedSchemaExporter;
-use Iriven\Fluxa\Infrastructure\Schema\ArraySchemaExporter;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormSchemaManager;
+use Iriven\Fluxon\Application\Frontend\FrontendSdk;
+use Iriven\Fluxon\Application\Headless\HeadlessFormProcessor;
+use Iriven\Fluxon\Application\PublicApi\UnifiedSchemaExporter;
+use Iriven\Fluxon\Infrastructure\Schema\ArraySchemaExporter;
 
 /** @api */
 final class FormRuntimeEngine

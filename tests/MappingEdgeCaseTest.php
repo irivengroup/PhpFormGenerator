@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Mapping\FormHydrator;
+use Iriven\Fluxon\Application\Mapping\FormHydrator;
 use PHPUnit\Framework\TestCase;
 
 final class MappingEdgeCaseTest extends TestCase

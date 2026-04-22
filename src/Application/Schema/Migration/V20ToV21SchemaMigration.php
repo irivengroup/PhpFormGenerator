@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Schema\Migration;
+namespace Iriven\Fluxon\Application\Schema\Migration;
 
-use Iriven\Fluxa\Application\Schema\SchemaMigrationInterface;
+use Iriven\Fluxon\Application\Schema\SchemaMigrationInterface;
 
 /**
  * @api

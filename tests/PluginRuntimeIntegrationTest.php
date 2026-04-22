@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormPluginKernel;
-use Iriven\Fluxa\Infrastructure\Http\ArrayRequest;
-use Iriven\Fluxa\Tests\Fixtures\Plugin\DemoPlugin;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormPluginKernel;
+use Iriven\Fluxon\Infrastructure\Http\ArrayRequest;
+use Iriven\Fluxon\Tests\Fixtures\Plugin\DemoPlugin;
 use PHPUnit\Framework\TestCase;
 
 final class PluginRuntimeIntegrationTest extends TestCase
@@ -33,7 +33,7 @@ final class PluginRuntimeIntegrationTest extends TestCase
         $form = $builder->getForm();
 
         self::assertArrayHasKey('slug', $form->fields());
-        self::assertSame('Iriven\Fluxa\Tests\Fixtures\Plugin\SlugType', $form->fields()['slug']->typeClass);
+        self::assertSame('Iriven\Fluxon\Tests\Fixtures\Plugin\SlugType', $form->fields()['slug']->typeClass);
     }
 
     public function testPluginFieldExtensionIsAppliedAtRuntime(): void

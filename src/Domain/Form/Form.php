@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
-use Iriven\Fluxa\Application\FormHookKernel;
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
-use Iriven\Fluxa\Domain\Contract\EventDispatcherInterface;
-use Iriven\Fluxa\Domain\Contract\RequestInterface;
-use Iriven\Fluxa\Domain\Event\PreSetDataEvent;
-use Iriven\Fluxa\Infrastructure\PropertyAccess\PropertyAccessor;
+use Iriven\Fluxon\Application\FormHookKernel;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Contract\EventDispatcherInterface;
+use Iriven\Fluxon\Domain\Contract\RequestInterface;
+use Iriven\Fluxon\Domain\Event\PreSetDataEvent;
+use Iriven\Fluxon\Infrastructure\PropertyAccess\PropertyAccessor;
 
 final class Form
 {

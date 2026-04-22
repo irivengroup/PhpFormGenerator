@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Domain\Transformer\EnumTransformer;
+use Iriven\Fluxon\Domain\Transformer\EnumTransformer;
 use PHPUnit\Framework\TestCase;
 
 enum DummyStatus

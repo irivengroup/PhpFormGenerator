@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Events;
+namespace Iriven\Fluxon\Application\Events;
 
 /** @api */
 final class InMemoryEventDispatcher implements EventDispatcherInterface

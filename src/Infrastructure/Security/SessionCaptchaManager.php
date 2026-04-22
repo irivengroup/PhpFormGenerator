@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Security;
+namespace Iriven\Fluxon\Infrastructure\Security;
 
-use Iriven\Fluxa\Domain\Contract\CaptchaManagerInterface;
+use Iriven\Fluxon\Domain\Contract\CaptchaManagerInterface;
 use RuntimeException;
 
 final class SessionCaptchaManager implements CaptchaManagerInterface

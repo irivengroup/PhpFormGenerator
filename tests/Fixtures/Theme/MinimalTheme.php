@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests\Fixtures\Theme;
+namespace Iriven\Fluxon\Tests\Fixtures\Theme;
 
-use Iriven\Fluxa\Presentation\Html\Theme\ThemeInterface;
+use Iriven\Fluxon\Presentation\Html\Theme\ThemeInterface;
 
 final class MinimalTheme implements ThemeInterface
 {

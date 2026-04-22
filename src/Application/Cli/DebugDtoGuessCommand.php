@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Generation\DtoFormGuesser;
+use Iriven\Fluxon\Application\Generation\DtoFormGuesser;
 
 /** @api */
 final class DebugDtoGuessCommand implements CliCommandInterface

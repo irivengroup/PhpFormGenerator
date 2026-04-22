@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
 /** @api */
 final class ServeCommand implements CliCommandInterface
@@ -17,6 +17,6 @@ final class ServeCommand implements CliCommandInterface
     public function run(array $args = []): string
     {
         $port = $args[0] ?? '8080';
-        return json_encode(['status' => 'ready', 'server' => 'fluxa', 'port' => (string) $port], JSON_PRETTY_PRINT) ?: '{}';
+        return json_encode(['status' => 'ready', 'server' => 'fluxon', 'port' => (string) $port], JSON_PRETTY_PRINT) ?: '{}';
     }
 }

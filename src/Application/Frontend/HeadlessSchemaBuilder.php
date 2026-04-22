@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Frontend;
+namespace Iriven\Fluxon\Application\Frontend;
 
-use Iriven\Fluxa\Domain\Form\FieldConfig;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Domain\Form\FieldConfig;
+use Iriven\Fluxon\Domain\Form\Form;
 
 /** @api */
 final class HeadlessSchemaBuilder

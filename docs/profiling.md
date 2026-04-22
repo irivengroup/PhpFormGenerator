@@ -1,7 +1,7 @@
 # Profiling
 
 ## Objectif
-Documenter le profilage avancé de Fluxa.
+Documenter le profilage avancé de Fluxon.
 
 ## Contenu
 - timeline runtime

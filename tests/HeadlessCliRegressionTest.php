@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Tests;
-use Iriven\Fluxa\Application\Cli\DebugHeadlessContractCommand;
-use Iriven\Fluxa\Application\Cli\DebugHeadlessSubmissionCommand;
+namespace Iriven\Fluxon\Tests;
+use Iriven\Fluxon\Application\Cli\DebugHeadlessContractCommand;
+use Iriven\Fluxon\Application\Cli\DebugHeadlessSubmissionCommand;
 use PHPUnit\Framework\TestCase;
 final class HeadlessCliRegressionTest extends TestCase
 {

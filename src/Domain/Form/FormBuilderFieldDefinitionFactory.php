@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
 use InvalidArgumentException;
-use Iriven\Fluxa\Domain\Constraint\MimeType;
-use Iriven\Fluxa\Domain\Contract\ConstraintInterface;
-use Iriven\Fluxa\Domain\Contract\DataTransformerInterface;
-use Iriven\Fluxa\Domain\Contract\EventDispatcherInterface;
-use Iriven\Fluxa\Domain\Contract\FormTypeInterface;
-use Iriven\Fluxa\Domain\Field\CaptchaType;
-use Iriven\Fluxa\Domain\Field\CollectionType;
-use Iriven\Fluxa\Domain\Field\FileType;
-use Iriven\Fluxa\Infrastructure\Extension\ExtensionRegistry;
-use Iriven\Fluxa\Infrastructure\Options\OptionsResolver;
-use Iriven\Fluxa\Infrastructure\Type\TypeResolver;
+use Iriven\Fluxon\Domain\Constraint\MimeType;
+use Iriven\Fluxon\Domain\Contract\ConstraintInterface;
+use Iriven\Fluxon\Domain\Contract\DataTransformerInterface;
+use Iriven\Fluxon\Domain\Contract\EventDispatcherInterface;
+use Iriven\Fluxon\Domain\Contract\FormTypeInterface;
+use Iriven\Fluxon\Domain\Field\CaptchaType;
+use Iriven\Fluxon\Domain\Field\CollectionType;
+use Iriven\Fluxon\Domain\Field\FileType;
+use Iriven\Fluxon\Infrastructure\Extension\ExtensionRegistry;
+use Iriven\Fluxon\Infrastructure\Options\OptionsResolver;
+use Iriven\Fluxon\Infrastructure\Type\TypeResolver;
 use ReflectionClass;
 
 final class FormBuilderFieldDefinitionFactory

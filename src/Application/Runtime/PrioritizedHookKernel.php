@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Runtime;
+namespace Iriven\Fluxon\Application\Runtime;
 
-use Iriven\Fluxa\Domain\Contract\FormHookInterface;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Domain\Contract\FormHookInterface;
+use Iriven\Fluxon\Domain\Form\Form;
 use Throwable;
 
 final class PrioritizedHookKernel

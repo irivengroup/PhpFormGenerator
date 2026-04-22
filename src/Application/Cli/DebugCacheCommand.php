@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Cli;
+namespace Iriven\Fluxon\Application\Cli;
 
-use Iriven\Fluxa\Application\Dx\SchemaCacheKeyGenerator;
+use Iriven\Fluxon\Application\Dx\SchemaCacheKeyGenerator;
 
 /** @api */
 final class DebugCacheCommand implements CliCommandInterface

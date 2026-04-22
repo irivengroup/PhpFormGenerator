@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Translation;
+namespace Iriven\Fluxon\Infrastructure\Translation;
 
 final class ArrayTranslator implements TranslatorInterface
 {

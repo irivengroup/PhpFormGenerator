@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Domain\Form;
+namespace Iriven\Fluxon\Domain\Form;
 
-use Iriven\Fluxa\Domain\Contract\RequestInterface;
-use Iriven\Fluxa\Domain\Event\PostSubmitEvent;
-use Iriven\Fluxa\Domain\Event\PreSubmitEvent;
-use Iriven\Fluxa\Domain\Event\SubmitEvent;
-use Iriven\Fluxa\Domain\Form\Submission\FieldSubmissionProcessor;
-use Iriven\Fluxa\Infrastructure\Translation\TranslatorInterface;
+use Iriven\Fluxon\Domain\Contract\RequestInterface;
+use Iriven\Fluxon\Domain\Event\PostSubmitEvent;
+use Iriven\Fluxon\Domain\Event\PreSubmitEvent;
+use Iriven\Fluxon\Domain\Event\SubmitEvent;
+use Iriven\Fluxon\Domain\Form\Submission\FieldSubmissionProcessor;
+use Iriven\Fluxon\Infrastructure\Translation\TranslatorInterface;
 
 final class FormSubmissionProcessor
 {

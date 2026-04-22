@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application;
+namespace Iriven\Fluxon\Application;
 
-use Iriven\Fluxa\Application\Frontend\HeadlessSchemaBuilder;
-use Iriven\Fluxa\Application\Schema\SchemaMigrator;
-use Iriven\Fluxa\Application\Schema\SchemaVersionManager;
-use Iriven\Fluxa\Domain\Contract\SchemaExporterInterface;
-use Iriven\Fluxa\Domain\Form\Form;
+use Iriven\Fluxon\Application\Frontend\HeadlessSchemaBuilder;
+use Iriven\Fluxon\Application\Schema\SchemaMigrator;
+use Iriven\Fluxon\Application\Schema\SchemaVersionManager;
+use Iriven\Fluxon\Domain\Contract\SchemaExporterInterface;
+use Iriven\Fluxon\Domain\Form\Form;
 
 final class FormSchemaManager
 {

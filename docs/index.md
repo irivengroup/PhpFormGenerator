@@ -2,7 +2,7 @@
 
 > Breadcrumb: [Docs](index.md)
 
-# Fluxa Wiki
+# Fluxon Wiki
 
 ## Sommaire
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application\Schema;
+namespace Iriven\Fluxon\Application\Schema;
 
 /**
  * @api

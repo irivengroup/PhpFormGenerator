@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Infrastructure\Security;
+namespace Iriven\Fluxon\Infrastructure\Security;
 
-use Iriven\Fluxa\Domain\Contract\CsrfManagerInterface;
+use Iriven\Fluxon\Domain\Contract\CsrfManagerInterface;
 use RuntimeException;
 
 final class SessionCsrfManager implements CsrfManagerInterface

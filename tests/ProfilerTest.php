@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\Profiling\Profiler;
+use Iriven\Fluxon\Application\Profiling\Profiler;
 use PHPUnit\Framework\TestCase;
 
 final class ProfilerTest extends TestCase

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Infrastructure\Security\SessionCaptchaManager;
+use Iriven\Fluxon\Infrastructure\Security\SessionCaptchaManager;
 use PHPUnit\Framework\TestCase;
 
 final class CaptchaCaseSensitivityRegressionTest extends TestCase

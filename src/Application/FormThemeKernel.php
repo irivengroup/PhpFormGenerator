@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Application;
+namespace Iriven\Fluxon\Application;
 
-use Iriven\Fluxa\Infrastructure\Registry\InMemoryThemeRegistry;
-use Iriven\Fluxa\Presentation\Html\Theme\Bootstrap5Theme;
-use Iriven\Fluxa\Presentation\Html\Theme\DefaultTheme;
-use Iriven\Fluxa\Presentation\Html\Theme\TailwindTheme;
-use Iriven\Fluxa\Presentation\Html\Theme\ThemeInterface;
+use Iriven\Fluxon\Infrastructure\Registry\InMemoryThemeRegistry;
+use Iriven\Fluxon\Presentation\Html\Theme\Bootstrap5Theme;
+use Iriven\Fluxon\Presentation\Html\Theme\DefaultTheme;
+use Iriven\Fluxon\Presentation\Html\Theme\TailwindTheme;
+use Iriven\Fluxon\Presentation\Html\Theme\ThemeInterface;
 
 final class FormThemeKernel
 {

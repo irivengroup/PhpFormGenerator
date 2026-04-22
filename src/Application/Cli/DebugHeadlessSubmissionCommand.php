@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Iriven\Fluxa\Application\Cli;
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\Headless\HeadlessFormProcessor;
+namespace Iriven\Fluxon\Application\Cli;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\Headless\HeadlessFormProcessor;
 /** @api */
 final class DebugHeadlessSubmissionCommand implements CliCommandInterface
 {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Iriven\Fluxa\Tests;
+namespace Iriven\Fluxon\Tests;
 
-use Iriven\Fluxa\Application\FormFactory;
-use Iriven\Fluxa\Application\FormHookKernel;
-use Iriven\Fluxa\Application\FormRenderManager;
-use Iriven\Fluxa\Application\FormThemeKernel;
-use Iriven\Fluxa\Presentation\Html\HtmlRendererFactory;
+use Iriven\Fluxon\Application\FormFactory;
+use Iriven\Fluxon\Application\FormHookKernel;
+use Iriven\Fluxon\Application\FormRenderManager;
+use Iriven\Fluxon\Application\FormThemeKernel;
+use Iriven\Fluxon\Presentation\Html\HtmlRendererFactory;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
@@ -36,9 +36,9 @@ final class AdvancedRenderingRegressionTest extends TestCase
 
     public function testRenderHookFailureCanBubble(): void
     {
-        $hooks = (new FormHookKernel())->register(new class implements \Iriven\Fluxa\Domain\Contract\FormHookInterface {
+        $hooks = (new FormHookKernel())->register(new class implements \Iriven\Fluxon\Domain\Contract\FormHookInterface {
             public static function getName(): string { return 'before_render'; }
-            public function __invoke(\Iriven\Fluxa\Domain\Form\Form $form, array $context = []): void
+            public function __invoke(\Iriven\Fluxon\Domain\Form\Form $form, array $context = []): void
             {
                 throw new RuntimeException('render hook failure');
             }
