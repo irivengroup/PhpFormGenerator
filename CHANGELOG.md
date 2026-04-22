@@ -1,3 +1,28 @@
+## V6.3.0
+
+### Added
+- `src/Application/Runtime/ExecutionContext.php`
+- `src/Application/Runtime/FormRuntimeEngine.php`
+- `src/Application/Runtime/TransportInterface.php`
+- `src/Application/Runtime/InMemoryTransport.php`
+- `src/Application/Runtime/HttpTransport.php`
+- `src/Server/Http/FormHttpKernel.php`
+- `src/Application/Cli/ServeCommand.php`
+- `tests/FormRuntimeEngineTest.php`
+- `tests/FormHttpKernelTest.php`
+- `tests/TransportTest.php`
+- `tests/ServeCommandTest.php`
+- `docs/api-server.md`
+- `docs/headless-runtime.md`
+- `docs/distributed-architecture.md`
+- `releases.d/RELEASE_NOTES_V6.3.0.md`
+- `validations.d/VALIDATION_MANIFEST_V6.3.0.md`
+
+### Changed
+- ajout d'un runtime engine unifié
+- ajout d'un API server embedded
+- préparation à l'exécution distribuée
+
 ## V6.2.1
 
 ### Added

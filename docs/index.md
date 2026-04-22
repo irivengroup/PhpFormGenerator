@@ -267,3 +267,9 @@
 
 
 > V6.2.1 consolide l’observabilité, les events et la non-régression runtime.
+
+- [API Server](api-server.md)
+- [Headless Runtime](headless-runtime.md)
+- [Distributed Architecture](distributed-architecture.md)
+
+> V6.3.0 introduit le moteur runtime unifié et un API server embarqué.

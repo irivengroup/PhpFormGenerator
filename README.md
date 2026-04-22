@@ -1329,3 +1329,8 @@ Cette version ajoute un event system, un runtime inspector et une couche d'obser
 ## V6.2.1 maintenance observabilité et non-régression runtime
 
 Cette version stabilise l'observabilité, le dispatcher d'événements et les outils de debug runtime.
+
+
+## V6.3.0 moteur distribué et API server
+
+Cette version ajoute un runtime engine unifié, des transports abstraits et un API server embarqué.
