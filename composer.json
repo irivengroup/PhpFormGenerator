@@ -1,5 +1,5 @@
 {
-  "name": "fluxa",
+  "name": "iriven/fluxa",
   "description": "Enterprise form framework for PHP with nested forms, collections, transformers, events and themes",
   "type": "library",
   "license": "MIT",
