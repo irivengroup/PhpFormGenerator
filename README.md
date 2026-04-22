@@ -2,6 +2,8 @@
 
 <p align="center">
   <strong>Fluxon PHP Form Engine. Limitless Possibilities.</strong>
+</p>
+<p align="center">
   A modern, extensible, and production-ready PHP form engine for building forms, APIs, and distributed systems.
 </p>
 
