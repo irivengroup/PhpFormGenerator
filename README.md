@@ -1,9 +1,3 @@
-[![LOGO](https://github.com/irivengroup/assets/blob/main/img/fluxon.png)](https://github.com/irivengroup/fluxon)
-
-<p align="center">
-  <strong>Fluxon PHP Form Engine. Limitless Possibilities.</strong>
-  A modern, extensible, and production-ready PHP form engine for building forms, APIs, and distributed systems.
-</p>
 [![Build Status](https://scrutinizer-ci.com/g/irivengroup/fluxon/badges/build.png?b=master)](https://scrutinizer-ci.com/g/irivengroup/fluxon/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/irivengroup/fluxon/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/irivengroup/fluxon/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/irivengroup/fluxon/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/irivengroup/fluxon/?branch=master)
@@ -13,6 +7,14 @@
 [![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-blue)](#)
 [![Status](https://img.shields.io/badge/status-stable-brightgreen)](#)
 [![License](https://img.shields.io/badge/license-MIT-green)](#)
+
+[![LOGO](https://github.com/irivengroup/assets/blob/main/img/fluxon.png)](https://github.com/irivengroup/fluxon)
+
+<p align="center">
+  <strong>Fluxon PHP Form Engine. Limitless Possibilities.</strong>
+  A modern, extensible, and production-ready PHP form engine for building forms, APIs, and distributed systems.
+</p>
+
 <p align="center">
   <a href="https://packagist.org/packages/iriven/fluxon"><img src="https://img.shields.io/packagist/v/iriven/fluxon" alt="Latest Version"></a>
   <a href="https://packagist.org/packages/iriven/fluxon"><img src="https://img.shields.io/packagist/dt/iriven/fluxon" alt="Downloads"></a>
